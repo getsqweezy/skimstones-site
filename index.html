@@ -45,12 +45,29 @@
     .gallery img{width:100%;height:auto;border-radius:12px;border:1px solid #e5e7eb}
     .badge{display:inline-block;background:var(--eco);color:#0a0a0a;border-radius:999px;padding:4px 10px;font-weight:600}
 
-    /* Bilingue */
+/* Bilingue */
     [data-lang="en"] .lang-fr{display:none}
     [data-lang="fr"] .lang-en{display:none}
 
     footer{border-top:2px solid var(--eco);padding:24px 0;color:var(--muted)}
     footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+/* Cadre du teaser au ratio A4 (portrait) */
+.teaser-box{
+  width: min(900px, 100%);           /* largeur max confortable */
+  aspect-ratio: 1 / 1.414;           /* A4 portrait (L/H ≈ 1/1.414) */
+  margin: 0 auto 10px auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,.06);
+}
+.teaser-box iframe{
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;              /* on ne clique pas dans l’iframe */
+}
+
    /* Galerie : 3 visuels alignés, même hauteur, sans déformation */
 /* À GARDER (propre) */
 .gallery{
@@ -104,9 +121,8 @@
         </div>
       </div>
       <nav style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-        <a href="/skimstones_recrutements_jobs.html" class="btn ghost" aria-label="Skimstones recrute">Skimstones recrute</a>
-        <a class="btn" href="#contact"><span class="lang-fr">Nous contacter</span><span class="lang-en">Contact us</span></a>
-      </nav>
+  <a class="btn" href="#contact"><span class="lang-fr">Nous contacter</span><span class="lang-en">Contact us</span></a>
+</nav>
     </div>
   </header>
 
@@ -153,40 +169,45 @@
         </ul>
       </div>
 
-<!-- Teaser PDF plein écran réduit à 75% -->
+<!-- Teaser PDF au format A4, affiché à 75%, clic = 100% dans un nouvel onglet -->
 <div class="teaser" style="margin-top:24px;text-align:center">
-  <!-- Version FR -->
+  <!-- FR -->
   <div class="lang-fr">
     <h3 style="margin-bottom:12px">Découvrez SQWEEZY en un clin d’œil !</h3>
-    <div style="display:inline-block;transform:scale(0.75);transform-origin:top center;width:100%;">
-      <iframe 
-        title="Teaser SQWEEZY (FR)" 
-        src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0"
-        style="width:100%;height:700px;border:none;pointer-events:none"></iframe>
-    </div>
-    <p style="margin-top:10px">
-      <a class="btn ghost" href="/FR%20TEASER%20DEF.pdf#view=FitH" target="_blank" rel="noopener noreferrer">
-        Voir le teaser en plein écran
+    <a href="/FR%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le teaser en plein écran (100%)">
+      <div class="teaser-box">
+        <iframe
+          title="Teaser SQWEEZY (FR)"
+          src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=75">
+        </iframe>
+      </div>
+    </a>
+    <p style="margin-top:6px">
+      <a class="btn ghost" href="/FR%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer">
+        Voir en plein écran
       </a>
     </p>
   </div>
 
-  <!-- Version EN -->
+  <!-- EN -->
   <div class="lang-en">
     <h3 style="margin-bottom:12px">Discover SQWEEZY at a glance!</h3>
-    <div style="display:inline-block;transform:scale(0.75);transform-origin:top center;width:100%;">
-      <iframe 
-        title="SQWEEZY Teaser (EN)" 
-        src="/EN%20TEASER%20DEF.pdf##toolbar=0&navpanes=0&scrollbar=0"
-        style="width:100%;height:700px;border:none;pointer-events:none"></iframe>
-    </div>
-    <p style="margin-top:10px">
-      <a class="btn ghost" href="/EN%20TEASER%20DEF.pdf#view=FitH" target="_blank" rel="noopener noreferrer">
-        Watch full teaser
+    <a href="/EN%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer" aria-label="Open teaser full-screen (100%)">
+      <div class="teaser-box">
+        <iframe
+          title="SQWEEZY Teaser (EN)"
+          src="/EN%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=75">
+        </iframe>
+      </div>
+    </a>
+    <p style="margin-top:6px">
+      <a class="btn ghost" href="/EN%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer">
+        Watch full screen
       </a>
     </p>
   </div>
 </div>
+
 </section>
 
 
