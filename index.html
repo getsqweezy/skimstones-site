@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title> SQWEEZY by SKIMSTONES (FR/EN)</title>
+    <title>SQWEEZY by SKIMSTONES — the smart compactor (FR/EN)</title>
 
   <meta name="description" content="Découvrez SQWEEZY, le compacteur éco-conçu par SKIMSTONES pour écraser bouteilles plastiques et canettes – simple, pratique, ludique, sans énergie. / Discover SQWEEZY, the smart, energy-free home compactor for plastic bottles and cans." />
-  <link rel="icon" href="/favicon.ico" />
+
   <style>
     /* Polices charte */
     @font-face { font-family: 'Gadugi'; src: local('Gadugi'), local('Gadugi-Regular'); }
@@ -33,7 +33,7 @@
     .btn.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand)}
     nav a.btn.ghost{display:inline-flex;align-items:center}
 
-    h1,h2,h3{font-family:'candara','Gadugi',sans-serif;color:var(--brand)}
+    h1,h2,h3{font-family:'Candara','Gadugi',sans-serif;color:var(--brand)}
     .hero{padding:60px 0 24px;display:grid;gap:28px;grid-template-columns:1fr}
     .hero h1{font-size:clamp(28px,4vw,46px);margin:0}
     .sub{color:var(--muted);max-width:70ch}
@@ -52,24 +52,16 @@
     footer{border-top:2px solid var(--eco);padding:24px 0;color:var(--muted)}
     footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
    /* Galerie : 3 visuels alignés, même hauteur, sans déformation */
+/* À GARDER (propre) */
 .gallery{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
-  justify-content:center;
-  align-items:flex-end;       /* aligne les bas des images, plus propre pour des visuels étroits */
+  display:flex; gap:12px; flex-wrap:wrap; justify-content:center; align-items:flex-end;
 }
 .gallery img{
-  height:320px;               /* hauteur “raisonnable” desktop */
-  width:auto;                 /* conserve les proportions H/L */
-  object-fit:contain;
-  object-position:bottom;     /* pose l’image sur la “ligne de base” */
-  border:1px solid #e5e7eb;
-  border-radius:12px;
+  height:320px; width:auto; object-fit:contain; object-position:bottom;
+  border:1px solid #e5e7eb; border-radius:12px;
 }
-@media (max-width: 640px){
-  .gallery img{ height:220px; }  /* réduit sur mobile */
-}
+@media (max-width:640px){ .gallery img{ height:220px; } }
+
   </style>
 
   <script>
@@ -97,7 +89,7 @@
     "description":"Compacteur manuel pour bouteilles plastiques (jusqu'à 1,5 L) et canettes, sans électricité, en ABS recyclé.",
     "material": "Recycled ABS, stainless steel",
     "url":"https://www.skimstones.com/",
-    "logo":"/LOGODEF%20SQWEEZY1.png"
+    "logo":"/LOGODEF-SQWEEZY1.png"
   }
   </script>
 </head>
@@ -105,7 +97,7 @@
   <header>
     <div class="wrap row">
       <div class="brand">
-        <img src="/LOGODEF%20SQWEEZY1.png" alt="Logo SQWEEZY" />
+        <img src="/LOGODEF-SQWEEZY1.png" alt="Logo SQWEEZY" />
         <div>
           <button id="btn-fr" class="btn ghost" aria-label="Français">FR</button>
           <button id="btn-en" class="btn ghost" aria-label="English">EN</button>
@@ -139,7 +131,7 @@
       </div>
       <div>
         <!-- Remplacer par une photo détourée .png -->
-        <img src="/alu détouré.png" alt="Photo du produit SQWEEZY" style="width:100%;border-radius:16px;border:1px solid #e5e7eb" />
+        <img src="/alu-detoure.png" alt="Photo du produit SQWEEZY" style="width:50%;border-radius:16px;border:1px solid #e5e7eb" />
       </div>
     </section>
 
@@ -156,7 +148,7 @@
         </ul>
         <ul class="lang-en">
           <li>Foot press, no electricity</li>
-          <li>Stable, lightweight, to be installed near to your recycling bins</li>
+          <li>Stable, lightweight, to keep next your recycling bins</li>
           <li>Up to 85% less volume</li>
         </ul>
       </div>
@@ -170,9 +162,7 @@
       <iframe 
         title="Teaser SQWEEZY (FR)" 
         src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0"
-        style="width:100%;height:700px;border:none;pointer-events:none"
-        sandbox="allow-same-origin"
-      ></iframe>
+        style="width:100%;height:700px;border:none;pointer-events:none"></iframe>
     </div>
     <p style="margin-top:10px">
       <a class="btn ghost" href="/FR%20TEASER%20DEF.pdf#view=FitH" target="_blank" rel="noopener noreferrer">
@@ -187,10 +177,8 @@
     <div style="display:inline-block;transform:scale(0.75);transform-origin:top center;width:100%;">
       <iframe 
         title="SQWEEZY Teaser (EN)" 
-        src="/EN%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0"
-        style="width:100%;height:700px;border:none;pointer-events:none"
-        sandbox="allow-same-origin"
-      ></iframe>
+        src="/EN%20TEASER%20DEF.pdf##toolbar=0&navpanes=0&scrollbar=0"
+        style="width:100%;height:700px;border:none;pointer-events:none"></iframe>
     </div>
     <p style="margin-top:10px">
       <a class="btn ghost" href="/EN%20TEASER%20DEF.pdf#view=FitH" target="_blank" rel="noopener noreferrer">
