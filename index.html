@@ -51,6 +51,25 @@
 
     footer{border-top:2px solid var(--eco);padding:24px 0;color:var(--muted)}
     footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
+   /* Galerie : 3 visuels alignés, même hauteur, sans déformation */
+.gallery{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:flex-end;       /* aligne les bas des images, plus propre pour des visuels étroits */
+}
+.gallery img{
+  height:320px;               /* hauteur “raisonnable” desktop */
+  width:auto;                 /* conserve les proportions H/L */
+  object-fit:contain;
+  object-position:bottom;     /* pose l’image sur la “ligne de base” */
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+}
+@media (max-width: 640px){
+  .gallery img{ height:220px; }  /* réduit sur mobile */
+}
   </style>
 
   <script>
@@ -76,7 +95,7 @@
     "brand":{"@type":"Brand","name":"SKIMSTONES"},
     "category":"Home & Garden > Household Supplies > Recycling",
     "description":"Compacteur manuel pour bouteilles plastiques (jusqu'à 1,5 L) et canettes, sans électricité, en ABS recyclé.",
-    "material": "Recycled ABS, steel",
+    "material": "Recycled ABS, stainless steel",
     "url":"https://www.skimstones.com/",
     "logo":"/LOGODEF%20SQWEEZY1.png"
   }
@@ -142,7 +161,7 @@
         </ul>
       </div>
 
-      <!-- Teaser PDF plein écran réduit à 75% -->
+<!-- Teaser PDF plein écran réduit à 75% -->
 <div class="teaser" style="margin-top:24px;text-align:center">
   <!-- Version FR -->
   <div class="lang-fr">
@@ -150,13 +169,13 @@
     <div style="display:inline-block;transform:scale(0.75);transform-origin:top center;width:100%;">
       <iframe 
         title="Teaser SQWEEZY (FR)" 
-        src="/FR%20TEASER%20DEF.pdf"#toolbar=0&navpanes=0&scrollbar=0
+        src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0"
         style="width:100%;height:700px;border:none;pointer-events:none"
         sandbox="allow-same-origin"
       ></iframe>
     </div>
     <p style="margin-top:10px">
-      <a class="btn ghost" href="/FR%20TEASER%20DEF.pdf" target="_blank" rel="noopener noreferrer">
+      <a class="btn ghost" href="/FR%20TEASER%20DEF.pdf#view=FitH" target="_blank" rel="noopener noreferrer">
         Voir le teaser en plein écran
       </a>
     </p>
@@ -168,13 +187,13 @@
     <div style="display:inline-block;transform:scale(0.75);transform-origin:top center;width:100%;">
       <iframe 
         title="SQWEEZY Teaser (EN)" 
-        src="/EN%20TEASER%20DEF.pdf"#toolbar=0&navpanes=0&scrollbar=0
+        src="/EN%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0"
         style="width:100%;height:700px;border:none;pointer-events:none"
         sandbox="allow-same-origin"
       ></iframe>
     </div>
     <p style="margin-top:10px">
-      <a class="btn ghost" href="/EN%20TEASER%20DEF.pdf" target="_blank" rel="noopener noreferrer">
+      <a class="btn ghost" href="/EN%20TEASER%20DEF.pdf#view=FitH" target="_blank" rel="noopener noreferrer">
         Watch full teaser
       </a>
     </p>
@@ -220,15 +239,16 @@
     </section>
 
     <!-- GALERIE -->
-    <section class="section">
-      <h2 class="lang-fr">Galerie</h2>
-      <h2 class="lang-en">Gallery</h2>
-      <div class="gallery">
-        <img src="/ouvert.png" alt="SQWEEZY – vue 1" />
-        <img src="/fermé.png" alt="SQWEEZY – vue 2" />
-        <img src="/avec bouteille compactée.png" alt="SQWEEZY – vue 3" />
-      </div>
-    </section>
+<section class="section">
+  <h2 class="lang-fr">Galerie</h2>
+  <h2 class="lang-en">Gallery</h2>
+  <div class="gallery">
+    <img src="/ouvert.png" alt="SQWEEZY – vue ouverte" loading="lazy" decoding="async" />
+    <img src="/ferm%C3%A9.png" alt="SQWEEZY – vue fermée" loading="lazy" decoding="async" />
+    <img src="/avec%20bouteille%20compact%C3%A9e.png" alt="SQWEEZY – avec bouteille compactée" loading="lazy" decoding="async" />
+  </div>
+</section>
+
 
     <!-- CONTACT -->
     <section id="contact" class="section">
