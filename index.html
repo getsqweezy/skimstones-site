@@ -120,38 +120,7 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
     btnEn.addEventListener('click', () => set('en'));
   });
 </script>
-<!-- ✅ script vidéo --
-<script>
-  (function(){
-    const overlay = document.getElementById('video-lightbox');
-    const frame   = document.getElementById('video-frame');
-    const btnClose= document.getElementById('video-close');
-    const ytParams = 'autoplay=1&rel=0&modestbranding=1&playsinline=1';
-    document.addEventListener('click', (e)=>{
-      const btn = e.target.closest('[data-video]');
-      if(!btn) return;
-      const id = btn.getAttribute('data-video');
-      const title = btn.getAttribute('data-label') || 'SQWEEZY teaser';
-      frame.title = title;
-      frame.src = `https://www.youtube.com/embed/${id}?${ytParams}`;
-      overlay.style.display = 'block';
-      overlay.setAttribute('aria-hidden','false');
-      btnClose.focus();
-    });
-    function closeLightbox(){
-      overlay.style.display = 'none';
-      overlay.setAttribute('aria-hidden','true');
-      frame.src = '';
-    }
-    btnClose.addEventListener('click', closeLightbox);
-    overlay.addEventListener('click', (e)=>{
-      if(e.target === overlay) closeLightbox();
-    });
-    document.addEventListener('keydown', (e)=>{
-      if(e.key === 'Escape' && overlay.style.display === 'block') closeLightbox();
-    });
-  })();
-</script>
+
 
   <!-- SEO JSON-LD basique -->
   <script type="application/ld+json">
@@ -282,13 +251,13 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
           <div>
             <ul class="lang-fr">
               <li>Dimensions emballage : 44 × 21 × 17 cm</li>
-              <li>Hauteur : H1 78,9 cm (nominal), H2 42,5 cm (pressé)</li>
+              <li>Hauteur max : H1 78,9 cm (nominal), H2 42,5 cm (pressé)</li>
               <li>Diamètre socle : D 20 cm</li>
               <li>Matériaux : ABS recyclé + pièces métal</li>
             </ul>
             <ul class="lang-en">
-              <li>Box: 44 × 21 × 17 cm</li>
-              <li>Height: H1 78.9 cm (nominal), H2 42.5 cm (pressed)</li>
+              <li>Box dimensions: 44 × 21 × 17 cm</li>
+              <li>Max Height: H1 78.9 cm (nominal), H2 42.5 cm (pressed)</li>
               <li>Base diameter: D 20 cm</li>
               <li>Materials: recycled ABS + metal parts</li>
             </ul>
@@ -376,5 +345,37 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
                 style="border:0;width:100%;height:100%"></iframe>
       </div>
     </div>
+    <!-- ✅ script vidéo -->
+<script>
+  (function(){
+    const overlay = document.getElementById('video-lightbox');
+    const frame   = document.getElementById('video-frame');
+    const btnClose= document.getElementById('video-close');
+    const ytParams = 'autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-video]');
+      if(!btn) return;
+      const id = btn.getAttribute('data-video');
+      const title = btn.getAttribute('data-label') || 'SQWEEZY teaser';
+      frame.title = title;
+      frame.src = `https://www.youtube.com/embed/${id}?${ytParams}`;
+      overlay.style.display = 'block';
+      overlay.setAttribute('aria-hidden','false');
+      btnClose.focus();
+    });
+    function closeLightbox(){
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden','true');
+      frame.src = '';
+    }
+    btnClose.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', (e)=>{
+      if(e.target === overlay) closeLightbox();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && overlay.style.display === 'block') closeLightbox();
+    });
+  })();
+</script>
 </body>
 </html>
