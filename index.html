@@ -120,7 +120,38 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
     btnEn.addEventListener('click', () => set('en'));
   });
 </script>
-
+<!-- ✅ script vidéo --
+<script>
+  (function(){
+    const overlay = document.getElementById('video-lightbox');
+    const frame   = document.getElementById('video-frame');
+    const btnClose= document.getElementById('video-close');
+    const ytParams = 'autoplay=1&rel=0&modestbranding=1&playsinline=1';
+    document.addEventListener('click', (e)=>{
+      const btn = e.target.closest('[data-video]');
+      if(!btn) return;
+      const id = btn.getAttribute('data-video');
+      const title = btn.getAttribute('data-label') || 'SQWEEZY teaser';
+      frame.title = title;
+      frame.src = `https://www.youtube.com/embed/${id}?${ytParams}`;
+      overlay.style.display = 'block';
+      overlay.setAttribute('aria-hidden','false');
+      btnClose.focus();
+    });
+    function closeLightbox(){
+      overlay.style.display = 'none';
+      overlay.setAttribute('aria-hidden','true');
+      frame.src = '';
+    }
+    btnClose.addEventListener('click', closeLightbox);
+    overlay.addEventListener('click', (e)=>{
+      if(e.target === overlay) closeLightbox();
+    });
+    document.addEventListener('keydown', (e)=>{
+      if(e.key === 'Escape' && overlay.style.display === 'block') closeLightbox();
+    });
+  })();
+</script>
 
   <!-- SEO JSON-LD basique -->
   <script type="application/ld+json">
@@ -166,15 +197,15 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
         <p class="sub lang-en">Compact plastic bottles (up to 1.5&nbsp;L) and cans by reducing their volume up to –85%. Simple, handy, portable and energy-free. Designed by SKIMSTONES, Manufactured with ♥ in Morocco.</p>
 
         <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-  <!-- Version FR -->
-  <a class="btn secondary lang-fr" href="https://youtu.be/t9LwSsf3-10" target="_blank" rel="noopener">
+  <!-- FR -->
+  <button class="btn secondary lang-fr" data-video="t9LwSsf3-10" data-label="SQWEEZY FR">
     ▶ Voir la vidéo
-  </a>
+  </button>
 
-  <!-- Version EN -->
-  <a class="btn secondary lang-en" href="https://youtu.be/98tDzN5gogI" target="_blank" rel="noopener">
+  <!-- EN -->
+  <button class="btn secondary lang-en" data-video="98tDzN5gogI" data-label="SQWEEZY EN">
     ▶ Watch video
-  </a>
+  </button>
 
   <!-- Bouton Découvrir / Explore -->
   <a class="btn ghost" href="#features">
@@ -182,6 +213,7 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
     <span class="lang-en">Explore</span>
   </a>
 </div>
+
 
       </div>
       <div>
@@ -330,5 +362,19 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
     </div>
     <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
   </footer>
+<!-- lightbox VIDEO-->
+    <div id="video-lightbox" aria-hidden="true" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,.6);backdrop-filter:saturate(130%) blur(2px)">
+      <div role="dialog" aria-modal="true" aria-label="Video player"
+           style="position:relative;width:min(940px,92vw);aspect-ratio:16/9;margin:6vh auto;background:#000;border-radius:14px;box-shadow:0 10px 40px rgba(0,0,0,.35);overflow:hidden">
+        <button id="video-close" aria-label="Fermer"
+                style="position:absolute;top:8px;right:8px;z-index:2;background:rgba(0,0,0,.5);color:#fff;border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 10px;cursor:pointer;font-weight:700">
+          ✕
+        </button>
+        <iframe id="video-frame" title="SQWEEZY teaser"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                style="border:0;width:100%;height:100%"></iframe>
+      </div>
+    </div>
 </body>
 </html>
