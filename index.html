@@ -91,6 +91,31 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
   border:1px solid #e5e7eb; border-radius:12px;
 }
 @media (max-width:640px){ .gallery img{ height:220px; } }
+/* WHY SQWEEZY – grille de cartes */
+.why-grid{
+  display:grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap:12px;
+  margin-top:12px;
+}
+@media (max-width:980px){ .why-grid{ grid-template-columns: repeat(2,1fr); } }
+@media (max-width:640px){ .why-grid{ grid-template-columns: 1fr; } }
+
+.why-card{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:12px;
+  padding:14px 16px;
+  line-height:1.4;
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
+}
+.why-card b{ color:var(--brand); display:block; margin-bottom:4px; }
+.why-card::before{
+  content:"✓";
+  color:var(--eco);
+  font-weight:700;
+  margin-right:8px;
+}
 
   </style>
 
@@ -193,21 +218,39 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
 
     <!-- POURQUOI / WHY -->
     <section id="features" class="section">
-      <h2 class="lang-fr">Pourquoi SQWEEZY ?</h2>
-      <h2 class="lang-en">Why SQWEEZY?</h2>
 
-      <div class="card">
-        <ul class="lang-fr">
-          <li>Pression au pied, pas d’électricité</li>
-          <li>Stable, léger, à poser près de votre bac de tri</li>
-          <li>Jusqu’à 85&nbsp;% de volume en moins</li>
-        </ul>
-        <ul class="lang-en">
-          <li>Foot press, no electricity</li>
-          <li>Stable, lightweight, to keep next your recycling bins</li>
-          <li>Up to 85% less volume</li>
-        </ul>
-      </div>
+      <h2 class="lang-fr">Pourquoi SQWEEZY&nbsp;?</h2>
+<h2 class="lang-en">Why SQWEEZY?</h2>
+
+<!-- FR -->
+<div class="lang-fr why-grid">
+  <div class="why-card"><b>Gagnez de l’espace</b>Une simple pression : jusqu’à 5× moins de volume à la maison.</div>
+  <div class="why-card"><b>Le geste éco-citoyen</b>Le tri devient facile, rapide et motivant pour toute la famille.</div>
+  <div class="why-card"><b>0 électricité</b>100 % mécanique : durable, robuste, sans branchement ni batterie.</div>
+  <div class="why-card"><b>Design breveté</b>Compression verticale régulière, sans effort, tous formats.</div>
+  <div class="why-card"><b>Compact & stable</b>À poser près de votre bac de tri, même dans les petits espaces.</div>
+  <div class="why-card"><b>Éco-conçu</b>ABS recyclé et pièces métalliques durables, certifié CE.</div>
+  <div class="why-card"><b>Tous formats courants</b>De la canette 33 cl à la bouteille 1,5 L, un seul geste suffit.</div>
+  <div class="why-card"><b>Ludique</b>Un réflexe simple et engageant, adopté par petits et grands.</div>
+  <div class="why-card"><b>Moins de collectes</b>En compactant à la source, on réduit les volumes à transporter.</div>
+  <div class="why-card"><b>Innovation utile</b>Brevet + certificat CE : une solution concrète pour le quotidien.</div>
+</div>
+
+<!-- EN -->
+<div class="lang-en why-grid">
+  <div class="why-card"><b>Save space</b>One press: up to 5× less volume at home.</div>
+  <div class="why-card"><b>Eco-friendly habit</b>Recycling becomes easy, quick and motivating for everyone.</div>
+  <div class="why-card"><b>Zero electricity</b>100% mechanical: durable, robust, no power or batteries.</div>
+  <div class="why-card"><b>Patented design</b>Smooth vertical compression, low effort, all common formats.</div>
+  <div class="why-card"><b>Compact & stable</b>Keep it beside your recycling bins, even in small spaces.</div>
+  <div class="why-card"><b>Eco-designed</b>Recycled ABS and durable metal parts, CE-certified.</div>
+  <div class="why-card"><b>All common sizes</b>From 330 ml cans to 1.5 L bottles — one simple press.</div>
+  <div class="why-card"><b>Fun to use</b>A simple, engaging reflex the whole family adopts.</div>
+  <div class="why-card"><b>Fewer collections</b>Source compaction means less volume to transport.</div>
+  <div class="why-card"><b>Useful innovation</b>Patent + CE certificate: a practical, everyday solution.</div>
+</div>
+
+
 
 <!-- Teaser PDF au format A4, remplissage cadre (Fit), clic = 100% -->
 <div class="teaser" style="margin-top:24px;text-align:center">
@@ -250,10 +293,10 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
         <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:12px">
           <div>
             <ul class="lang-fr">
-              <li>Hauteur Max : H1 = 78,9 cm (nominal), H2 = 42,5 cm (pressé)</li>
-              <li>Hauteur Pédale : h1 = 27 cm (nominal), h2 = 7,8 cm (pressé)</li>
-              <li>Diamètre Socle : D = 20 cm</li>
-              <li>Matériaux : 100% ABS premium recyclé ; tirants en acier inox; vis en métal</li>
+              <li>Hauteur Max: H1 = 78,9 cm (nominal) / H2 = 42,5 cm (pressé)</li>
+              <li>Hauteur Pédale: h1 = 27 cm (nominal) / h2 = 7,8 cm (pressé)</li>
+              <li>Diamètre Socle: D = 20 cm</li>
+              <li>Matériaux: 100% ABS premium recyclé ; tirants en acier inox; vis en métal</li>
             </ul>
             <ul class="lang-en">
   
@@ -267,7 +310,7 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
             <ul class="lang-fr">
               <li>Poids net : ± 1,8 kg</li>
               <li>Kit à assembler (outil inclus) en 5 minutes</li>
-             <li>Dimensions emballage : 44 × 21 × 17 cm</li>
+              <li>Dimensions emballage : 44 × 21 × 17 cm</li>
               <li>Certification CE</li>
             </ul>
             <ul class="lang-en">
