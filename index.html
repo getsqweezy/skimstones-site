@@ -51,25 +51,22 @@
 
     footer{border-top:2px solid var(--eco);padding:24px 0;color:var(--muted)}
     footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:none}
-/* Cadre du teaser au ratio A4 (portrait) ajusté à 75%) */
-.teaser-box {
-  width: min(700px, 100%);        /* largeur plus raisonnable */
-  aspect-ratio: 1 / 1.414;        /* ratio A4 portrait */
+/* Cadre du teaser au ratio A4 (portrait), sans scale */
+.teaser-box{
+  width: min(760px, 95vw);      /* largeur confortable et responsive */
+  aspect-ratio: 1 / 1.414;      /* A4 portrait */
   margin: 0 auto 10px auto;
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,.06);
-  transform: scale(0.9);         /* réduction visuelle du cadre */
-  transform-origin: top center;   /* garde le cadre centré */
 }
-.teaser-box iframe {
+.teaser-box iframe{
   width: 100%;
   height: 100%;
   border: 0;
-  pointer-events: none;
+  pointer-events: none;          /* on n'interagit pas dans l'aperçu */
 }
-
 
    /* Galerie : 3 visuels alignés, même hauteur, sans déformation */
 /* À GARDER (propre) */
@@ -85,18 +82,32 @@
   </style>
 
   <script>
-    // Bascule FR/EN (FR par défaut)
-    document.addEventListener('DOMContentLoaded',()=>{
-      const root=document.documentElement;
-      const btnFr=document.getElementById('btn-fr');
-      const btnEn=document.getElementById('btn-en');
-      const set=(lang)=>{ root.setAttribute('data-lang',lang); localStorage.setItem('site-lang',lang) };
-      const saved=localStorage.getItem('site-lang');
-      set(saved||'fr');
-      btnFr.addEventListener('click',()=>set('fr'));
-      btnEn.addEventListener('click',()=>set('en'));
-    });
-  </script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement;
+    const btnFr = document.getElementById('btn-fr');
+    const btnEn = document.getElementById('btn-en');
+
+    // --- Fonction qui applique la langue ---
+    const set = (lang) => {
+      root.setAttribute('data-lang', lang);
+      localStorage.setItem('site-lang', lang);
+      // Mise à jour de l'état ARIA et visuel
+      btnFr.setAttribute('aria-pressed', lang === 'fr');
+      btnEn.setAttribute('aria-pressed', lang === 'en');
+      btnFr.classList.toggle('active', lang === 'fr');
+      btnEn.classList.toggle('active', lang === 'en');
+    };
+
+    // --- Initialisation à partir du stockage local ---
+    const saved = localStorage.getItem('site-lang');
+    set(saved || 'fr');
+
+    // --- Gestion des clics sur les boutons ---
+    btnFr.addEventListener('click', () => set('fr'));
+    btnEn.addEventListener('click', () => set('en'));
+  });
+</script>
+
 
   <!-- SEO JSON-LD basique -->
   <script type="application/ld+json">
@@ -172,7 +183,7 @@
         </ul>
       </div>
 
-<!-- Teaser PDF au format A4, affiché à 75%, clic = 100% dans un nouvel onglet -->
+<!-- Teaser PDF au format A4, remplissage cadre (Fit), clic = 100% -->
 <div class="teaser" style="margin-top:24px;text-align:center">
   <!-- FR -->
   <div class="lang-fr">
@@ -181,15 +192,10 @@
       <div class="teaser-box">
         <iframe
           title="Teaser SQWEEZY (FR)"
-          src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=75">
+          src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit">
         </iframe>
       </div>
     </a>
-    <p style="margin-top:6px">
-      <a class="btn ghost" href="/FR%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer">
-        Voir en plein écran
-      </a>
-    </p>
   </div>
 
   <!-- EN -->
@@ -199,17 +205,13 @@
       <div class="teaser-box">
         <iframe
           title="SQWEEZY Teaser (EN)"
-          src="/EN%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&zoom=75">
+          src="/EN%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit">
         </iframe>
       </div>
     </a>
-    <p style="margin-top:6px">
-      <a class="btn ghost" href="/EN%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer">
-        Watch full screen
-      </a>
-    </p>
   </div>
 </div>
+
 
 </section>
 
