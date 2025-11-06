@@ -111,11 +111,22 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
 }
 .why-card b{ color:var(--brand); display:block; margin-bottom:4px; }
 .why-card::before{
-  content:"✓";
-  color:var(--eco);
-  font-weight:700;
+  display:inline-block;
+  width:20px;
+  text-align:center;
   margin-right:8px;
 }
+
+  /* 🔹 Icônes spécifiques à chaque carte */
+  .why1::before { content: "🏠"; }      /* espace / maison */
+  .why2::before { content: "👨‍👨‍👧‍👦"; }      /* geste éco */
+  .why3::before { content: "🛡️"; }     /* énergie */
+  .why4::before { content: "©️"; }      /* design breveté */
+  .why5::before { content: "🏋️‍♀️"; }      /* compact/stable */
+  .why6::before { content: "♻️"; }      /* éco-conçu */
+  .why7::before { content: "🗜️"; }      /* formats bouteille/canette */
+  .why8::before { content: "🐱"; }      /* ludique */
+  .why9::before { content: "💸"; }      /* collecte/logistique */
 
   </style>
 
@@ -224,29 +235,43 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
 
 <!-- FR -->
 <div class="lang-fr why-grid">
-  <div class="why-card"><b>Gagnez de l’espace</b>Une simple pression : jusqu’à 3× moins de volume de déchets recyclables à stocker à la maison.</div>
-  <div class="why-card"><b>Un geste éco-citoyen</b>Le tri devient simple, rapide et attirant pour toute la famille.</div>
-  <div class="why-card"><b>0 électricité</b>100 % mécanique : durable, robuste, sans branchement ni batterie. </div>
-  <div class="why-card"><b>Design breveté</b>Compression verticale régulière, sans effort, tous formats.</div>
-  <div class="why-card"><b>Léger, Compact, Stable et Portable</b>À poser près de votre bac de tri, même dans les petits espaces.</div>
-  <div class="why-card"><b>Éco-conçu</b>En ABS recyclé et pièces métalliques durables, certifié CE.</div>
-  <div class="why-card"><b>Compatible tous formats</b>De la canette 33 cl à la bouteille 1,5 L, un seul geste suffit.</div>
-  <div class="why-card"><b>Ludique</b>Un réflexe simple et engageant, adopté par petits et grands.</div>
-  <div class="why-card"><b>Moins de collectes et des économies pour la collectivité</b>A grande échelle, par ex. 100.000 foyers, SQWEEZY permet + de 5 M€ d'économies annuelles, et évite le dégagement de + de 5.000 tonnes de CO2 </div>
- </div>
+  <div class="why-card why1"><b>Gagnez de l’espace</b>Une simple pression : jusqu’à 3× moins de volume de déchets recyclables à stocker à la maison.</div>
+  <div class="why-card why2"><b>Un geste éco-citoyen</b>Le tri devient simple, rapide et attirant pour toute la famille.</div>
+  <div class="why-card why3"><b>0 électricité</b>100 % mécanique : durable, robuste, sans branchement ni batterie. </div>
+  <div class="why-card why4"><b>Design breveté</b>Compression verticale régulière, sans effort, tous formats.</div>
+  <div class="why-card why5"><b>Léger, Compact, Stable et Portable</b>À poser près de votre bac de tri, même dans les petits espaces.</div>
+  <div class="why-card why6"><b>Éco-conçu</b>En ABS recyclé et pièces métalliques durables, certifié CE.</div>
+  <div class="why-card why7"><b>Compatible tous formats</b>De la canette 33 cl à la bouteille 1,5 L, un seul geste suffit.</div>
+  <div class="why-card why8"><b>Ludique</b>Un réflexe simple et engageant, adopté par petits et grands.</div>
+  <div class="why-card why9"><b>Moins de collectes et des économies pour la collectivité</b>A grande échelle, par ex. 100.000 foyers, SQWEEZY permet + de 5 M€ d'économies annuelles, et évite le dégagement de + de 5.000 tonnes de CO2 </div>
+</div>
 
 <!-- EN -->
 <div class="lang-en why-grid">
-  <div class="why-card"><b>Save space</b>One press: up to 3× less recyclable waste volume to store at home.</div>
-  <div class="why-card"><b>An Eco-friendly habit</b>Recycling becomes easy, quick and motivating for everyone.</div>
-  <div class="why-card"><b>Zero electricity</b>100% mechanical: durable, robust, no power or batteries.</div>
-  <div class="why-card"><b>Patented design</b>Smooth vertical compression, low effort, all common formats.</div>
-  <div class="why-card"><b>Lightweight, Compact, Stable and Portable</b>Keep it beside your recycling bins, even in small spaces.</div>
-  <div class="why-card"><b>Eco-designed</b>Recycled ABS and durable metal parts, CE-certified.</div>
-  <div class="why-card"><b>Compatibility to all common sizes</b>From 330 ml cans to 1.5 L bottles — one simple press.</div>
-  <div class="why-card"><b>Fun to use</b>A simple, engaging reflex the whole family adopts, including children!</div>
-<div class="why-card"><b>Fewer collections and savings for the community</b>On a large scale — e.g. 100,000 households — SQWEEZY generates over €5 million in annual savings and prevents more than 5,000 tons of CO₂ emissions.</div>
+  <div class="why-card why1"><b>Save space</b>One press: up to 3× less recyclable waste volume to store at home.</div>
+  <div class="why-card why2"><b>An Eco-friendly habit</b>Recycling becomes easy, quick and motivating for everyone.</div>
+  <div class="why-card why3"><b>Zero electricity</b>100% mechanical: durable, robust, no power or batteries.</div>
+  <div class="why-card why4"><b>Patented design</b>Smooth vertical compression, low effort, all common formats.</div>
+  <div class="why-card why5"><b>Lightweight, Compact, Stable and Portable</b>Keep it beside your recycling bins, even in small spaces.</div>
+  <div class="why-card why6"><b>Eco-designed</b>Recycled ABS and durable metal parts, CE-certified.</div>
+  <div class="why-card why7"><b>Compatibility to all common sizes</b>From 330 ml cans to 1.5 L bottles — one simple press.</div>
+  <div class="why-card why8"><b>Fun to use</b>A simple, engaging reflex the whole family adopts, including children!</div>
+<div class="why-card why9"><b>Fewer collections and savings for the community</b>On a large scale — e.g. 100,000 households — SQWEEZY generates over €5 million in annual savings and prevents more than 5,000 tons of CO₂ emissions.</div>
 </div>
+
+<div class="lang-fr why-grid">
+  <div class="why-card why1"><b>Gagnez de l’espace</b>Une simple pression : jusqu’à 3× moins de volume de déchets recyclables à stocker à la maison.</div>
+  <div class="why-card why2"><b>Un geste éco-citoyen</b>Le tri devient simple, rapide et attirant pour toute la famille.</div>
+  <div class="why-card why3"><b>0 électricité</b>100 % mécanique : durable, robuste, sans branchement ni batterie. </div>
+  <div class="why-card why4"><b>Design breveté</b>Compression verticale régulière, sans effort, tous formats.</div>
+  <div class="why-card why5"><b>Léger, Compact, Stable et Portable</b>À poser près de votre bac de tri, même dans les petits espaces.</div>
+  <div class="why-card why6"><b>Éco-conçu</b>En ABS recyclé et pièces métalliques durables, certifié CE.</div>
+  <div class="why-card why7"><b>Compatible tous formats</b>De la canette 33 cl à la bouteille 1,5 L, un seul geste suffit.</div>
+  <div class="why-card why8"><b>Ludique</b>Un réflexe simple et engageant, adopté par petits et grands.</div>
+  <div class="why-card why9"><b>Moins de collectes et des économies pour la collectivité</b>A grande échelle, par ex. 100.000 foyers, SQWEEZY permet + de 5 M€ d'économies annuelles, et évite le dégagement de + de 5.000 tonnes de CO2 </div>
+</div>
+
+
 
 
 
