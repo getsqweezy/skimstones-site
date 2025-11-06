@@ -358,7 +358,7 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
       const id = btn.getAttribute('data-video');
       const title = btn.getAttribute('data-label') || 'SQWEEZY teaser';
       frame.title = title;
-      frame.src = `https://www.youtube.com/embed/${id}?${ytParams}`;
+     frame.src = `https://www.youtube.com/embed/${id}?${ytParams}&vq=hd1080`;
       overlay.style.display = 'block';
       overlay.setAttribute('aria-hidden','false');
       btnClose.focus();
