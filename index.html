@@ -34,7 +34,13 @@
     nav a.btn.ghost{display:inline-flex;align-items:center}
 
     h1,h2,h3{font-family:'Candara','Gadugi',sans-serif;color:var(--brand)}
-    .hero{padding:60px 0 24px;display:grid;gap:28px;grid-template-columns:1fr}
+      .hero{
+        padding:14px 0 16px;          /* était 60px 0 24px : on rapproche fortement du haut */
+        display:grid; gap:28px; grid-template-columns:1fr;
+      }
+      @media(min-width:900px){
+        .hero{ grid-template-columns:1fr 1fr; padding:18px 0 18px; } /* léger confort desktop */
+      }
     .hero h1{font-size:clamp(28px,4vw,46px);margin:0}
     .sub{color:var(--muted);max-width:70ch}
     @media(min-width:900px){ .hero{grid-template-columns:1fr 1fr} }
@@ -138,7 +144,20 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
         line-height: 1.15;     /* un peu plus serré sur mobile */
       }
     }
+      /* Positionnement fin du badge et du titre */
+      .hero .badge{
+        display:inline-block;
+        margin-top:0;           /* colle au haut du bloc hero */
+        margin-bottom:10px;     /* espace raisonnable avant le h1 */
+        font-size:13px;         /* (option) badge un chouïa plus discret */
+      }
 
+      /* Le h1 est déjà margin:0 ; on ne touche pas au margin-top.
+        Si tu veux plus d’air sous le titre, augmente son margin-bottom. */
+      h1{ 
+        line-height:1.2; 
+        margin-bottom:0.6em;    /* tu l’avais déjà, garde ou ajuste (0.5–0.8em) */
+      }
   </style>
 
   <script>
@@ -293,7 +312,7 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
         </div>
       </div>
         <nav style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-          <a class="btn" href="#contact"><span class="lang-fr">Nous contacter</span><span class="lang-en">Contact us</span></a>
+          <a class="btn" href="#contact"><span class="lang-fr">Contact</span><span class="lang-en">Contact</span></a>
         </nav>
     </div>
   </header>
@@ -302,7 +321,10 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
     <!-- HERO -->
     <section class="hero">
       <div>
-        <span class="badge">ABS recyclé · CE</span>
+          <span class="badge">
+            <span class="lang-fr">100% ABS recyclé · Certificat CE</span>
+            <span class="lang-en">100% recycled ABS · CE Certified</span>
+          </span>
         <h1>
           <span class="lang-fr">Bienvenue chez SQWEEZY, le petit compacteur qui change la vie à la maison</span>
           <span class="lang-en">Welcome to SQWEEZY, the smart compactor that changes life at home </span>
