@@ -158,19 +158,97 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
 </script>
 
 
-  <!-- SEO JSON-LD basique -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Product",
-    "name":"SQWEEZY",
-    "brand":{"@type":"Brand","name":"SKIMSTONES"},
-    "category":"Home & Garden > Household Supplies > Recycling",
-    "description":"Compacteur manuel pour bouteilles plastiques (jusqu'à 1,5 L) et canettes, sans électricité, en ABS recyclé.",
-    "material": "Recycled ABS, stainless steel",
-    "url":"https://www.skimstones.com/",
-    "logo":"/LOGODEF-SQWEEZY1.png"
-  }
+<!-- SEO JSON-LD enrichi (bilingue FR/EN, précommande) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Product",
+      "@id": "https://www.skimstones.com/#product-fr",
+      "name": "SQWEEZY",
+      "brand": { "@type": "Brand", "name": "SKIMSTONES" },
+      "category": "Home & Garden > Household Supplies > Recycling",
+      "description": "Compacteur manuel pour bouteilles plastiques (jusqu’à 1,5 L) et canettes. Zéro énergie, éco-conçu en ABS recyclé avec pièces métalliques durables. Design breveté, fabrication responsable au Maroc. Disponible en précommande.",
+      "material": "ABS recyclé et métal durable",
+      "image": "https://www.skimstones.com/sqweezy-product.png",
+      "logo": "https://www.skimstones.com/LOGODEF-SQWEEZY1.png",
+      "url": "https://www.skimstones.com/",
+      "countryOfOrigin": "MA",
+      "productionDate": "2026-04-01",
+      "sku": "SQWEEZY-001",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "SKIMSTONES",
+        "url": "https://www.skimstones.com/",
+        "logo": "https://www.skimstones.com/LOGODEF-SQWEEZY1.png",
+        "sameAs": [
+          "https://www.linkedin.com/company/sqweezy/",
+          "https://www.youtube.com/channel/UCOZaGsu-by54IVT-iuHApVg"
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "29.99",
+        "availability": "https://schema.org/PreOrder",
+        "availabilityStarts": "2026-04-01",
+        "priceValidUntil": "2026-12-31",
+        "url": "https://www.skimstones.com/",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "29.99",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "description": "Prix public conseillé 29,99 € HT (précommande)"
+        }
+      }
+    },
+    {
+      "@type": "Product",
+      "@id": "https://www.skimstones.com/#product-en",
+      "name": "SQWEEZY",
+      "brand": { "@type": "Brand", "name": "SKIMSTONES" },
+      "category": "Home & Garden > Household Supplies > Recycling",
+      "description": "Manual compactor for plastic bottles (up to 1.5 L) and aluminum cans. Energy-free, eco-designed in recycled ABS with durable metal parts. Patented design, responsibly manufactured in Morocco. Available for pre-order.",
+      "material": "Recycled ABS and durable metal",
+      "image": "https://www.skimstones.com/sqweezy-product.png",
+      "logo": "https://www.skimstones.com/LOGODEF-SQWEEZY1.png",
+      "url": "https://www.skimstones.com/",
+      "countryOfOrigin": "MA",
+      "productionDate": "2026-04-01",
+      "sku": "SQWEEZY-001",
+      "manufacturer": {
+        "@type": "Organization",
+        "name": "SKIMSTONES",
+        "url": "https://www.skimstones.com/",
+        "logo": "https://www.skimstones.com/LOGODEF-SQWEEZY1.png",
+        "sameAs": [
+          "https://www.linkedin.com/company/sqweezy/",
+          "https://www.youtube.com/channel/UCOZaGsu-by54IVT-iuHApVg"
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "EUR",
+        "price": "29.99",
+        "availability": "https://schema.org/PreOrder",
+        "availabilityStarts": "2026-04-01",
+        "priceValidUntil": "2026-12-31",
+        "url": "https://www.skimstones.com/",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "29.99",
+          "priceCurrency": "EUR",
+          "valueAddedTaxIncluded": false,
+          "description": "Recommended retail price €29.99 excl. VAT (pre-order)"
+        }
+      }
+    }
+  ]
+}
+</script>
+
   </script>
 </head>
 <body>
@@ -210,100 +288,101 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
           Designed and manufactured with ♥ by SKIMSTONES.
         </p>
       <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
-  <!-- FR -->
-  <button class="btn secondary lang-fr" data-video="t9LwSsf3-10" data-label="SQWEEZY FR">
-    ▶ Voir la vidéo
-  </button>
+        <!-- FR -->
+        <button class="btn secondary lang-fr" data-video="t9LwSsf3-10" data-label="SQWEEZY FR">
+          ▶ Voir la vidéo
+        </button>
 
-  <!-- EN -->
-  <button class="btn secondary lang-en" data-video="98tDzN5gogI" data-label="SQWEEZY EN">
-    ▶ Watch video
-  </button>
+        <!-- EN -->
+        <button class="btn secondary lang-en" data-video="98tDzN5gogI" data-label="SQWEEZY EN">
+          ▶ Watch video
+        </button>
 
-  <!-- Bouton Découvrir / Explore -->
-  <a class="btn ghost" href="#features">
-    <span class="lang-fr">Découvrir</span>
-    <span class="lang-en">Discover</span>
-  </a>
-</div>
-
-
+        <!-- Bouton Découvrir / Explore -->
+        <a class="btn ghost" href="#features">
+          <span class="lang-fr">Découvrir</span>
+          <span class="lang-en">Discover</span>
+        </a>
       </div>
+
+
+    </div>
       <div>
         <!-- Remplacer par une photo détourée .png -->
         <img src="/alu-detoure.png" alt="Photo du produit SQWEEZY" style="width:50%;border-radius:16px;border:1px solid #e5e7eb" />
       </div>
-    </section>
+
+   </section>
 
     <!-- POURQUOI / WHY -->
     <section id="features" class="section">
 
       <h2 class="lang-fr">Pourquoi SQWEEZY&nbsp;?</h2>
-<h2 class="lang-en">Why SQWEEZY?</h2>
+      <h2 class="lang-en">Why SQWEEZY?</h2>
 
-<!-- FR -->
-<div class="lang-fr why-grid">
-  <div class="why-card why1"><b>Gagnez de l’espace</b>Une simple pression : jusqu’à 3× moins de volume de déchets recyclables à stocker à la maison.</div>
-  <div class="why-card why2"><b>Un geste éco-citoyen</b>Le tri devient simple, rapide et attirant pour toute la famille.</div>
-  <div class="why-card why3"><b>0 électricité</b>100 % mécanique : durable, robuste, sans branchement ni batterie. </div>
-  <div class="why-card why4"><b>Design breveté</b>Compression verticale régulière, sans effort, tous formats.</div>
-  <div class="why-card why5"><b>Léger, Compact, Stable et Portable</b>À poser près de votre bac de tri, même dans les petits espaces.</div>
-  <div class="why-card why6"><b>Éco-conçu</b>En ABS recyclé et pièces métalliques durables, certifié CE.</div>
-  <div class="why-card why7"><b>Compatible tous formats</b>De la canette 33 cl à la bouteille 1,5 L, un seul geste suffit.</div>
-  <div class="why-card why8"><b>Ludique</b>Un réflexe simple et engageant, adopté par petits et grands.</div>
-  <div class="why-card why9"><b>Moins de collectes et des économies pour la collectivité</b>A grande échelle, par ex. 100.000 foyers, SQWEEZY permet + de 5 M€ d'économies annuelles, et évite le dégagement de + de 5.000 tonnes de CO₂ </div>
-</div>
+      <!-- FR -->
+      <div class="lang-fr why-grid">
+        <div class="why-card why1"><b>Gagnez de l’espace</b>Une simple pression : jusqu’à 3× moins de volume de déchets recyclables à stocker à la maison.</div>
+        <div class="why-card why2"><b>Un geste éco-citoyen</b>Le tri devient simple, rapide et attirant pour toute la famille.</div>
+        <div class="why-card why3"><b>0 électricité</b>100 % mécanique : durable, robuste, sans branchement ni batterie. </div>
+        <div class="why-card why4"><b>Design breveté</b>Compression verticale régulière, sans effort, tous formats.</div>
+        <div class="why-card why5"><b>Léger, Compact, Stable et Portable</b>À poser près de votre bac de tri, même dans les petits espaces.</div>
+        <div class="why-card why6"><b>Éco-conçu</b>En ABS recyclé et pièces métalliques durables, certifié CE.</div>
+        <div class="why-card why7"><b>Compatible tous formats</b>De la canette 33 cl à la bouteille 1,5 L, un seul geste suffit.</div>
+        <div class="why-card why8"><b>Ludique</b>Un réflexe simple et engageant, adopté par petits et grands.</div>
+        <div class="why-card why9"><b>Moins de collectes et des économies pour la collectivité</b>A grande échelle, par ex. 100.000 foyers, SQWEEZY permet + de 5 M€ d'économies annuelles, et évite le dégagement de + de 5.000 tonnes de CO₂ </div>
+      </div>
 
-<!-- EN -->
-<div class="lang-en why-grid">
-  <div class="why-card why1"><b>Save space</b>One press: up to 3× less recyclable waste volume to store at home.</div>
-  <div class="why-card why2"><b>An Eco-friendly habit</b>Recycling becomes easy, quick and motivating for everyone.</div>
-  <div class="why-card why3"><b>Zero electricity</b>100% mechanical: durable, robust, no power or batteries.</div>
-  <div class="why-card why4"><b>Patented design</b>Smooth vertical compression, low effort, all common formats.</div>
-  <div class="why-card why5"><b>Lightweight, Compact, Stable and Portable</b>Keep it beside your recycling bins, even in small spaces.</div>
-  <div class="why-card why6"><b>Eco-designed</b>Recycled ABS and durable metal parts, CE-certified.</div>
-  <div class="why-card why7"><b>Compatibility to all common sizes</b>From 330 ml cans to 1.5 L bottles — one simple press.</div>
-  <div class="why-card why8"><b>Fun to use</b>A simple, engaging reflex the whole family adopts, including children!</div>
-<div class="why-card why9"><b>Fewer collections and savings for the community</b>On a large scale, e.g. 100,000 households, SQWEEZY generates over €5 M in annual savings and prevents more than 5,000 tons of CO₂ emissions.</div>
-</div>
+      <!-- EN -->
+      <div class="lang-en why-grid">
+        <div class="why-card why1"><b>Save space</b>One press: up to 3× less recyclable waste volume to store at home.</div>
+        <div class="why-card why2"><b>An Eco-friendly habit</b>Recycling becomes easy, quick and motivating for everyone.</div>
+        <div class="why-card why3"><b>Zero electricity</b>100% mechanical: durable, robust, no power or batteries.</div>
+        <div class="why-card why4"><b>Patented design</b>Smooth vertical compression, low effort, all common formats.</div>
+        <div class="why-card why5"><b>Lightweight, Compact, Stable and Portable</b>Keep it beside your recycling bins, even in small spaces.</div>
+        <div class="why-card why6"><b>Eco-designed</b>Recycled ABS and durable metal parts, CE-certified.</div>
+        <div class="why-card why7"><b>Compatibility to all common sizes</b>From 330 ml cans to 1.5 L bottles — one simple press.</div>
+        <div class="why-card why8"><b>Fun to use</b>A simple, engaging reflex the whole family adopts, including children!</div>
+       <div class="why-card why9"><b>Fewer collections and savings for the community</b>On a large scale, e.g. 100,000 households, SQWEEZY generates over €5 M in annual savings and prevents more than 5,000 tons of CO₂ emissions.</div>
+      </div>
 
 
 
 
 <!-- Teaser PDF au format A4, remplissage cadre (Fit), clic = 100% -->
-<div class="teaser" style="margin-top:24px;text-align:center">
-  <!-- FR -->
-  <div class="lang-fr">
-    <h3 style="margin-bottom:12px">Découvrez SQWEEZY en un clin d’œil !</h3>
-    <a href="/FR%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le teaser en plein écran (100%)">
-      <div class="teaser-box">
-        <iframe
-          title="Teaser SQWEEZY (FR)"
-          src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit">
-        </iframe>
+    <div class="teaser" style="margin-top:24px;text-align:center">
+      <!-- FR -->
+      <div class="lang-fr">
+        <h3 style="margin-bottom:12px">Découvrez SQWEEZY en un clin d’œil !</h3>
+        <a href="/FR%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le teaser en plein écran (100%)">
+          <div class="teaser-box">
+            <iframe
+              title="Teaser SQWEEZY (FR)"
+              src="/FR%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit">
+            </iframe>
+          </div>
+        </a>
       </div>
-    </a>
-  </div>
 
-  <!-- EN -->
-  <div class="lang-en">
-    <h3 style="margin-bottom:12px">Discover SQWEEZY at a glance!</h3>
-    <a href="/EN%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer" aria-label="Open teaser full-screen (100%)">
-      <div class="teaser-box">
-        <iframe
-          title="SQWEEZY Teaser (EN)"
-          src="/EN%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit">
-        </iframe>
+      <!-- EN -->
+      <div class="lang-en">
+        <h3 style="margin-bottom:12px">Discover SQWEEZY at a glance!</h3>
+        <a href="/EN%20TEASER%20DEF.pdf#zoom=100" target="_blank" rel="noopener noreferrer" aria-label="Open teaser full-screen (100%)">
+          <div class="teaser-box">
+            <iframe
+              title="SQWEEZY Teaser (EN)"
+              src="/EN%20TEASER%20DEF.pdf#toolbar=0&navpanes=0&scrollbar=0&view=Fit">
+            </iframe>
+          </div>
+        </a>
       </div>
-    </a>
-  </div>
-</div>
+    </div>
 
 
-</section>
+    </section>
 
 
-    <!-- SPEC / USE CASES (facultatif, garder la structure simple) -->
+    <!-- SPEC / USE CASES -->
     <section class="section">
       <div class="card">
         <h2 class="lang-fr" style="margin-top:0">Spécifications</h2>
