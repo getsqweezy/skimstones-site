@@ -158,6 +158,86 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
         background-attachment: fixed;  /* option : le gradient reste fixe pendant le scroll */
       }
 
+      /* === Palette d’ombres cohérente (fond clair + gradient) === */
+      :root{
+        --shadow-1: 0 1px 6px rgba(0,0,0,.06);
+        --shadow-2: 0 6px 18px rgba(0,0,0,.08);
+        --shadow-3: 0 10px 30px rgba(0,0,0,.10);
+        --ring: 0 0 0 3px rgba(0, 140, 160, .18); /* halo focus acces’ (teinte brand) */
+      }
+
+      /* Cartes / encarts (Why SQWEEZY, sections en cadre, etc.) */
+      .card,
+      .why-card,
+      .teaser-box,
+      .gallery img{
+        box-shadow: var(--shadow-1);
+        transition: box-shadow .25s ease, transform .25s ease, border-color .25s ease;
+        background:#fff; /* garantit un fond net au-dessus du gradient */
+        will-change: transform, box-shadow;
+      }
+
+      /* Légère élévation au survol (desktop) */
+      @media (hover:hover){
+        .why-card:hover,
+        .teaser-box:hover,
+        .gallery img:hover{
+          box-shadow: var(--shadow-2);
+          transform: translateY(-2px);
+        }
+      }
+
+      /* Boutons (plein / ghost / secondary) */
+      .btn{
+        box-shadow: var(--shadow-1);
+        transition: box-shadow .2s ease, transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+      }
+      .btn:hover{
+        box-shadow: var(--shadow-2);
+        transform: translateY(-1px);
+      }
+      .btn:active{
+        box-shadow: var(--shadow-1);
+        transform: translateY(0); /* effet “pressé” propre */
+      }
+
+      /* Bouton ghost : on renforce la lisibilité sur fond dégradé */
+      .btn.ghost{
+        background: rgba(255,255,255,.65);
+        backdrop-filter: saturate(120%) blur(2px); /* supportés par navigateurs modernes */
+      }
+
+      /* États focus accessibles (clavier) */
+      .btn:focus-visible,
+      a.btn:focus-visible,
+      .why-card:focus-within{
+        outline: none;
+        box-shadow: var(--shadow-2), var(--ring);
+      }
+
+      /* Badge : cohérent avec la nouvelle élévation globale */
+      .badge{
+        box-shadow: var(--shadow-1);
+      }
+
+      /* Encadrement des images galerie : ton plus doux, cohérent avec ombres */
+      .gallery img{
+        border:1px solid rgba(0,0,0,.06);
+        border-radius:12px;
+      }
+
+      /* Teaser PDF : bordure + ombre douce */
+      .teaser-box{
+        border:1px solid rgba(0,0,0,.06);
+        border-radius:12px;
+      }
+
+      /* Réduction des animations si l’utilisateur le demande */
+      @media (prefers-reduced-motion: reduce){
+        .card, .why-card, .teaser-box, .gallery img, .btn{
+          transition: none;
+        }
+      }
 
 
   </style>
