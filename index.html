@@ -39,7 +39,7 @@
     .sub{color:var(--muted);max-width:70ch}
     @media(min-width:900px){ .hero{grid-template-columns:1fr 1fr} }
 
-    .section{padding:40px 0}
+    .section{padding:10px 0;}
     .card{border:1px solid #e5e7eb;border-radius:16px;padding:18px;background-color:#fafafa}
     .badge{display:inline-block;background:var(--eco);color:#0a0a0a;border-radius:999px;padding:4px 10px;font-weight:600}
 
@@ -125,6 +125,19 @@ footer .social a{display:inline-flex;align-items:center;gap:8px;text-decoration:
   .why7::before { content: "🗜️"; }      /* formats bouteille/canette */
   .why8::before { content: "🐱"; }      /* ludique */
   .why9::before { content: "💸"; }      /* collecte/logistique */
+
+      /* Ajustement de l'interligne du titre principal (accroche) */
+    h1 {
+      line-height: 1.2;        /* resserre les lignes */
+      margin-bottom: 0.6em;    /* réduit l’espace sous le titre */
+    }
+
+    /* Optionnel : si tu veux un rendu encore plus compact */
+    @media (max-width: 640px) {
+      h1 {
+        line-height: 1.15;     /* un peu plus serré sur mobile */
+      }
+    }
 
   </style>
 
