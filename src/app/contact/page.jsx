@@ -1,11 +1,11 @@
-// app/contact/page.tsx
+// app/contact/page.jsx
 "use client";
 import { useState } from "react";
 
 export default function Contact() {
   const [form, setForm] = useState({ nom: "", email: "", message: "" });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     await fetch("/api/contact", {
       method: "POST",
