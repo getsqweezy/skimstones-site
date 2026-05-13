@@ -7,11 +7,13 @@ export default function Contact() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await fetch("/api/contact", {
+    const res = await fetch("/api/contact", {
       method: "POST",
       body: JSON.stringify(form),
       headers: { "Content-Type": "application/json" },
     });
+    const data = await res.json();
+    console.log(data);
   };
 
   return (
