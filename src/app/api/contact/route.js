@@ -7,5 +7,7 @@ export async function POST(request) {
 
   // logique : email, Supabase, etc.
 
+  console.log("contactreçu:", await request.json()); // visible dans Netlify Functions logs
+
   return NextResponse.json({ success: true });
 }
