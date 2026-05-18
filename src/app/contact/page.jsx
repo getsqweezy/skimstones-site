@@ -7,6 +7,7 @@ export default function Contact() {
   const [values, setValues] = useState([]);
   const supabase = getSupabaseBrowserClient();
 
+  //BONJOUR
   async function fetchValues() {
     const { data } = await supabase.from("test").select("value");
     if (data) setValues(data.map((row) => row.value));
