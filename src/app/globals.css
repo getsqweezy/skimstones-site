@@ -1,29 +1,834 @@
-:root {
-  --brand: #004e7e;
-  --accent: #f96c5b;
-  --eco: #b8d87b;
-  --ink: #0f172a;
-  --muted: #475569;
-  --bg: #ffffff;
+/* ═══════════════════════════════════════════════════════
+   POLICES — @font-face
+   Les fichiers .woff2 doivent être placés dans /public/fonts/
+   Voir /public/fonts/README.md pour les instructions
+   ═══════════════════════════════════════════════════════ */
+
+/* Gadugi — texte normal (les deux chartes) */
+@font-face {
+  font-family: "Gadugi";
+  src: url("/fonts/gadugi.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Gadugi";
+  src: url("/fonts/gadugi-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
-*,
-*::before,
-*::after {
+/* Argentum Sans — titres SKS niveau 1 */
+@font-face {
+  font-family: "Argentum Sans VF";
+  src: url("/fonts/argentum-sans.woff2") format("woff2");
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Artifakt Element Medium — labels SKS niveau 2 */
+@font-face {
+  font-family: "Artifakt Element Medium";
+  src: url("/fonts/artifakt-element-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Stylus BT — texte spécial SQW */
+@font-face {
+  font-family: "Stylus BT";
+  src: url("/fonts/stylus-bt.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════════════════
+   VARIABLES
+   ═══════════════════════════════════════════════════════ */
+:root {
+  /* ── Palette SKS ── */
+  --sks-primary:  #19284F;
+  --sks-mid:      #4C5775;
+  --sks-bordeaux: #9B324B;
+  --sks-yellow:   #F4E791;
+  --sks-gold:     #A37C3D;
+  --sks-mint:     #6AAC91;
+
+  /* ── Palette SQW ── */
+  --sqw-orange:   #FE7116;
+  --sqw-dark:     #1C1C1C;
+  --sqw-forest:   #2F5D50;
+  --sqw-lime:     #B8D87B;
+  --sqw-sky:      #A9D6E5;
+  --sqw-coral:    #F96C5B;
+  --sqw-sand:     #D3BFA3;
+
+  /* ── Texte — identique dans les deux chartes ── */
+  --title-color: #004E7E;
+  --text-color:  #475569;
+
+  /* ── Fonds de page ── */
+  --sks-bg:        #FDFAE9;
+  --sqw-bg:        #F6F2ED;
+
+  /* ── Fonds de header ── */
+  --sks-header-bg: #FBF5D3;
+  --sqw-header-bg: #EDE5DA;
+
+  /* ── Typographie
+     1pt écran = 1.333px → 20pt = 26.7px, 18pt = 24px,
+     14pt = 18.7px, 12pt = 16px
+  ── */
+  --fs-title:    1.667rem;  /* 20pt */
+  --fs-subtitle: 1.5rem;    /* 18pt */
+  --fs-body:     1.167rem;  /* 14pt */
+  --fs-caption:  0.833rem;  /* 10pt — helper text, footnotes */
+  --fs-ui:       0.875rem;  /* ~10.5pt — labels boutons, navigation */
+
+  /* ── Polices ── */
+  --font-body:      "Gadugi", "Gill Sans MT", "Gill Sans", Calibri, system-ui, sans-serif;
+  --font-sks-l1:    "Argentum Sans VF", "Argentum Sans", "Century Gothic", sans-serif;
+  --font-sks-l2:    "Artifakt Element Medium", "Artifakt Element", "Trebuchet MS", sans-serif;
+  --font-sqw-spec:  "Stylus BT", "Kristen ITC", cursive;
+
+  /* ── Espacement (échelle ×4) ── */
+  --space-xs:  4px;
+  --space-s:   8px;
+  --space-m:   12px;
+  --space-l:   16px;
+  --space-xl:  24px;
+  --space-2xl: 32px;
+  --space-3xl: 48px;
+}
+
+/* ═══════════════════════════════════════════════════════
+   RESET
+   ═══════════════════════════════════════════════════════ */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 body {
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    Arial,
-    sans-serif;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
   line-height: 1.5;
-  color: var(--ink);
-  background: var(--bg);
+  color: var(--text-color);
+  background: var(--sks-bg); /* SKS par défaut */
 }
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════════════════════ */
+.mobile-frame {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  background: var(--sks-bg);
+}
+
+/* ═══════════════════════════════════════════════════════
+   HEADER — CHARTE SKS (défaut)
+   ═══════════════════════════════════════════════════════ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--sks-header-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-s) var(--space-m);
+  border-bottom: 1px solid color-mix(in srgb, var(--sks-yellow) 60%, #ccc);
+}
+
+.hamburger {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--space-xs) 4px;
+}
+
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--sks-primary);
+  border-radius: 1px;
+}
+
+.header-logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header-logo a {
+  display: flex;
+  align-items: center;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-xs);
+  display: flex;
+  align-items: center;
+}
+
+/* Navigation mobile */
+.mobile-nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--sks-header-bg);
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  z-index: 99;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-nav a {
+  padding: var(--space-m) var(--space-l);
+  color: var(--sks-primary);
+  text-decoration: none;
+  font-size: var(--fs-ui);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-bottom: 1px solid rgba(25, 40, 79, 0.08);
+}
+
+.mobile-nav a:hover {
+  background: rgba(25, 40, 79, 0.06);
+}
+
+/* ═══════════════════════════════════════════════════════
+   BOUTONS SKS — FORME BISEAU (bevel)
+   ═══════════════════════════════════════════════════════ */
+.btn-sks,
+.cta-services,
+.cta-founders,
+.cta-contact,
+.btn-send {
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sks-l2);
+  font-size: var(--fs-ui);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #fff;
+  /* Biseau : coins quasi carrés + ombres inset simulant le relief */
+  border-radius: 3px;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.30),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    2px 3px 6px rgba(0, 0, 0, 0.30);
+  transition: filter 0.15s, box-shadow 0.15s, transform 0.1s;
+}
+
+.btn-sks:hover,
+.cta-services:hover,
+.cta-founders:hover,
+.cta-contact:hover,
+.btn-send:hover:not(:disabled) {
+  filter: brightness(1.12);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.20),
+    3px 4px 8px rgba(0, 0, 0, 0.32);
+}
+
+.btn-sks:active,
+.cta-services:active,
+.cta-founders:active,
+.cta-contact:active,
+.btn-send:active:not(:disabled) {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.28),
+    1px 1px 2px rgba(0, 0, 0, 0.15);
+  transform: translateY(1px);
+  filter: brightness(0.96);
+}
+
+/* ═══════════════════════════════════════════════════════
+   PAGE D'ACCUEIL
+   ═══════════════════════════════════════════════════════ */
+.home-main {
+  padding: var(--space-l) var(--space-m) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-tagline {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-subtitle);
+  font-weight: 700;
+  color: var(--title-color);
+  line-height: 1.35;
+  margin-bottom: var(--space-l);
+}
+
+.home-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-m) 0;
+  border-bottom: 1px solid rgba(25, 40, 79, 0.08);
+}
+
+.home-row p {
+  flex: 1;
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  line-height: 1.45;
+}
+
+/* Base des boutons CTA home */
+.cta-btn {
+  flex-shrink: 0;
+  width: 132px;
+  min-height: 62px;
+  padding: var(--space-s) var(--space-s);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-xs);
+}
+
+/* ── Bouton DISCOVER SQWEEZY
+   Charte SKS (biseau) + fond jaune de la palette ── */
+.cta-sqweezy {
+  background: var(--sks-yellow);
+  color: var(--sks-primary);
+  border: none;
+  border-radius: 3px; /* SKS */
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    2px 3px 6px rgba(0, 0, 0, 0.22);
+  transition: filter 0.15s, box-shadow 0.15s, transform 0.1s;
+  text-decoration: none;
+}
+
+.cta-sqweezy:hover {
+  filter: brightness(1.06);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    3px 4px 8px rgba(0, 0, 0, 0.24);
+}
+
+.cta-sqweezy:active {
+  box-shadow:
+    inset 0 2px 4px rgba(0, 0, 0, 0.20),
+    1px 1px 2px rgba(0, 0, 0, 0.12);
+  transform: translateY(1px);
+}
+
+.cta-discover {
+  font-family: var(--font-sks-l2);
+  font-size: var(--fs-ui);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sks-primary);
+}
+
+/* ── Boutons SERVICES / FOUNDERS / CONTACT (palette SKS) ── */
+.cta-services { background: var(--sks-bordeaux); }
+.cta-founders { background: var(--sks-mid); }
+.cta-contact  { background: var(--sks-primary); }
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT GÉNÉRIQUE (pages SKS)
+   ═══════════════════════════════════════════════════════ */
+.page-main {
+  flex: 1;
+  padding: var(--space-l) var(--space-m) var(--space-2xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-l);
+}
+
+.page-headline {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  color: var(--title-color);
+  line-height: 1.3;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PAGE FOUNDERS (SKS)
+   ═══════════════════════════════════════════════════════ */
+.founders-row {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-l);
+  flex-wrap: wrap;
+}
+
+.founder-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.founder-photo-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.founder-photo {
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.founder-name {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  text-align: center;
+  color: var(--title-color);
+}
+
+.founder-role {
+  font-size: var(--fs-ui);
+  color: var(--sks-bordeaux);
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Modal Education */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.50);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-m);
+}
+
+.modal-card {
+  background: var(--sks-bg);
+  border-radius: 3px;
+  max-width: 420px;
+  width: 100%;
+  max-height: 80svh;
+  overflow-y: auto;
+  padding: var(--space-m);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    4px 6px 20px rgba(0, 0, 0, 0.30);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-m);
+}
+
+.modal-header h3 {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-subtitle);
+  font-weight: 700;
+  color: var(--title-color);
+}
+
+.modal-close {
+  background: none;
+  border: 1px solid var(--sks-mid);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-color);
+  width: 28px;
+  height: 28px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.modal-close:hover { background: rgba(76, 87, 117, 0.1); }
+
+.modal-list {
+  padding-left: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  margin-bottom: var(--space-m);
+}
+
+.modal-list li {
+  font-size: var(--fs-caption);
+  line-height: 1.45;
+  color: var(--text-color);
+}
+
+.modal-exp-headline {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-body);
+  font-weight: 700;
+  color: var(--title-color);
+  margin-bottom: var(--space-s);
+  line-height: 1.35;
+}
+
+/* Section Our DNA */
+.dna-section {
+  border-top: 2px solid var(--sks-mint);
+  padding-top: var(--space-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.dna-title {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  color: var(--title-color);
+  text-align: center;
+}
+
+.dna-item { display: flex; flex-direction: column; gap: var(--space-xs); }
+
+.dna-label {
+  font-family: var(--font-sks-l2);
+  font-weight: 700;
+  font-size: var(--fs-body);
+  color: var(--title-color);
+}
+
+.dna-item p {
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════
+   PAGE CONTACT (SKS)
+   ═══════════════════════════════════════════════════════ */
+.contact-title {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  color: var(--title-color);
+  text-align: center;
+}
+
+.contact-subtitle {
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.contact-success {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-m);
+}
+
+.contact-success h1 {
+  font-family: var(--font-sks-l1);
+  font-size: var(--fs-title);
+  color: var(--title-color);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  font-family: var(--font-sks-l2);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--title-color);
+}
+
+.req { color: var(--sks-bordeaux); }
+
+.form-input {
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  padding: var(--space-s) var(--space-m);
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  background: #fff;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.form-input:focus {
+  border-color: var(--title-color);
+  box-shadow: 0 0 0 2px rgba(0, 78, 126, 0.12);
+}
+
+.input-email-row {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.input-email-row:focus-within {
+  border-color: var(--title-color);
+  box-shadow: 0 0 0 2px rgba(0, 78, 126, 0.12);
+}
+
+.email-at {
+  padding: 0 var(--space-s);
+  font-size: var(--fs-body);
+  color: var(--text-color);
+  background: rgba(25, 40, 79, 0.05);
+  border-right: 1px solid #cbd5e1;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+}
+
+.input-email-row .form-input {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.phone-row { display: flex; gap: var(--space-s); }
+
+.form-select {
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  padding: var(--space-s) var(--space-s);
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  background: #fff;
+  flex-shrink: 0;
+  width: 110px;
+  outline: none;
+}
+
+.form-select:focus { border-color: var(--title-color); }
+.phone-input { flex: 1; }
+
+.form-fieldset {
+  border: 1px solid rgba(25, 40, 79, 0.15);
+  border-radius: 3px;
+  padding: var(--space-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.form-legend {
+  font-family: var(--font-sks-l2);
+  font-size: var(--fs-caption);
+  font-weight: 600;
+  color: var(--title-color);
+  padding: 0 var(--space-xs);
+  line-height: 1.4;
+}
+
+.multi-hint {
+  color: var(--text-color);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--fs-ui);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+.checkbox-label input[type="checkbox"] {
+  margin-top: 2px;
+  flex-shrink: 0;
+  accent-color: var(--title-color);
+  width: 15px;
+  height: 15px;
+}
+
+.form-error {
+  color: var(--sks-bordeaux);
+  font-size: var(--fs-caption);
+  text-align: center;
+}
+
+/* Bouton Send — SKS bevel */
+.btn-send {
+  background: var(--sks-primary);
+  padding: var(--space-m) var(--space-l);
+  align-self: flex-end;
+  min-width: 100px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-send:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ═══════════════════════════════════════════════════════
+   CHARTE SQW — tout ce qui concerne .sqweezy-frame
+   ═══════════════════════════════════════════════════════ */
+
+.sqweezy-frame {
+  height: 100svh;
+  overflow: hidden;
+  background: var(--sqw-bg);
+}
+
+/* Header SQW */
+.sqweezy-frame .site-header {
+  background: var(--sqw-header-bg);
+  border-bottom-color: rgba(254, 113, 22, 0.20);
+}
+
+.sqweezy-frame .hamburger span {
+  background: var(--sqw-orange);
+}
+
+.sqweezy-frame .lang-btn img {
+  /* filtre CSS pour teinter l'icône en orange SQW */
+  filter: invert(42%) sepia(99%) saturate(600%) hue-rotate(350deg) brightness(100%);
+}
+
+.sqweezy-frame .mobile-nav {
+  background: var(--sqw-header-bg);
+}
+
+.sqweezy-frame .mobile-nav a {
+  color: var(--sqw-dark);
+  border-bottom-color: rgba(254, 113, 22, 0.10);
+}
+
+.sqweezy-frame .mobile-nav a:hover {
+  background: rgba(254, 113, 22, 0.08);
+}
+
+/* Zone fixe du haut */
+.sqweezy-fixed-top {
+  padding: var(--space-m) var(--space-m) var(--space-s);
+  background: var(--sqw-bg);
+  flex-shrink: 0;
+}
+
+/* Badge CE — lime SQW, très arrondi */
+.sqweezy-badge {
+  display: inline-block;
+  background: var(--sqw-lime);
+  color: #2d4a00;
+  font-family: var(--font-body);
+  font-size: var(--fs-ui);
+  font-weight: 700;
+  padding: var(--space-xs) var(--space-m);
+  border-radius: 50px;
+  margin-bottom: var(--space-m);
+}
+
+.sqweezy-title {
+  font-family: var(--font-sqw-spec);
+  font-size: var(--fs-title);
+  font-weight: 700;
+  color: var(--title-color);
+  line-height: 1.3;
+}
+
+/* Zone de défilement */
+.sqweezy-scroll {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-m);
+  -webkit-overflow-scrolling: touch;
+}
+
+.text-placeholder {
+  color: var(--text-color);
+  font-style: italic;
+  font-size: var(--fs-body);
+  padding: var(--space-l) 0;
+}
+
+/* Footer fixe SQW */
+.sqweezy-footer {
+  flex-shrink: 0;
+  background: var(--sqw-header-bg);
+  border-top: 1px solid rgba(254, 113, 22, 0.20);
+  padding: var(--space-s) var(--space-m);
+}
+
+.sqweezy-footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-s);
+}
+
+/* Boutons footer SQW — forme pill arrondie */
+.footer-btn {
+  padding: var(--space-s) var(--space-xs);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: var(--fs-ui);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  /* SQW : coins très arrondis */
+  border-radius: 50px;
+  transition: filter 0.15s, transform 0.1s;
+}
+
+.footer-btn:hover  { filter: brightness(1.10); }
+.footer-btn:active { transform: scale(0.97); filter: brightness(0.95); }
+
+/* Couleurs des boutons footer (palette SQW, guidées par la maquette) */
+.btn-order     { background: var(--sqw-forest); color: #fff; }          /* vert forêt — teal maquette */
+.btn-mysqweezy { background: var(--sqw-orange); color: #fff; }          /* orange SQW */
+.btn-pro       { background: var(--sqw-dark);   color: #fff; }          /* quasi-noir — bleu foncé maquette */
+.btn-investors { background: var(--sqw-sand);   color: var(--sqw-dark); } /* sable — doré maquette */

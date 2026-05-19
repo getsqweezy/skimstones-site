@@ -1,13 +1,14 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "SQWEEZY — the smart compactor",
-  description: "Le compacteur éco-conçu par SKIMSTONES",
+  title: "SkimStones Smart Essentials",
+  description: "Innovative projects dedicated to circularity and energy transition.",
+  icons: { icon: "/favicon-sks.svg" },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="fr">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );
