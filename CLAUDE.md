@@ -18,4 +18,17 @@ Le projet utilise `@supabase/supabase-js` + `@supabase/ssr`.
 
 Ces variables doivent aussi être configurées dans Netlify (Site settings → Environment variables).
 
+## Règles UI
+
+Tous les headers de modales utilisent une teinte PLUS CLAIRE que le fond de page,
+obtenue avec `color-mix` vers `#fff` :
+```css
+background: color-mix(in srgb, var(--sks-header-bg) 85%, #fff 15%);
+```
+
+Dans toutes les modales du site, le header sticky contient UNIQUEMENT le nom
+et la fonction. Les titres de section du contenu (Education, Expérience, etc.)
+restent dans le corps scrollable et utilisent systématiquement
+`font-family: var(--font-sks-l2)` avec la classe `.modal-section-title`.
+
 @AGENTS.md

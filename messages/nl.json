@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "sqweezy": "SQWEEZY",
+    "services": "Diensten",
+    "founders": "Oprichters",
+    "contact": "Contact"
+  },
+  "sqweezy": {
+    "badge": "100% gerecycled ABS – CE-gecertificeerd",
+    "title": "Welkom bij SQWEEZY, de slimme compactor die het leven thuis verandert",
+    "btnOrder": "VOORBESTELLEN",
+    "btnMySqweezy": "MIJN SQWEEZY",
+    "btnPro": "PROFESSIONELE OPLOSSINGEN",
+    "btnInvestors": "INVESTEERDERSMOGELIJKHEID"
+  }
+}

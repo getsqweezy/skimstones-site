@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "sqweezy": "SQWEEZY",
+    "services": "Services",
+    "founders": "Fondateurs",
+    "contact": "Contact"
+  },
+  "home": {
+    "tagline": "Chez SKIMSTONES Services, notre vocation est de porter des projets innovants dédiés à la circularité et à la transition énergétique.",
+    "sqweezyBlurb": "Nous avons développé SQWEEZY, un nouvel outil pratique facilitant la vie avec les déchets recyclables ménagers",
+    "servicesBlurb": "SKIMSTONES Services apporte également un soutien stratégique et technique aux projets de transition énergétique.",
+    "foundersBlurb": "Découvrez le profil et la vision des fondateurs de Skimstones",
+    "contactBlurb": "Contactez-nous pour prendre rendez-vous",
+    "btnDiscover": "DÉCOUVRIR",
+    "btnServices": "SERVICES",
+    "btnFounders": "FONDATEURS",
+    "btnContact": "NOUS CONTACTER"
+  },
+  "sqweezy": {
+    "badge": "100% ABS recyclé – Certifié CE",
+    "title": "Bienvenue sur SQWEEZY, le compacteur intelligent qui change la vie à la maison",
+    "btnOrder": "PRÉ-COMMANDER",
+    "btnMySqweezy": "MON SQWEEZY",
+    "btnPro": "SOLUTIONS PROFESSIONNELLES",
+    "btnInvestors": "OPPORTUNITÉ INVESTISSEURS"
+  },
+  "consulting": {
+    "headline": "SKIMSTONES propose diverses prestations dédiées aux acteurs de la transition énergétique"
+  },
+  "founders": {
+    "headline": "Découvrez les fondateurs de Skimstones",
+    "educationTitle": "Formation",
+    "dnaTitle": "Notre ADN",
+    "mission": "Mission",
+    "missionText": "SKIMSTONES existe pour transformer la contrainte en valeur : pour tout détenteur de déchets ou consommateur d'énergie, nous proposons un conseil technique, financier et organisationnel pour construire progressivement une solution réaliste, finançable et scalable répondant précisément à leurs enjeux et besoins.",
+    "vision": "Vision",
+    "visionText": "SKIMSTONES vise à constituer le panel le plus large possible de solutions pour les déchets non valorisés et l'énergie fossile, pour un monde plus propre et viable.",
+    "values": "Valeurs",
+    "valuesText": "Chez SKIMSTONES, nous croyons à l'effet boule de neige : partout dans le monde, une petite action positive peut avoir de grands effets. La solidarité, la pensée systémique, le travail et l'esprit critique animent notre créativité."
+  },
+  "contact": {
+    "title": "Formulaire de contact",
+    "subtitle": "Veuillez remplir le formulaire ci-dessous et nous vous contacterons dans les meilleurs délais.",
+    "labelName": "Votre nom",
+    "labelCompany": "Société",
+    "labelFonction": "Votre fonction",
+    "labelEmail": "Email professionnel",
+    "labelPhone": "Numéro de téléphone",
+    "labelCountry": "Pays",
+    "situationsLegend": "Décrivez la situation de votre entreprise",
+    "multiHint": "(plusieurs choix possibles)",
+    "btnSend": "Envoyer",
+    "sending": "Envoi…",
+    "thanks": "Merci !",
+    "confirmation": "Nous vous contacterons dans les meilleurs délais.",
+    "error": "Une erreur est survenue. Veuillez réessayer.",
+    "s1": "Grand consommateur d'électricité cherchant des solutions vertes",
+    "s2": "Établissement industriel cherchant des solutions déchet-énergie",
+    "s3": "Installation énergétique cherchant QoS et résilience",
+    "s4": "Acteur public cherchant des solutions d'économie d'énergie",
+    "s5": "Investisseur cherchant des projets bancables et à impact climatique positif",
+    "s6": "Fournisseur technologique cherchant un partenariat",
+    "s7": "Autre : merci de préciser"
+  }
+}

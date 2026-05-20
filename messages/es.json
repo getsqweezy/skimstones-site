@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "sqweezy": "SQWEEZY",
+    "services": "Servicios",
+    "founders": "Fundadores",
+    "contact": "Contacto"
+  },
+  "sqweezy": {
+    "badge": "100% ABS reciclado – Certificado CE",
+    "title": "Bienvenido a SQWEEZY, el compactador inteligente que cambia la vida en casa",
+    "btnOrder": "PRE-PEDIDO",
+    "btnMySqweezy": "MI SQWEEZY",
+    "btnPro": "SOLUCIONES PROFESIONALES",
+    "btnInvestors": "OPORTUNIDAD INVERSORES"
+  }
+}

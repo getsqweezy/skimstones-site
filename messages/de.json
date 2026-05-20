@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Start",
+    "sqweezy": "SQWEEZY",
+    "services": "Dienste",
+    "founders": "Gründer",
+    "contact": "Kontakt"
+  },
+  "sqweezy": {
+    "badge": "100% recyceltes ABS – CE-zertifiziert",
+    "title": "Willkommen bei SQWEEZY, dem smarten Verdichter, der das Leben zu Hause verändert",
+    "btnOrder": "VORBESTELLEN",
+    "btnMySqweezy": "MEIN SQWEEZY",
+    "btnPro": "PROFESSIONELLE LÖSUNGEN",
+    "btnInvestors": "INVESTORENCHANCE"
+  }
+}

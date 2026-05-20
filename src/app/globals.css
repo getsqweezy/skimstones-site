@@ -179,6 +179,10 @@ body {
   align-items: center;
 }
 
+.lang-wrapper {
+  position: relative;
+}
+
 .lang-btn {
   background: none;
   border: none;
@@ -186,6 +190,59 @@ body {
   padding: var(--space-xs);
   display: flex;
   align-items: center;
+  gap: var(--space-xs);
+}
+
+.lang-code {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  color: var(--sks-primary);
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.lang-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 199;
+}
+
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  min-width: 140px;
+  z-index: 200;
+  overflow: hidden;
+}
+
+.lang-option {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-s) var(--space-m);
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  transition: background 0.15s;
+}
+
+.lang-option:hover {
+  background: var(--sks-bg);
+}
+
+.lang-option.lang-active {
+  font-weight: 700;
+  color: var(--sks-primary);
+  background: var(--sks-yellow);
 }
 
 /* Navigation mobile */
@@ -397,28 +454,33 @@ body {
   border: none;
   cursor: pointer;
   padding: 0;
-  border-radius: 50%;
+  border-radius: 12px;
   overflow: hidden;
 }
 
 .founder-photo {
-  border-radius: 50%;
+  border-radius: 12px;
   object-fit: cover;
   display: block;
 }
 
 .founder-name {
-  font-family: var(--font-sks-l1);
+  font-family: var(--font-body);
   font-size: var(--fs-caption);
   font-weight: 700;
   text-align: center;
   color: var(--title-color);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
 }
 
 .founder-role {
+  font-family: var(--font-sks-l2);
   font-size: var(--fs-ui);
   color: var(--sks-bordeaux);
-  font-weight: 600;
+  font-weight: 500;
   text-align: center;
 }
 
@@ -441,32 +503,50 @@ body {
   width: 100%;
   max-height: 80svh;
   overflow-y: auto;
-  padding: var(--space-m);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
     4px 6px 20px rgba(0, 0, 0, 0.30);
 }
 
-.modal-header {
+.modal-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--space-m);
+  justify-content: space-between;
+  padding: var(--space-s) var(--space-m);
+  background: color-mix(in srgb, var(--sks-header-bg) 85%, #fff 15%);
+  border-bottom: 1px solid rgba(25, 40, 79, 0.15);
+  border-radius: 3px 3px 0 0;
 }
 
-.modal-header h3 {
+.modal-founder-name {
   font-family: var(--font-sks-l1);
-  font-size: var(--fs-subtitle);
+  font-size: var(--fs-caption);
   font-weight: 700;
   color: var(--title-color);
 }
 
+.modal-founder-role {
+  font-family: var(--font-sks-l2);
+  font-size: var(--fs-body);
+  font-weight: 500;
+  color: var(--sks-bordeaux);
+  margin-left: var(--space-s);
+  flex: 1;
+}
+
+.modal-body {
+  padding: var(--space-m);
+}
+
 .modal-close {
   background: none;
-  border: 1px solid var(--sks-mid);
+  border: 1px solid var(--sks-bordeaux);
   cursor: pointer;
   font-size: 0.9rem;
-  color: var(--text-color);
+  color: var(--sks-bordeaux);
   width: 28px;
   height: 28px;
   border-radius: 3px;
@@ -474,9 +554,18 @@ body {
   align-items: center;
   justify-content: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
 }
 
-.modal-close:hover { background: rgba(76, 87, 117, 0.1); }
+.modal-close:hover { background: rgba(155, 50, 75, 0.1); }
+
+.sqweezy-frame .modal-close {
+  border-color: var(--sqw-coral);
+  color: var(--sqw-coral);
+}
+.sqweezy-frame .modal-close:hover {
+  background: rgba(249, 108, 91, 0.1);
+}
 
 .modal-list {
   padding-left: var(--space-m);
@@ -492,13 +581,13 @@ body {
   color: var(--text-color);
 }
 
-.modal-exp-headline {
-  font-family: var(--font-sks-l1);
+.modal-section-title {
+  font-family: var(--font-sks-l2);
   font-size: var(--fs-body);
-  font-weight: 700;
+  font-weight: 500;
   color: var(--title-color);
+  margin-top: var(--space-l);
   margin-bottom: var(--space-s);
-  line-height: 1.35;
 }
 
 /* Section Our DNA */
@@ -735,8 +824,16 @@ body {
 }
 
 .sqweezy-frame .lang-btn img {
-  /* filtre CSS pour teinter l'icône en orange SQW */
   filter: invert(42%) sepia(99%) saturate(600%) hue-rotate(350deg) brightness(100%);
+}
+
+.sqweezy-frame .lang-code {
+  color: var(--sqw-orange);
+}
+
+.sqweezy-frame .lang-option.lang-active {
+  color: var(--sqw-dark);
+  background: var(--sqw-lime);
 }
 
 .sqweezy-frame .mobile-nav {
@@ -809,7 +906,7 @@ body {
   gap: var(--space-s);
 }
 
-/* Boutons footer SQW — forme pill arrondie */
+/* Boutons footer SQW — coins arrondis rectangulaires */
 .footer-btn {
   padding: var(--space-s) var(--space-xs);
   border: none;
@@ -819,16 +916,15 @@ body {
   font-weight: 700;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  /* SQW : coins très arrondis */
-  border-radius: 50px;
+  border-radius: 12px;
   transition: filter 0.15s, transform 0.1s;
 }
 
 .footer-btn:hover  { filter: brightness(1.10); }
 .footer-btn:active { transform: scale(0.97); filter: brightness(0.95); }
 
-/* Couleurs des boutons footer (palette SQW, guidées par la maquette) */
-.btn-order     { background: var(--sqw-forest); color: #fff; }          /* vert forêt — teal maquette */
-.btn-mysqweezy { background: var(--sqw-orange); color: #fff; }          /* orange SQW */
-.btn-pro       { background: var(--sqw-dark);   color: #fff; }          /* quasi-noir — bleu foncé maquette */
-.btn-investors { background: var(--sqw-sand);   color: var(--sqw-dark); } /* sable — doré maquette */
+/* Couleurs des boutons footer (palette SQW, maquette) */
+.btn-order     { background: var(--sqw-sky);    color: var(--sqw-dark); }
+.btn-mysqweezy { background: var(--sqw-orange); color: #fff; }
+.btn-pro       { background: var(--sqw-lime);   color: #2d4a00; }
+.btn-investors { background: var(--sqw-sand);   color: var(--sqw-dark); }

@@ -1,30 +1,33 @@
-"use client";
-import Header from "@/components/Header";
-import { useState } from "react";
-
-const SITUATIONS = [
-  "Big electricity consumer seeking green solutions",
-  "Industrial facility seeking waste to energy solutions",
-  "Energy facility seeking QoS and resilience",
-  "Public actor seeking energy saving solutions",
-  "Investor seeking bankable and climate-positive projects",
-  "Technology provider seeking for partnership",
-  "Other: Please detail",
-];
+'use client';
+import Header from '@/components/Header';
+import { useState } from 'react';
+import { useTranslations } from 'next-intl';
 
 export default function ContactPage() {
+  const t = useTranslations('contact');
+
+  const SITUATIONS = [
+    t('s1'),
+    t('s2'),
+    t('s3'),
+    t('s4'),
+    t('s5'),
+    t('s6'),
+    t('s7'),
+  ];
+
   const [form, setForm] = useState({
-    name: "",
-    company: "",
-    fonction: "",
-    email: "",
-    countryCode: "",
-    phone: "",
+    name: '',
+    company: '',
+    fonction: '',
+    email: '',
+    countryCode: '',
+    phone: '',
     situations: [],
-    otherDetail: "",
+    otherDetail: '',
   });
   const [sent, setSent] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
   function handleChange(e) {
@@ -42,18 +45,18 @@ export default function ContactPage() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError("");
+    setError('');
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
       if (!res.ok) throw new Error();
       setSent(true);
     } catch {
-      setError("An error occurred. Please try again.");
+      setError(t('error'));
     } finally {
       setLoading(false);
     }
@@ -64,8 +67,8 @@ export default function ContactPage() {
       <div className="mobile-frame">
         <Header />
         <main className="page-main contact-success">
-          <h1>Thank you!</h1>
-          <p>We will contact you as rapidly as possible.</p>
+          <h1>{t('thanks')}</h1>
+          <p>{t('confirmation')}</p>
         </main>
       </div>
     );
@@ -75,51 +78,45 @@ export default function ContactPage() {
     <div className="mobile-frame">
       <Header />
       <main className="page-main">
-        <h1 className="contact-title">Contact form</h1>
-        <p className="contact-subtitle">
-          Please fill the form below and we will contact you as rapidly as
-          possible
-        </p>
+        <h1 className="contact-title">{t('title')}</h1>
+        <p className="contact-subtitle">{t('subtitle')}</p>
 
         <form onSubmit={handleSubmit} className="contact-form">
           <label className="form-label">
-            Your name <span className="req">*</span>
+            {t('labelName')} <span className="req">*</span>
             <input
               className="form-input"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="Entrer le texte"
               required
             />
           </label>
 
           <label className="form-label">
-            Company <span className="req">*</span>
+            {t('labelCompany')} <span className="req">*</span>
             <input
               className="form-input"
               name="company"
               value={form.company}
               onChange={handleChange}
-              placeholder="Entrer le texte"
               required
             />
           </label>
 
           <label className="form-label">
-            Your fonction <span className="req">*</span>
+            {t('labelFonction')} <span className="req">*</span>
             <input
               className="form-input"
               name="fonction"
               value={form.fonction}
               onChange={handleChange}
-              placeholder="Entrer le texte"
               required
             />
           </label>
 
           <label className="form-label">
-            Professional email <span className="req">*</span>
+            {t('labelEmail')} <span className="req">*</span>
             <div className="input-email-row">
               <span className="email-at">@</span>
               <input
@@ -134,7 +131,7 @@ export default function ContactPage() {
           </label>
 
           <label className="form-label">
-            Phone number <span className="req">*</span>
+            {t('labelPhone')} <span className="req">*</span>
             <div className="phone-row">
               <select
                 className="form-select"
@@ -143,7 +140,7 @@ export default function ContactPage() {
                 onChange={handleChange}
                 required
               >
-                <option value="">Country</option>
+                <option value="">{t('labelCountry')}</option>
                 <option value="+33">🇫🇷 +33</option>
                 <option value="+212">🇲🇦 +212</option>
                 <option value="+1">🇺🇸 +1</option>
@@ -165,9 +162,8 @@ export default function ContactPage() {
 
           <fieldset className="form-fieldset">
             <legend className="form-legend">
-              Please describe your company situation{" "}
-              <span className="req">*</span>{" "}
-              <span className="multi-hint">(multiple choice allowed)</span>
+              {t('situationsLegend')} <span className="req">*</span>{' '}
+              <span className="multi-hint">{t('multiHint')}</span>
             </legend>
             {SITUATIONS.map((s) => (
               <label key={s} className="checkbox-label">
@@ -184,7 +180,7 @@ export default function ContactPage() {
           {error && <p className="form-error">{error}</p>}
 
           <button type="submit" className="btn-send" disabled={loading}>
-            {loading ? "Sending…" : "Send"}
+            {loading ? t('sending') : t('btnSend')}
           </button>
         </form>
       </main>

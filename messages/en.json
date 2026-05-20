@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Home",
+    "sqweezy": "SQWEEZY",
+    "services": "Services",
+    "founders": "Founders",
+    "contact": "Contact"
+  },
+  "home": {
+    "tagline": "At SKIMSTONES Services, our purpose is to implement innovative projects dedicated to circularity and energy transition.",
+    "sqweezyBlurb": "Therefore, we developed SQWEEZY, a handy new tool making life easier with household recyclable waste",
+    "servicesBlurb": "Moreover, SKIMSTONES Services provides strategic and technical support for energy transition projects.",
+    "foundersBlurb": "Discover Skimstones' founders profile and vision",
+    "contactBlurb": "Contact us to get an appointment",
+    "btnDiscover": "DISCOVER",
+    "btnServices": "SERVICES",
+    "btnFounders": "FOUNDERS",
+    "btnContact": "CONTACT US"
+  },
+  "sqweezy": {
+    "badge": "100% recycled ABS – CE Certified",
+    "title": "Welcome to SQWEEZY, the smart compactor that changes life at home",
+    "btnOrder": "PRE-ORDER",
+    "btnMySqweezy": "MY SQWEEZY",
+    "btnPro": "PROFESSIONAL SOLUTIONS",
+    "btnInvestors": "INVESTORS OPPORTUNITY"
+  },
+  "consulting": {
+    "headline": "SKIMSTONES offers various services dedicated to energy transition actors"
+  },
+  "founders": {
+    "headline": "Meet Skimstones' founders",
+    "educationTitle": "Education",
+    "dnaTitle": "Our DNA",
+    "mission": "Mission",
+    "missionText": "SKIMSTONES exists to turn constraint into value: for any waste holder or energy consumer, we offer technical, financial and organisational consulting, to build progressively a realistic, fundable and scalable solution answering closely to their stakes and needs.",
+    "vision": "Vision",
+    "visionText": "SKIMSTONES aims to build the largest possible panel of solutions for unvalued waste and fossil energy, for a cleaner a viable world.",
+    "values": "Values",
+    "valuesText": "At SKIMSTONES, we cherish the ripple effect, meaning that all over the world, a little positive action can have big effects. Solidarity, systemic thinking, hard work and critical sense animates our creativity."
+  },
+  "contact": {
+    "title": "Contact form",
+    "subtitle": "Please fill the form below and we will contact you as rapidly as possible.",
+    "labelName": "Your name",
+    "labelCompany": "Company",
+    "labelFonction": "Your fonction",
+    "labelEmail": "Professional email",
+    "labelPhone": "Phone number",
+    "labelCountry": "Country",
+    "situationsLegend": "Please describe your company situation",
+    "multiHint": "(multiple choice allowed)",
+    "btnSend": "Send",
+    "sending": "Sending…",
+    "thanks": "Thank you!",
+    "confirmation": "We will contact you as rapidly as possible.",
+    "error": "An error occurred. Please try again.",
+    "s1": "Big electricity consumer seeking green solutions",
+    "s2": "Industrial facility seeking waste to energy solutions",
+    "s3": "Energy facility seeking QoS and resilience",
+    "s4": "Public actor seeking energy saving solutions",
+    "s5": "Investor seeking bankable and climate-positive projects",
+    "s6": "Technology provider seeking for partnership",
+    "s7": "Other: Please detail"
+  }
+}

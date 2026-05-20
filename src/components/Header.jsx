@@ -1,10 +1,16 @@
-"use client";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useState } from 'react';
+import { useLocale, useTranslations } from 'next-intl';
+import LangButton from './LangButton';
 
-export default function Header({ variant = "skimstones" }) {
+export default function Header({ variant = 'skimstones' }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const locale = useLocale();
+  const t = useTranslations('nav');
+
+  const isSqw = variant === 'sqweezy';
 
   return (
     <header className="site-header">
@@ -19,29 +25,27 @@ export default function Header({ variant = "skimstones" }) {
       </button>
 
       <div className="header-logo">
-        <Link href="/">
+        <Link href={`/${locale}`}>
           <Image
-            src={variant === "sqweezy" ? "/logo-sqweezy-long.png" : "/logo-sks-baseline.png"}
-            alt={variant === "sqweezy" ? "SQWEEZY" : "SkimStones Smart Essentials"}
+            src={isSqw ? '/logo-sqweezy-long.png' : '/logo-sks-baseline.png'}
+            alt={isSqw ? 'SQWEEZY' : 'SkimStones Smart Essentials'}
             width={140}
             height={48}
-            style={{ objectFit: "contain", height: "48px", width: "auto" }}
+            style={{ objectFit: 'contain', height: '48px', width: 'auto' }}
             priority
           />
         </Link>
       </div>
 
-      <button className="lang-btn" aria-label="Language">
-        <Image src="/langage-choice.png" alt="" width={34} height={34} />
-      </button>
+      <LangButton variant={variant} />
 
       {menuOpen && (
         <nav className="mobile-nav" onClick={() => setMenuOpen(false)}>
-          <Link href="/">Home</Link>
-          <Link href="/sqweezy">SQWEEZY</Link>
-          <Link href="/consulting-services">Services</Link>
-          <Link href="/founders">Founders</Link>
-          <Link href="/contact">Contact</Link>
+          <Link href={`/${locale}`}>{t('home')}</Link>
+          <Link href={`/${locale}/sqweezy`}>{t('sqweezy')}</Link>
+          <Link href={`/${locale}/consulting-services`}>{t('services')}</Link>
+          <Link href={`/${locale}/founders`}>{t('founders')}</Link>
+          <Link href={`/${locale}/contact`}>{t('contact')}</Link>
         </nav>
       )}
     </header>
