@@ -1,0 +1,34 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Copy-Item \"MAQUETTE-LIGHT.vsdx\" \"MAQUETTE-LIGHT.zip\")",
+      "Bash(Expand-Archive -Path \"MAQUETTE-LIGHT.zip\" -DestinationPath \"maquette_extracted\" -Force)",
+      "Bash(Remove-Item \"MAQUETTE-LIGHT.zip\")",
+      "Bash(cp \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/maquette_extracted/visio/media/image4.png\" \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/public/logo-skimstones.png\")",
+      "Bash(cp \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/maquette_extracted/visio/media/image6.png\" \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/public/logo-sqweezy.png\")",
+      "Bash(cp \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/maquette_extracted/visio/media/image5.png\" \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/public/icon-globe.png\")",
+      "Bash(cp \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/maquette_extracted/visio/media/image2.jpeg\" \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/public/photo-pierre-emmanuel.jpg\")",
+      "Bash(cp \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/maquette_extracted/visio/media/image1.png\" \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/public/photo-lenda.png\")",
+      "Bash(mkdir -p \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/src/components\")",
+      "Bash(mkdir -p \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/src/app/sqweezy\")",
+      "Bash(mkdir -p \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/src/app/consulting-services\")",
+      "Bash(mkdir -p \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/src/app/founders\")",
+      "Bash(mkdir -p \"D:/SQWEEZY/DEPLOIEMENT/SITE WEB/SITEV2/AGDAL/skimstones-site/src/app/contact\")",
+      "Bash(unzip -o charte-site.zip -d charte_extracted)",
+      "Bash(npm install *)",
+      "Bash(Remove-Item -Path \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\\\\src\\\\app\\\\page.js\" -Force)",
+      "Bash(Remove-Item -Path \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\\\\src\\\\app\\\\sqweezy\" -Recurse -Force)",
+      "Bash(Remove-Item -Path \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\\\\src\\\\app\\\\consulting-services\" -Recurse -Force)",
+      "Bash(Remove-Item -Path \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\\\\src\\\\app\\\\founders\" -Recurse -Force)",
+      "Bash(Remove-Item -Path \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\\\\src\\\\app\\\\contact\" -Recurse -Force)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" \"http://localhost:3000/\")",
+      "Bash(curl -s -L -w \"\\\\nHTTP: %{http_code}\\\\nFinal URL: %{url_effective}\" \"http://localhost:3000/\")",
+      "Bash(curl -s \"http://localhost:3000/en\")",
+      "Bash(curl -s \"http://localhost:3000/es\" -w \"\\\\nHTTP: %{http_code}\")",
+      "Bash(curl -s \"http://localhost:3000/fr/sqweezy\")",
+      "Bash(curl -s \"http://localhost:3000/es/sqweezy\")",
+      "Bash(curl -s \"http://localhost:3000/de/sqweezy\")"
+    ]
+  }
+}

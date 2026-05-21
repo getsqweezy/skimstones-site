@@ -54,6 +54,7 @@ const LENDA = {
 
 function FounderCard({ founder }) {
   const [open, setOpen] = useState(false);
+  const t = useTranslations('founders');
 
   return (
     <div className="founder-card">
