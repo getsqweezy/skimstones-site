@@ -31,4 +31,8 @@ et la fonction. Les titres de section du contenu (Education, Expérience, etc.)
 restent dans le corps scrollable et utilisent systématiquement
 `font-family: var(--font-sks-l2)` avec la classe `.modal-section-title`.
 
+## Formulaire de contact
+
+Le formulaire de contact utilise `react-phone-number-input` pour la gestion internationale des téléphones. Tous les numéros sont stockés en format E.164 dans Supabase. La colonne `phone_country` reçoit le code ISO du pays (ex. `"FR"`). Les cases à cocher situations sont des booléens indépendants (`s1` à `s7`), pas un tableau de strings. Cette convention s'applique à tous les futurs formulaires du site.
+
 @AGENTS.md

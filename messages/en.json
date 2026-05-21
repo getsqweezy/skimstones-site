@@ -61,6 +61,11 @@
     "s4": "Public actor seeking energy saving solutions",
     "s5": "Investor seeking bankable and climate-positive projects",
     "s6": "Technology provider seeking for partnership",
-    "s7": "Other: Please detail"
+    "s7": "Other:",
+    "otherDetailLabel": "Please describe your situation",
+    "errorRequired": "This field is required",
+    "errorEmail": "Invalid email address",
+    "errorPhone": "Invalid phone number",
+    "errorSituations": "Please select at least one situation"
   }
 }

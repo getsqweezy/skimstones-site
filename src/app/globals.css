@@ -659,10 +659,13 @@ body {
   gap: var(--space-m);
 }
 
-.form-label {
+.form-field {
   display: flex;
   flex-direction: column;
   gap: var(--space-xs);
+}
+
+.form-label {
   font-family: var(--font-sks-l2);
   font-size: var(--fs-caption);
   font-weight: 600;
@@ -720,23 +723,50 @@ body {
   box-shadow: none;
 }
 
-.phone-row { display: flex; gap: var(--space-s); }
+.form-input.input-error,
+.input-email-row.input-error {
+  border-color: var(--sks-bordeaux);
+}
 
-.form-select {
+.phone-input-wrapper {
+  display: flex;
+  align-items: stretch;
   border: 1px solid #cbd5e1;
   border-radius: 3px;
-  padding: var(--space-s) var(--space-s);
+  background: #fff;
+  overflow: hidden;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.phone-input-wrapper:focus-within {
+  border-color: var(--title-color);
+  box-shadow: 0 0 0 2px rgba(0, 78, 126, 0.12);
+}
+.phone-input-wrapper.input-error {
+  border-color: var(--sks-bordeaux);
+}
+.phone-input-wrapper .PhoneInputCountry {
+  padding: 0 var(--space-s);
+  border-right: 1px solid #cbd5e1;
+  display: flex;
+  align-items: center;
+  background: rgba(25, 40, 79, 0.05);
+  flex-shrink: 0;
+}
+.phone-input-wrapper .PhoneInputInput {
+  border: none;
+  outline: none;
+  background: transparent;
   font-family: var(--font-body);
   font-size: var(--fs-caption);
   color: var(--text-color);
-  background: #fff;
-  flex-shrink: 0;
-  width: 110px;
-  outline: none;
+  padding: var(--space-s) var(--space-m);
+  flex: 1;
+  width: 100%;
 }
-
-.form-select:focus { border-color: var(--title-color); }
-.phone-input { flex: 1; }
+.phone-input-wrapper .PhoneInputInput:focus {
+  border: none;
+  box-shadow: none;
+}
 
 .form-fieldset {
   border: 1px solid rgba(25, 40, 79, 0.15);
@@ -779,6 +809,43 @@ body {
   accent-color: var(--title-color);
   width: 15px;
   height: 15px;
+}
+
+.field-error {
+  font-size: var(--fs-ui);
+  color: var(--sks-bordeaux);
+  margin-top: 2px;
+}
+
+.form-textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 3px;
+  padding: var(--space-s) var(--space-m);
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  color: var(--text-color);
+  background: #fff;
+  width: 100%;
+  outline: none;
+  resize: none;
+  overflow: hidden;
+  min-height: 60px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  line-height: 1.5;
+}
+.form-textarea:focus {
+  border-color: var(--title-color);
+  box-shadow: 0 0 0 2px rgba(0, 78, 126, 0.12);
+}
+.form-textarea.input-error {
+  border-color: var(--sks-bordeaux);
+}
+
+.char-counter {
+  font-size: var(--fs-ui);
+  color: var(--text-color);
+  opacity: 0.6;
+  text-align: right;
 }
 
 .form-error {

@@ -28,7 +28,9 @@
       "Bash(curl -s \"http://localhost:3000/es\" -w \"\\\\nHTTP: %{http_code}\")",
       "Bash(curl -s \"http://localhost:3000/fr/sqweezy\")",
       "Bash(curl -s \"http://localhost:3000/es/sqweezy\")",
-      "Bash(curl -s \"http://localhost:3000/de/sqweezy\")"
+      "Bash(curl -s \"http://localhost:3000/de/sqweezy\")",
+      "Bash(node -e \"const keys = ['s1','s2','s3','s4','s5','s6','s7']; console.log\\(Object.fromEntries\\(keys.map\\(k => [k, false]\\)\\)\\)\")",
+      "Bash(node -e \"const { isValidPhoneNumber } = require\\('libphonenumber-js'\\); console.log\\(isValidPhoneNumber\\('+33612345678'\\)\\); console.log\\(isValidPhoneNumber\\('+212612345678'\\)\\);\")"
     ]
   }
 }

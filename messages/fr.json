@@ -61,6 +61,11 @@
     "s4": "Acteur public cherchant des solutions d'économie d'énergie",
     "s5": "Investisseur cherchant des projets bancables et à impact climatique positif",
     "s6": "Fournisseur technologique cherchant un partenariat",
-    "s7": "Autre : merci de préciser"
+    "s7": "Autre :",
+    "otherDetailLabel": "Précisez votre situation",
+    "errorRequired": "Ce champ est requis",
+    "errorEmail": "Adresse email invalide",
+    "errorPhone": "Numéro de téléphone invalide",
+    "errorSituations": "Veuillez sélectionner au moins une situation"
   }
 }

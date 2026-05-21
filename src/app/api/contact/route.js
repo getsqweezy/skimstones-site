@@ -3,7 +3,12 @@ import { getSupabaseServerClient } from "@/lib/supabase/server";
 
 export async function POST(request) {
   const body = await request.json();
-  const { name, company, fonction, email, countryCode, phone, situations, otherDetail } = body;
+  const {
+    name, company, fonction, email,
+    phone, phone_country,
+    s1, s2, s3, s4, s5, s6, s7,
+    other_detail,
+  } = body;
 
   const supabase = await getSupabaseServerClient();
 
@@ -12,10 +17,10 @@ export async function POST(request) {
     company,
     fonction,
     email,
-    country_code: countryCode,
     phone,
-    situations,
-    other_detail: otherDetail,
+    phone_country,
+    s1, s2, s3, s4, s5, s6, s7,
+    other_detail,
   });
 
   if (error) {

@@ -1,62 +1,108 @@
 'use client';
 import Header from '@/components/Header';
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useTranslations } from 'next-intl';
+import PhoneInput from 'react-phone-number-input';
+import { isValidPhoneNumber } from 'libphonenumber-js';
+import 'react-phone-number-input/style.css';
+
+const SIT_KEYS = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'];
+
+function isPhoneValid(val) {
+  if (!val) return false;
+  try { return isValidPhoneNumber(val); } catch { return false; }
+}
 
 export default function ContactPage() {
   const t = useTranslations('contact');
 
-  const SITUATIONS = [
-    t('s1'),
-    t('s2'),
-    t('s3'),
-    t('s4'),
-    t('s5'),
-    t('s6'),
-    t('s7'),
-  ];
-
-  const [form, setForm] = useState({
-    name: '',
-    company: '',
-    fonction: '',
-    email: '',
-    countryCode: '',
-    phone: '',
-    situations: [],
-    otherDetail: '',
-  });
+  const [form, setForm] = useState({ name: '', company: '', fonction: '', email: '' });
+  const [phone, setPhone] = useState('');
+  const [phoneCountry, setPhoneCountry] = useState('FR');
+  const [situations, setSituations] = useState(
+    Object.fromEntries(SIT_KEYS.map((k) => [k, false]))
+  );
+  const [otherDetail, setOtherDetail] = useState('');
+  const [fieldErrors, setFieldErrors] = useState({});
+  const [submitError, setSubmitError] = useState('');
   const [sent, setSent] = useState(false);
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const otherRef = useRef(null);
+
+  useEffect(() => {
+    if (!otherRef.current) return;
+    otherRef.current.style.height = 'auto';
+    otherRef.current.style.height = otherRef.current.scrollHeight + 'px';
+  }, [otherDetail]);
 
   function handleChange(e) {
     setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
   }
 
-  function toggleSituation(s) {
-    setForm((f) => ({
-      ...f,
-      situations: f.situations.includes(s)
-        ? f.situations.filter((x) => x !== s)
-        : [...f.situations, s],
+  function validateTextField(name, value) {
+    if (!value.trim()) return t('errorRequired');
+    if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) return t('errorEmail');
+    return '';
+  }
+
+  function handleBlur(e) {
+    setFieldErrors((fe) => ({ ...fe, [e.target.name]: validateTextField(e.target.name, e.target.value) }));
+  }
+
+  function handlePhoneBlur() {
+    setFieldErrors((fe) => ({
+      ...fe,
+      phone: !phone ? t('errorRequired') : !isPhoneValid(phone) ? t('errorPhone') : '',
     }));
+  }
+
+  function toggleSituation(key) {
+    setSituations((s) => {
+      const next = { ...s, [key]: !s[key] };
+      if (Object.values(next).some(Boolean)) setFieldErrors((fe) => ({ ...fe, situations: '' }));
+      return next;
+    });
+  }
+
+  function handleOtherChange(e) {
+    const val = e.target.value.slice(0, 500);
+    setOtherDetail(val);
+    if (val.trim()) setFieldErrors((fe) => ({ ...fe, otherDetail: '' }));
+  }
+
+  function validateAll() {
+    const errors = {};
+    ['name', 'company', 'fonction', 'email'].forEach((k) => {
+      errors[k] = validateTextField(k, form[k]);
+    });
+    errors.phone = !phone ? t('errorRequired') : !isPhoneValid(phone) ? t('errorPhone') : '';
+    errors.situations = Object.values(situations).some(Boolean) ? '' : t('errorSituations');
+    errors.otherDetail = situations.s7 && !otherDetail.trim() ? t('errorRequired') : '';
+    setFieldErrors(errors);
+    return Object.values(errors).every((e) => !e);
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-    setError('');
+    setSubmitError('');
+    if (!validateAll()) return;
     setLoading(true);
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          phone,
+          phone_country: phoneCountry,
+          ...Object.fromEntries(SIT_KEYS.map((k) => [k, situations[k]])),
+          other_detail: situations.s7 ? otherDetail : null,
+        }),
       });
       if (!res.ok) throw new Error();
       setSent(true);
     } catch {
-      setError(t('error'));
+      setSubmitError(t('error'));
     } finally {
       setLoading(false);
     }
@@ -81,103 +127,128 @@ export default function ContactPage() {
         <h1 className="contact-title">{t('title')}</h1>
         <p className="contact-subtitle">{t('subtitle')}</p>
 
-        <form onSubmit={handleSubmit} className="contact-form">
-          <label className="form-label">
-            {t('labelName')} <span className="req">*</span>
+        <form onSubmit={handleSubmit} className="contact-form" noValidate>
+          <div className="form-field">
+            <label className="form-label" htmlFor="name">
+              {t('labelName')} <span className="req">*</span>
+            </label>
             <input
-              className="form-input"
+              className={`form-input${fieldErrors.name ? ' input-error' : ''}`}
+              id="name"
               name="name"
+              autoComplete="name"
               value={form.name}
               onChange={handleChange}
-              required
+              onBlur={handleBlur}
             />
-          </label>
+            {fieldErrors.name && <span className="field-error">{fieldErrors.name}</span>}
+          </div>
 
-          <label className="form-label">
-            {t('labelCompany')} <span className="req">*</span>
+          <div className="form-field">
+            <label className="form-label" htmlFor="company">
+              {t('labelCompany')} <span className="req">*</span>
+            </label>
             <input
-              className="form-input"
+              className={`form-input${fieldErrors.company ? ' input-error' : ''}`}
+              id="company"
               name="company"
+              autoComplete="organization"
               value={form.company}
               onChange={handleChange}
-              required
+              onBlur={handleBlur}
             />
-          </label>
+            {fieldErrors.company && <span className="field-error">{fieldErrors.company}</span>}
+          </div>
 
-          <label className="form-label">
-            {t('labelFonction')} <span className="req">*</span>
+          <div className="form-field">
+            <label className="form-label" htmlFor="fonction">
+              {t('labelFonction')} <span className="req">*</span>
+            </label>
             <input
-              className="form-input"
+              className={`form-input${fieldErrors.fonction ? ' input-error' : ''}`}
+              id="fonction"
               name="fonction"
+              autoComplete="organization-title"
               value={form.fonction}
               onChange={handleChange}
-              required
+              onBlur={handleBlur}
             />
-          </label>
+            {fieldErrors.fonction && <span className="field-error">{fieldErrors.fonction}</span>}
+          </div>
 
-          <label className="form-label">
-            {t('labelEmail')} <span className="req">*</span>
-            <div className="input-email-row">
+          <div className="form-field">
+            <label className="form-label" htmlFor="email">
+              {t('labelEmail')} <span className="req">*</span>
+            </label>
+            <div className={`input-email-row${fieldErrors.email ? ' input-error' : ''}`}>
               <span className="email-at">@</span>
               <input
                 className="form-input"
                 type="email"
+                id="email"
                 name="email"
+                autoComplete="email"
                 value={form.email}
                 onChange={handleChange}
-                required
+                onBlur={handleBlur}
               />
             </div>
-          </label>
+            {fieldErrors.email && <span className="field-error">{fieldErrors.email}</span>}
+          </div>
 
-          <label className="form-label">
-            {t('labelPhone')} <span className="req">*</span>
-            <div className="phone-row">
-              <select
-                className="form-select"
-                name="countryCode"
-                value={form.countryCode}
-                onChange={handleChange}
-                required
-              >
-                <option value="">{t('labelCountry')}</option>
-                <option value="+33">🇫🇷 +33</option>
-                <option value="+212">🇲🇦 +212</option>
-                <option value="+1">🇺🇸 +1</option>
-                <option value="+44">🇬🇧 +44</option>
-                <option value="+49">🇩🇪 +49</option>
-                <option value="+34">🇪🇸 +34</option>
-                <option value="+39">🇮🇹 +39</option>
-              </select>
-              <input
-                className="form-input phone-input"
-                type="tel"
-                name="phone"
-                value={form.phone}
-                onChange={handleChange}
-                required
-              />
-            </div>
-          </label>
+          <div className="form-field">
+            <label className="form-label">
+              {t('labelPhone')} <span className="req">*</span>
+            </label>
+            <PhoneInput
+              className={`phone-input-wrapper${fieldErrors.phone ? ' input-error' : ''}`}
+              defaultCountry="FR"
+              value={phone}
+              onChange={setPhone}
+              onCountryChange={setPhoneCountry}
+              onBlur={handlePhoneBlur}
+              autoComplete="tel"
+            />
+            {fieldErrors.phone && <span className="field-error">{fieldErrors.phone}</span>}
+          </div>
 
           <fieldset className="form-fieldset">
             <legend className="form-legend">
               {t('situationsLegend')} <span className="req">*</span>{' '}
               <span className="multi-hint">{t('multiHint')}</span>
             </legend>
-            {SITUATIONS.map((s) => (
-              <label key={s} className="checkbox-label">
+            {SIT_KEYS.map((key) => (
+              <label key={key} className="checkbox-label">
                 <input
                   type="checkbox"
-                  checked={form.situations.includes(s)}
-                  onChange={() => toggleSituation(s)}
+                  checked={situations[key]}
+                  onChange={() => toggleSituation(key)}
                 />
-                <span>{s}</span>
+                <span>{t(key)}</span>
               </label>
             ))}
+            {fieldErrors.situations && <span className="field-error">{fieldErrors.situations}</span>}
           </fieldset>
 
-          {error && <p className="form-error">{error}</p>}
+          {situations.s7 && (
+            <div className="form-field">
+              <label className="form-label" htmlFor="otherDetail">
+                {t('otherDetailLabel')} <span className="req">*</span>
+              </label>
+              <textarea
+                ref={otherRef}
+                id="otherDetail"
+                className={`form-textarea${fieldErrors.otherDetail ? ' input-error' : ''}`}
+                value={otherDetail}
+                onChange={handleOtherChange}
+                rows={2}
+              />
+              <span className="char-counter">{otherDetail.length}/500</span>
+              {fieldErrors.otherDetail && <span className="field-error">{fieldErrors.otherDetail}</span>}
+            </div>
+          )}
+
+          {submitError && <p className="form-error">{submitError}</p>}
 
           <button type="submit" className="btn-send" disabled={loading}>
             {loading ? t('sending') : t('btnSend')}
