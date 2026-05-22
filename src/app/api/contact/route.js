@@ -5,8 +5,9 @@ export async function POST(request) {
   const body = await request.json();
   const {
     name, company, fonction, email,
-    phone, phone_country,
-    s1, s2, s3, s4, s5, s6, s7,
+    phone, country_code,
+    sit_big_electricity, sit_waste_to_energy, sit_energy_qos, sit_public_energy,
+    sit_investor, sit_tech_provider, sit_other,
     other_detail,
   } = body;
 
@@ -18,13 +19,19 @@ export async function POST(request) {
     fonction,
     email,
     phone,
-    phone_country,
-    s1, s2, s3, s4, s5, s6, s7,
+    country_code,
+    sit_big_electricity,
+    sit_waste_to_energy,
+    sit_energy_qos,
+    sit_public_energy,
+    sit_investor,
+    sit_tech_provider,
+    sit_other,
     other_detail,
   });
 
   if (error) {
-    console.error("Supabase insert error:", error.message);
+    console.error("Supabase insert error:", error);
     return NextResponse.json({ success: false, error: error.message }, { status: 500 });
   }
 
