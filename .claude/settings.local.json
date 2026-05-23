@@ -33,7 +33,8 @@
       "Bash(node -e \"const { isValidPhoneNumber } = require\\('libphonenumber-js'\\); console.log\\(isValidPhoneNumber\\('+33612345678'\\)\\); console.log\\(isValidPhoneNumber\\('+212612345678'\\)\\);\")",
       "Bash(Start-Sleep -Seconds 6)",
       "Bash(Get-Content \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--SQWEEZY-DEPLOIEMENT-SITE-WEB-SITEV2-AGDAL-skimstones-site\\\\8fc4e13b-236a-4dea-bdf0-54359914009b\\\\tasks\\\\bnoe5fbg0.output\" -Tail 20)",
-      "Bash(curl *)"
+      "Bash(curl *)",
+      "Bash(node -e ' *)"
     ]
   }
 }
