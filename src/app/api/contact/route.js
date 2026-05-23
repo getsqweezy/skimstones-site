@@ -3,22 +3,22 @@ import { getSupabaseServerClient } from "@/lib/supabase/server";
 import { Resend } from "resend";
 
 const SIT_LABELS_FR = {
-  sit_big_electricity: "Grand consommateur d'électricité cherchant des solutions vertes",
-  sit_waste_to_energy: "Établissement industriel cherchant des solutions déchet-énergie",
-  sit_energy_qos: "Installation énergétique cherchant QoS et résilience",
-  sit_public_energy: "Acteur public cherchant des solutions d'économie d'énergie",
-  sit_investor: "Investisseur cherchant des projets bancables et à impact climatique positif",
-  sit_tech_provider: "Fournisseur technologique cherchant un partenariat",
+  sit_sqweezy_interest: "Grand consommateur d'électricité cherchant des solutions vertes",
+  sit_waste_recovery: "Installation industrielle cherchant des solutions de valorisation énergétique des déchets",
+  sit_spof: "Installation énergétique cherchant QoS et résilience",
+  sit_energy_decarbonation: "Collectivité ou acteur public cherchant des solutions d'efficacité énergétique",
+  sit_investor: "Investisseur cherchant des projets finançables et à impact climatique positif",
+  sit_tech_provider: "Fournisseur de technologie en recherche de partenariat",
   sit_other: "Autre",
 };
 
 const SIT_LABELS_EN = {
-  sit_big_electricity: "Big electricity consumer seeking green solutions",
-  sit_waste_to_energy: "Industrial facility seeking waste to energy solutions",
-  sit_energy_qos: "Energy facility seeking QoS and resilience",
-  sit_public_energy: "Public actor seeking energy saving solutions",
+  sit_sqweezy_interest: "Large-scale electricity consumer seeking green solutions",
+  sit_waste_recovery: "Industrial facility seeking waste to energy solutions",
+  sit_spof: "Energy facility seeking QoS and resilience",
+  sit_energy_decarbonation: "Public entity seeking energy efficiency solutions",
   sit_investor: "Investor seeking bankable and climate-positive projects",
-  sit_tech_provider: "Technology provider seeking for partnership",
+  sit_tech_provider: "Technology provider seeking a partnership",
   sit_other: "Other",
 };
 
@@ -95,12 +95,12 @@ function buildConfirmationHtml(txt, name) {
 function buildNotificationHtml(txt, sitLabels, body) {
   const {
     name, company, fonction, email, phone, country_code,
-    sit_big_electricity, sit_waste_to_energy, sit_energy_qos, sit_public_energy,
+    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_energy_decarbonation,
     sit_investor, sit_tech_provider, sit_other, other_detail,
   } = body;
 
   const checkedSituations = Object.entries({
-    sit_big_electricity, sit_waste_to_energy, sit_energy_qos, sit_public_energy,
+    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_energy_decarbonation,
     sit_investor, sit_tech_provider, sit_other,
   })
     .filter(([, v]) => v)
@@ -145,7 +145,7 @@ export async function POST(request) {
   const {
     name, company, fonction, email,
     phone, country_code,
-    sit_big_electricity, sit_waste_to_energy, sit_energy_qos, sit_public_energy,
+    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_energy_decarbonation,
     sit_investor, sit_tech_provider, sit_other,
     other_detail,
   } = body;
@@ -159,10 +159,10 @@ export async function POST(request) {
     email,
     phone,
     country_code,
-    sit_big_electricity,
-    sit_waste_to_energy,
-    sit_energy_qos,
-    sit_public_energy,
+    sit_sqweezy_interest,
+    sit_waste_recovery,
+    sit_spof,
+    sit_energy_decarbonation,
     sit_investor,
     sit_tech_provider,
     sit_other,

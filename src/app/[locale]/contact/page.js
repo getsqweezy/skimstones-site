@@ -8,10 +8,10 @@ import 'react-phone-number-input/style.css';
 
 const SIT_KEYS = ['s1', 's2', 's3', 's4', 's5', 's6', 's7'];
 const SIT_COLUMNS = {
-  s1: 'sit_big_electricity',
-  s2: 'sit_waste_to_energy',
-  s3: 'sit_energy_qos',
-  s4: 'sit_public_energy',
+  s1: 'sit_sqweezy_interest',
+  s2: 'sit_waste_recovery',
+  s3: 'sit_spof',
+  s4: 'sit_energy_decarbonation',
   s5: 'sit_investor',
   s6: 'sit_tech_provider',
   s7: 'sit_other',
