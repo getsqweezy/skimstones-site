@@ -135,6 +135,24 @@ body {
   background: var(--sks-bg);
 }
 
+@media (min-width: 768px) {
+  .mobile-frame {
+    max-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .mobile-frame {
+    max-width: 860px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .mobile-frame {
+    max-width: 1100px;
+  }
+}
+
 /* ═══════════════════════════════════════════════════════
    HEADER — CHARTE SKS (défaut)
    ═══════════════════════════════════════════════════════ */
@@ -271,6 +289,47 @@ body {
 
 .mobile-nav a:hover {
   background: rgba(25, 40, 79, 0.06);
+}
+
+/* Navigation desktop (≥1024px) — remplace le hamburger */
+.desktop-nav {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hamburger {
+    display: none;
+  }
+  .mobile-nav {
+    display: none !important;
+  }
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-l);
+  }
+  .desktop-nav a {
+    color: var(--sks-primary);
+    text-decoration: none;
+    font-family: var(--font-sks-l2);
+    font-size: var(--fs-ui);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: var(--space-xs) 0;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .desktop-nav a:hover {
+    border-bottom-color: var(--sks-primary);
+  }
+  .sqweezy-frame .desktop-nav a {
+    color: var(--sqw-dark);
+  }
+  .sqweezy-frame .desktop-nav a:hover {
+    border-bottom-color: var(--sqw-orange);
+    color: var(--sqw-orange);
+  }
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -995,3 +1054,54 @@ body {
 .btn-mysqweezy { background: var(--sqw-orange); color: #fff; }
 .btn-pro       { background: var(--sqw-lime);   color: #2d4a00; }
 .btn-investors { background: var(--sqw-sand);   color: var(--sqw-dark); }
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVE — desktop (≥1024px)
+   ═══════════════════════════════════════════════════════ */
+@media (min-width: 1024px) {
+
+  /* Padding latéral des pages */
+  .page-main {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  .home-main {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  /* Founders — cartes côte à côte */
+  .founders-row {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  /* Modale — plus large sur desktop */
+  .modal-card {
+    max-width: 560px;
+  }
+
+  /* Sqweezy — padding latéral */
+  .sqweezy-fixed-top {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  .sqweezy-scroll {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  /* Sqweezy footer — 4 colonnes en ligne */
+  .sqweezy-footer {
+    padding-left: var(--space-2xl);
+    padding-right: var(--space-2xl);
+  }
+
+  .sqweezy-footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

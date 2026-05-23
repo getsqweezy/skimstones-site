@@ -24,6 +24,13 @@ export default function Header({ variant = 'skimstones' }) {
         <span />
       </button>
 
+      <nav className="desktop-nav">
+        <Link href={`/${locale}`}>{t('home')}</Link>
+        <Link href={`/${locale}/consulting-services`}>{t('services')}</Link>
+        <Link href={`/${locale}/founders`}>{t('founders')}</Link>
+        <Link href={`/${locale}/contact`}>{t('contact')}</Link>
+      </nav>
+
       <div className="header-logo">
         <Link href={`/${locale}`}>
           <Image
