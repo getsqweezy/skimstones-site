@@ -4,57 +4,8 @@ import Image from 'next/image';
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 
-const PIERRE = {
-  name: 'Pierre-Emmanuel CREPIN',
-  title: 'CEO',
-  photo: '/pic-pec.jpg',
-  education: [
-    "Process Engineer, École des Mines de Douai (1992)",
-    "Architect (1989)",
-    "Bilingual FR, EN",
-    "French nationality",
-  ],
-  expHeadline:
-    '35 years of International experience in engineering, energy and industrial projects',
-  expBullets: [
-    'Senior roles as Engineering Lead, Consultant and CEO',
-    '17 power plants delivered, representing 5 GW of installed capacity',
-    '18 years of experience in waste recovery and circular economy projects',
-  ],
-  patentsHeadline: 'Inventor and patent holder – 4 registered patents',
-  patents: [
-    '1992: CONCRETE FIBER – Composite fiber solution replacing steel reinforcement in concrete structures',
-    '1994: ISOPLANT – Centrifugal PET fiber technology – ANVAR Innovation Award Winner',
-    '2000s – M3S INDUSTRIE – Real-time leak detection and precise localization system for hydraulic structures. To: €15 million/year; sold in 2024',
-    '2017: SQWEEZY – Domestic compactor for plastic bottles and aluminum cans, designed to reduce waste volume at source',
-  ],
-};
-
-const LENDA = {
-  name: 'Lenda AIT KADDOUR',
-  title: 'Executive director',
-  photo: '/pic-lak.png',
-  education: [
-    "Engineer, Bordeaux Sciences Agro (1997)",
-    "Advanced expertise in data, risk and spatial analysis:",
-    "Valedictorian, Master's degree in Statistics Applied to Risk Management, IAE Montpellier II (2011)",
-    "Graduate, Specialized Master's Degree SILAT (Geographic Information Systems), AgroParisTech (2012)",
-    "Trilingual FR, EN, AR",
-    "French and Moroccan nationality",
-  ],
-  expHeadline: '30 years of international consulting',
-  expBullets: [
-    'PMO, program management and project strategy, Change management for complex transformation programs',
-    'Based in Morocco since 2014',
-    'Strategic advisor to executives and management teams (10 years)',
-    '8 years of missions in the energy and environmental sectors, including waste, circular economy and infrastructure-related projects',
-    '3 years of operational management support within a high-end metal carpentry workshop, strengthening industrial, production and supply-chain understanding',
-  ],
-};
-
 function FounderCard({ founder }) {
   const [open, setOpen] = useState(false);
-  const t = useTranslations('founders');
 
   return (
     <div className="founder-card">
@@ -91,7 +42,7 @@ function FounderCard({ founder }) {
               </button>
             </div>
             <div className="modal-body">
-              <h4 className="modal-section-title">{t('educationTitle')}</h4>
+              <h4 className="modal-section-title">{founder.educationTitle}</h4>
               <ul className="modal-list">
                 {founder.education.map((item, i) => (
                   <li key={i}>{item}</li>
@@ -124,6 +75,36 @@ function FounderCard({ founder }) {
 export default function FoundersPage() {
   const t = useTranslations('founders');
 
+  const pierre = {
+    name: 'Pierre-Emmanuel CREPIN',
+    title: t('pierre.title'),
+    photo: '/pic-pec.jpg',
+    educationTitle: t('pierre.educationTitle'),
+    education: [t('pierre.edu1'), t('pierre.edu2'), t('pierre.edu3'), t('pierre.edu4')],
+    expHeadline: t('pierre.expHeadline'),
+    expBullets: [t('pierre.exp1'), t('pierre.exp2'), t('pierre.exp3')],
+    patentsHeadline: t('pierre.patentsHeadline'),
+    patents: [t('pierre.patent1'), t('pierre.patent2'), t('pierre.patent3'), t('pierre.patent4')],
+  };
+
+  const lenda = {
+    name: 'Lenda AIT KADDOUR',
+    title: t('lenda.title'),
+    photo: '/pic-lak.png',
+    educationTitle: t('lenda.educationTitle'),
+    education: [
+      t('lenda.edu1'), t('lenda.edu2'), t('lenda.edu3'),
+      t('lenda.edu4'), t('lenda.edu5'), t('lenda.edu6'),
+    ],
+    expHeadline: t('lenda.expHeadline'),
+    expBullets: [
+      t('lenda.exp1'), t('lenda.exp2'), t('lenda.exp3'),
+      t('lenda.exp4'), t('lenda.exp5'),
+    ],
+    patentsHeadline: null,
+    patents: null,
+  };
+
   return (
     <div className="mobile-frame">
       <Header />
@@ -131,8 +112,8 @@ export default function FoundersPage() {
         <h1 className="page-headline">{t('headline')}</h1>
 
         <div className="founders-row">
-          <FounderCard founder={PIERRE} />
-          <FounderCard founder={LENDA} />
+          <FounderCard founder={pierre} />
+          <FounderCard founder={lenda} />
         </div>
 
         <section className="dna-section">

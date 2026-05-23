@@ -6,8 +6,9 @@ import { getTranslations } from 'next-intl/server';
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home' });
+  const tMeta = await getTranslations({ locale, namespace: 'meta' });
   return {
-    title: 'SkimStones Smart Essentials',
+    title: tMeta('home.title'),
     description: t('tagline'),
     icons: { icon: '/favicon-sks.svg' },
   };

@@ -16,7 +16,7 @@ export default async function SqweezyPage({ params }) {
       </div>
 
       <main className="sqweezy-scroll">
-        <p className="text-placeholder">Text content</p>
+        <p className="text-placeholder">{t('textPlaceholder')}</p>
       </main>
 
       <footer className="sqweezy-footer">
