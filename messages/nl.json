@@ -17,7 +17,6 @@
     "stat2Label": "bottles per 50L bag",
     "stat3Value": "100K+",
     "stat3Label": "households equipped",
-    "ctaPreorder": "Pre-order now",
     "priceStrike": "€35",
     "priceLaunch": "€30 excl. VAT",
     "problemTitle": "The problem",
@@ -53,6 +52,7 @@
     "btnPro": "PRO-OPLOSSINGEN",
     "btnInvestors": "INVESTEERDERS",
     "home": {
+      "ctaPreorder": "Get SQWEEZY at launch price — just €3 to reserve yours!",
       "product_img_standard_alt": "SQWEEZY front view",
       "product_img_standard_caption": "Standard view",
       "product_img_action_alt": "SQWEEZY in action",
