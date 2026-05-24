@@ -11,7 +11,7 @@ const SIT_COLUMNS = {
   s1: 'sit_sqweezy_interest',
   s2: 'sit_waste_recovery',
   s3: 'sit_spof',
-  s4: 'sit_energy_decarbonation',
+  s4: 'sit_electricity_decarbonation',
   s5: 'sit_investor',
   s6: 'sit_tech_provider',
   s7: 'sit_other',
@@ -123,7 +123,9 @@ export default function ContactPage() {
         <Header />
         <main className="page-main contact-success">
           <h1>{t('thanks')}</h1>
-          <p>{t('confirmation')}</p>
+          {t('confirmation').split('\n').map((line, i) => (
+            <p key={i}>{line}</p>
+          ))}
         </main>
       </div>
     );

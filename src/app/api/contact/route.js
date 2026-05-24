@@ -6,7 +6,7 @@ const SIT_LABELS_FR = {
   sit_sqweezy_interest: "Grand consommateur d'électricité cherchant des solutions vertes",
   sit_waste_recovery: "Installation industrielle cherchant des solutions de valorisation énergétique des déchets",
   sit_spof: "Installation énergétique cherchant QoS et résilience",
-  sit_energy_decarbonation: "Collectivité ou acteur public cherchant des solutions d'efficacité énergétique",
+  sit_electricity_decarbonation: "Collectivité ou acteur public cherchant des solutions d'efficacité énergétique",
   sit_investor: "Investisseur cherchant des projets finançables et à impact climatique positif",
   sit_tech_provider: "Fournisseur de technologie en recherche de partenariat",
   sit_other: "Autre",
@@ -16,7 +16,7 @@ const SIT_LABELS_EN = {
   sit_sqweezy_interest: "Large-scale electricity consumer seeking green solutions",
   sit_waste_recovery: "Industrial facility seeking waste to energy solutions",
   sit_spof: "Energy facility seeking QoS and resilience",
-  sit_energy_decarbonation: "Public entity seeking energy efficiency solutions",
+  sit_electricity_decarbonation: "Public entity seeking energy efficiency solutions",
   sit_investor: "Investor seeking bankable and climate-positive projects",
   sit_tech_provider: "Technology provider seeking a partnership",
   sit_other: "Other",
@@ -95,12 +95,12 @@ function buildConfirmationHtml(txt, name) {
 function buildNotificationHtml(txt, sitLabels, body) {
   const {
     name, company, fonction, email, phone, country_code,
-    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_energy_decarbonation,
+    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_electricity_decarbonation,
     sit_investor, sit_tech_provider, sit_other, other_detail,
   } = body;
 
   const checkedSituations = Object.entries({
-    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_energy_decarbonation,
+    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_electricity_decarbonation,
     sit_investor, sit_tech_provider, sit_other,
   })
     .filter(([, v]) => v)
@@ -145,7 +145,7 @@ export async function POST(request) {
   const {
     name, company, fonction, email,
     phone, country_code,
-    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_energy_decarbonation,
+    sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_electricity_decarbonation,
     sit_investor, sit_tech_provider, sit_other,
     other_detail,
   } = body;
@@ -162,7 +162,7 @@ export async function POST(request) {
     sit_sqweezy_interest,
     sit_waste_recovery,
     sit_spof,
-    sit_energy_decarbonation,
+    sit_electricity_decarbonation,
     sit_investor,
     sit_tech_provider,
     sit_other,
