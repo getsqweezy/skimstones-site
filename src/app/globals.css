@@ -1179,6 +1179,22 @@ body {
 .sqw-cta-preorder:hover  { filter: brightness(1.1); }
 .sqw-cta-preorder:active { transform: scale(0.97); }
 
+.cta-preorder-link {
+  display: block;
+  text-align: center;
+  font-size: calc(var(--fs-body) * 0.85);
+  color: var(--sqw-orange);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  margin-bottom: var(--space-m);
+  line-height: 1.5;
+}
+
+.cta-preorder-link:hover {
+  color: var(--sqw-dark);
+}
+
 .sqw-price-block {
   display: flex;
   align-items: center;

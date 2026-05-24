@@ -66,7 +66,9 @@ export default async function SqweezyPage({ params }) {
             </div>
           </div>
 
-          <Link href="#order" className="sqw-cta-preorder">{t('ctaPreorder')}</Link>
+          <Link href={`/${locale}/sqweezy/pre-order`} className="cta-preorder-link">
+            {t('home.ctaPreorder')}
+          </Link>
           <div className="sqw-price-block">
             <span className="sqw-price-strike">{t('priceStrike')}</span>
             <span className="sqw-price-launch">{t('priceLaunch')}</span>
