@@ -34,13 +34,6 @@
     "stat3Label": "households equipped",
     "priceStrike": "€35",
     "priceLaunch": "€30 excl. VAT",
-    "problemTitle": "Why SQWEEZY?",
-    "prob1": "Recycling bags expensive and always full",
-    "prob2": "Bins overflow long before collection day",
-    "prob3": "~12h/year lost managing household waste",
-    "sol1": "One foot press compacts each bottle or can in one second.",
-    "sol2": "No electricity, no mounting.\nPerfect for sailors and campers, and tiny kitchens.",
-    "sol3": "Designed for the whole family.",
     "virtuesTitle": "5 key strengths",
     "virt1Title": "Simple",
     "virt1Desc": "1 foot press, from age 6",
@@ -75,8 +68,6 @@
       "whySectionTitle": "Why SQWEEZY?",
 "whyExpandLabel": "Learn more",
 "whyCollapseLabel": "Show less",
-"whyConclusionText": "SQWEEZY compacts all of this in one second. Fewer bags, fewer trips, lower costs — for the whole family.",
-"whyConclusionCta": "The solution →",
 "whyItem1IconAlt": "Empty bottle full of air",
 "whyItem1Step": "The root problem",
 "whyItem1Title": "An empty bottle is 95% air",
@@ -101,7 +92,6 @@
 "whyItem5Title": "Hidden costs that add up year after year",
 "whyItem5Desc": "Extra recycling bags, fuel for collection runs… Poorly organised sorting is quietly costing you more than you think, year after year.",
 "whyItem5Stat": "€20 to €40/year in avoidable extra costs",
-      "solSectionLabel": "The solution",
       "solSectionTitle": "SQWEEZY compacts all of this in one second",
       "solSectionSubtitle": "Fewer bags, fewer trips, lower costs.",
       "sol1Strong": "One simple foot press is all it takes",
@@ -187,8 +177,7 @@
     "errorRequired": "This field is required",
     "errorEmail": "Please enter a valid email address",
     "errorPhone": "Please enter a valid phone number",
-    "errorSituations": "Please select at least one option",
-    "errorOtherDetail": "Please describe your situation"
+    "errorSituations": "Please select at least one option"
   },
   "email": {
     "confirmation": {

@@ -1139,26 +1139,6 @@ body {
   opacity: 1;
 }
 
-.why-expand-btn {
-  display: flex;
-  align-items: center;
-  gap: var(--space-s);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding-top: calc(var(--space-s) / 2);
-  padding-right: 0;
-  padding-bottom: calc(var(--space-m) * 1.5);
-  padding-left: 0;
-  margin-left: 52px;
-  font-family: var(--font-body);
-  color: var(--sqw-orange);
-  font-size: var(--fs-caption);
-  font-weight: 700;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
 .why-item-clickable {
   cursor: pointer;
 }
@@ -1169,22 +1149,31 @@ body {
   transition: color 0.2s;
 }
 
-.expand-arrow {
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  background: var(--sqw-orange);
-  color: white;
-  font-size: 12px;
+.why-item1-header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: transform 0.35s ease;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 2px;
 }
 
-.expand-arrow.rotated {
-  transform: rotate(180deg);
+.why-expand-inline-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--sqw-orange);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  padding: 0;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.why-expand-inline-btn:hover {
+  color: var(--sqw-dark);
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -1449,17 +1438,17 @@ body {
 
 .sol-text { flex: 1; }
 .sol-text-strong {
-  font-size: calc(var(--fs-body) * 0.77);
+  font-size: calc(var(--fs-body) * 0.77) !important;
   font-weight: 700;
   color: var(--sqw-dark);
-  line-height: 1.12;
+  line-height: 1.1 !important;
 }
 
 .sol-text-normal {
-  font-size: calc(var(--fs-body) * 0.77);
+  font-size: calc(var(--fs-body) * 0.77) !important;
   font-weight: 400;
   color: var(--text-color);
-  line-height: 1.12;
+  line-height: 1.1 !important;
 }
 
 /* ── Virtues ─────────────────────────────────────────── */

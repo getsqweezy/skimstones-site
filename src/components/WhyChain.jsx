@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useState } from 'react';
 
-function WhyItem({ item }) {
+function WhyItem({ item, headerExtra }) {
   return (
     <div className="why-item">
       <div className="why-spine">
@@ -15,7 +15,14 @@ function WhyItem({ item }) {
         />
       </div>
       <div className="why-content">
-        <div className="why-step">{item.label}</div>
+        {headerExtra ? (
+          <div className="why-item1-header">
+            <span className="why-step">{item.label}</span>
+            {headerExtra}
+          </div>
+        ) : (
+          <div className="why-step">{item.label}</div>
+        )}
         <h3 className="why-title">{item.title}</h3>
         <p className="why-desc">{item.desc}</p>
         {item.stat && <span className="why-stat">{item.stat}</span>}
@@ -31,17 +38,20 @@ export default function WhyChain({ items, expandLabel, collapseLabel }) {
   return (
     <section className="why-chain">
       <div className="why-item-clickable" onClick={toggle}>
-        <WhyItem item={items[0]} />
+        <WhyItem
+          item={items[0]}
+          headerExtra={
+            <button
+              className="why-expand-inline-btn"
+              type="button"
+              onClick={(e) => { e.stopPropagation(); toggle(); }}
+              aria-expanded={open}
+            >
+              {open ? collapseLabel : expandLabel}
+            </button>
+          }
+        />
       </div>
-
-      <button
-        className="why-expand-btn"
-        type="button"
-        onClick={toggle}
-      >
-        {open ? collapseLabel : expandLabel}
-        <span className={`expand-arrow${open ? ' rotated' : ''}`}>▼</span>
-      </button>
 
       <div className={`why-hidden${open ? ' open' : ''}`}>
         {items.slice(1).map((item, i) => (
