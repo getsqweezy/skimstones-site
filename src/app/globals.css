@@ -1146,7 +1146,7 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  padding: var(--space-s) 0 var(--space-m);
+  padding: calc(var(--space-s) / 2) 0 calc(var(--space-m) * 1.5);
   margin-left: 52px;
   font-family: var(--font-body);
   color: var(--sqw-orange);
@@ -1154,6 +1154,16 @@ body {
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.why-item-clickable {
+  cursor: pointer;
+}
+
+.why-item-clickable:hover .why-title,
+.why-item-clickable:hover .why-desc {
+  color: var(--sqw-orange);
+  transition: color 0.2s;
 }
 
 .expand-arrow {
@@ -1417,32 +1427,35 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(254, 113, 22, 0.10);
-  border: 2px solid rgba(254, 113, 22, 0.25);
-  border-radius: 50%;
-  position: relative;
-  z-index: 1;
+  background: none;
+  border: none;
+  border-radius: 0;
 }
 
 .sol-picto img {
-  width: 24px;
-  height: 24px;
+  width: 40px;
+  height: 40px;
   object-fit: contain;
+}
+
+.sol-picto-family img {
+  width: 44px;
+  height: 44px;
 }
 
 .sol-text { flex: 1; }
 .sol-text-strong {
-  font-size: calc(var(--fs-body) * 0.70);
+  font-size: calc(var(--fs-body) * 0.77);
   font-weight: 700;
   color: var(--sqw-dark);
-  line-height: 1.4;
+  line-height: 1.12;
 }
 
 .sol-text-normal {
-  font-size: calc(var(--fs-body) * 0.70);
+  font-size: calc(var(--fs-body) * 0.77);
   font-weight: 400;
   color: var(--text-color);
-  line-height: 1.4;
+  line-height: 1.12;
 }
 
 /* ── Virtues ─────────────────────────────────────────── */

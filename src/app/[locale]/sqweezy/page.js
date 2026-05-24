@@ -137,7 +137,7 @@ export default async function SqweezyPage({ params }) {
             </div>
             <div className="sol-line">
               <div className="sol-picto">
-                <Image src="/icons/caravan.png" alt={t('home.sol2IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
+                <Image src="/icons/nomad.png" alt={t('home.sol2IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
               </div>
               <div className="sol-text">
                 <span className="sol-text-strong">{t('home.sol2Strong')}</span>
@@ -146,7 +146,7 @@ export default async function SqweezyPage({ params }) {
               </div>
             </div>
             <div className="sol-line">
-              <div className="sol-picto">
+              <div className="sol-picto sol-picto-family">
                 <Image src="/icons/family.png" alt={t('home.sol3IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
               </div>
               <div className="sol-text">

@@ -26,15 +26,18 @@ function WhyItem({ item }) {
 
 export default function WhyChain({ items, expandLabel, collapseLabel }) {
   const [open, setOpen] = useState(false);
+  const toggle = () => setOpen((o) => !o);
 
   return (
     <section className="why-chain">
-      <WhyItem item={items[0]} />
+      <div className="why-item-clickable" onClick={toggle}>
+        <WhyItem item={items[0]} />
+      </div>
 
       <button
         className="why-expand-btn"
         type="button"
-        onClick={() => setOpen((o) => !o)}
+        onClick={toggle}
       >
         {open ? collapseLabel : expandLabel}
         <span className={`expand-arrow${open ? ' rotated' : ''}`}>▼</span>
