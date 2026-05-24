@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import Header from '@/components/Header';
 import { getTranslations } from 'next-intl/server';
 import { replaceStylusBTChars } from '@/lib/stylusBT';
@@ -38,6 +39,30 @@ export default async function SqweezyPage({ params }) {
             <div className="sqw-stat-card">
               <span className="sqw-stat-value">{t('stat3Value')}</span>
               <span className="sqw-stat-label">{t('stat3Label')}</span>
+            </div>
+          </div>
+
+          <div className="product-images">
+            <div className="product-img-card light">
+              <Image
+                src="/images/pic-sqw-t.png"
+                alt={t('home.product_img_standard_alt')}
+                width={200}
+                height={130}
+                style={{ objectFit: 'contain', padding: '8px' }}
+              />
+              <div className="img-caption">{t('home.product_img_standard_caption')}</div>
+            </div>
+            <div className="product-img-card dark">
+              <Image
+                src="/images/gif-sqw-t.gif"
+                alt={t('home.product_img_action_alt')}
+                unoptimized
+                width={200}
+                height={130}
+                style={{ objectFit: 'contain', padding: '8px' }}
+              />
+              <div className="img-caption">{t('home.product_img_action_caption')}</div>
             </div>
           </div>
 

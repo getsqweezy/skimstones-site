@@ -10,7 +10,7 @@ export async function generateMetadata({ params }) {
   return {
     title: tMeta('home.title'),
     description: t('tagline'),
-    icons: { icon: '/favicon-sks.svg' },
+    icons: { icon: '/images/favicon-sks.svg' },
   };
 }
 
@@ -29,7 +29,7 @@ export default async function HomePage({ params }) {
           <Link href={`/${locale}/sqweezy`} className="cta-btn cta-sqweezy">
             <span className="cta-discover">{t('btnDiscover')}</span>
             <Image
-              src="/logo-sqweezy-long.png"
+              src="/images/logo-sqweezy-long.png"
               alt="SQWEEZY"
               width={90}
               height={28}

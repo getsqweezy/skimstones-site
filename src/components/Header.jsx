@@ -34,7 +34,7 @@ export default function Header({ variant = 'skimstones' }) {
       <div className="header-logo">
         <Link href={`/${locale}`}>
           <Image
-            src={isSqw ? '/logo-sqweezy-long.png' : '/logo-sks-baseline.png'}
+            src={isSqw ? '/images/logo-sqweezy-long.png' : '/images/logo-sks-baseline.png'}
             alt={isSqw ? 'SQWEEZY' : 'SkimStones Smart Essentials'}
             width={140}
             height={48}

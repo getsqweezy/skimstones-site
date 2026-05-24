@@ -27,7 +27,7 @@ export default function LangButton({ variant = 'skimstones' }) {
         aria-label="Language"
         aria-expanded={open}
       >
-        <Image src="/langage-choice.png" alt="" width={28} height={28} />
+        <Image src="/images/langage-choice.png" alt="" width={28} height={28} />
         <span className="lang-code">{locale.toUpperCase()}</span>
       </button>
 

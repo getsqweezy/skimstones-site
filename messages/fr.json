@@ -40,8 +40,8 @@
     "prob2": "Bacs saturés bien avant la collecte",
     "prob3": "~12h/an perdues en gestion des déchets",
     "sol1": "Un appui du pied compacte chaque bouteille ou canette en une seconde.",
-    "sol2": "Sans électricité ni fixation : idéal pour les navigateurs, les campeurs, et les petites cuisines.",
-    "sol3": "1 geste du pied, toute la famille s'y met.",
+    "sol2": "Sans électricité ni fixation.\n Idéal pour les navigateurs, les campeurs, et les petites cuisines.",
+    "sol3": "Conçu pour toute la famille.",
     "virtuesTitle": "5 vertus maîtresses",
     "virt1Title": "Simple",
     "virt1Desc": "1 geste du pied, dès 6 ans",
@@ -66,7 +66,13 @@
     "btnOrder": "PRÉ-COMMANDER",
     "btnMySqweezy": "MON SQWEEZY",
     "btnPro": "SOLUTIONS PROS",
-    "btnInvestors": "INVESTISSEURS"
+    "btnInvestors": "INVESTISSEURS",
+    "home": {
+      "product_img_standard_alt": "SQWEEZY vue de face",
+      "product_img_standard_caption": "Vue standard",
+      "product_img_action_alt": "SQWEEZY en action",
+      "product_img_action_caption": "En action"
+    }
   },
   "consulting": {
     "headline": "SKIMSTONES propose diverses prestations dédiées aux acteurs de la transition énergétique"

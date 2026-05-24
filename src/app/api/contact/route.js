@@ -143,6 +143,7 @@ function buildNotificationHtml(txt, sitLabels, body) {
 export async function POST(request) {
   const body = await request.json();
   const {
+    locale,
     name, company, fonction, email,
     phone, country_code,
     sit_sqweezy_interest, sit_waste_recovery, sit_spof, sit_electricity_decarbonation,
@@ -174,7 +175,7 @@ export async function POST(request) {
     return NextResponse.json({ success: false, error: dbError.message }, { status: 500 });
   }
 
-  const lang = request.headers.get("accept-language")?.startsWith("fr") ? "fr" : "en";
+  const lang = locale === "fr" ? "fr" : "en";
   const txt = lang === "fr" ? emailTextsFR : emailTextsEN;
   const sitLabels = lang === "fr" ? SIT_LABELS_FR : SIT_LABELS_EN;
 

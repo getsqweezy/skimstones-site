@@ -78,7 +78,7 @@ export default function FoundersPage() {
   const pierre = {
     name: 'Pierre-Emmanuel CREPIN',
     title: t('pierre.title'),
-    photo: '/pic-pec.jpg',
+    photo: '/images/pic-pec.jpg',
     educationTitle: t('pierre.educationTitle'),
     education: [t('pierre.edu1'), t('pierre.edu2'), t('pierre.edu3'), t('pierre.edu4')],
     expHeadline: t('pierre.expHeadline'),
@@ -90,7 +90,7 @@ export default function FoundersPage() {
   const lenda = {
     name: 'Lenda AIT KADDOUR',
     title: t('lenda.title'),
-    photo: '/pic-lak.png',
+    photo: '/images/pic-lak.png',
     educationTitle: t('lenda.educationTitle'),
     education: [
       t('lenda.edu1'), t('lenda.edu2'), t('lenda.edu3'),

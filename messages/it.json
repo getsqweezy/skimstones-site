@@ -51,6 +51,12 @@
     "btnOrder": "PRE-ORDINA",
     "btnMySqweezy": "IL MIO SQWEEZY",
     "btnPro": "SOLUZIONI PRO",
-    "btnInvestors": "INVESTITORI"
+    "btnInvestors": "INVESTITORI",
+    "home": {
+      "product_img_standard_alt": "SQWEEZY front view",
+      "product_img_standard_caption": "Standard view",
+      "product_img_action_alt": "SQWEEZY in action",
+      "product_img_action_caption": "In action"
+    }
   }
 }

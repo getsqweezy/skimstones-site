@@ -41,7 +41,7 @@
     "prob3": "~12h/year lost managing household waste",
     "sol1": "One foot press compacts each bottle or can in one second.",
     "sol2": "No electricity, no mounting: perfect for sailors and campers, and tiny kitchens.",
-    "sol3": "1 foot press, the whole family joins in.",
+    "sol3": "Designed for the whole family.",
     "virtuesTitle": "5 key strengths",
     "virt1Title": "Simple",
     "virt1Desc": "1 foot press, from age 6",
@@ -66,7 +66,13 @@
     "btnOrder": "PRE-ORDER",
     "btnMySqweezy": "MY SQWEEZY",
     "btnPro": "PRO SOLUTIONS",
-    "btnInvestors": "INVESTORS"
+    "btnInvestors": "INVESTORS",
+    "home": {
+      "product_img_standard_alt": "SQWEEZY front view",
+      "product_img_standard_caption": "Standard view",
+      "product_img_action_alt": "SQWEEZY in action",
+      "product_img_action_caption": "In action"
+    }
   },
   "consulting": {
     "headline": "SKIMSTONES offers various services dedicated to energy transition players"

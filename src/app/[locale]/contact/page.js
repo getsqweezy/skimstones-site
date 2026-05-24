@@ -1,7 +1,7 @@
 'use client';
 import Header from '@/components/Header';
 import { useState, useRef, useEffect } from 'react';
-import { useTranslations } from 'next-intl';
+import { useTranslations, useLocale } from 'next-intl';
 import PhoneInput from 'react-phone-number-input';
 import { isValidPhoneNumber } from 'libphonenumber-js';
 import 'react-phone-number-input/style.css';
@@ -24,6 +24,7 @@ function isPhoneValid(val) {
 
 export default function ContactPage() {
   const t = useTranslations('contact');
+  const locale = useLocale();
 
   const [form, setForm] = useState({ name: '', company: '', fonction: '', email: '' });
   const [phone, setPhone] = useState('');
@@ -101,6 +102,7 @@ export default function ContactPage() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
+          locale,
           ...form,
           phone,
           country_code: phoneCountry,
