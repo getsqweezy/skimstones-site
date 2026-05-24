@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Header from '@/components/Header';
+import WhyChain from '@/components/WhyChain';
 import { getTranslations } from 'next-intl/server';
 import { replaceStylusBTChars } from '@/lib/stylusBT';
 
@@ -71,33 +72,57 @@ export default async function SqweezyPage({ params }) {
           </Link>
         </section>
 
-        {/* ── PROBLEM ────────────────────────────────────── */}
-        <section className="sqw-problem-section">
-          <h2 className="sqw-section-title">{t('problemTitle')}</h2>
-          <div className="sqw-problem-cards">
-            <div className="sqw-problem-card">
-              <span className="sqw-problem-icon">🗑️</span>
-              <p>{t('prob1')}</p>
-            </div>
-            <div className="sqw-problem-card">
-              <span className="sqw-problem-icon">♻️</span>
-              <p>{t('prob2')}</p>
-            </div>
-            <div className="sqw-problem-card">
-              <span className="sqw-problem-icon">⏱️</span>
-              <p>{t('prob3')}</p>
-            </div>
-          </div>
-        </section>
-
-        <div className="sqw-arrow-down">▼</div>
-
-        {/* ── SOLUTION ───────────────────────────────────── */}
-        <section className="sqw-solution-section">
-          <div className="sqw-sol-line"><p>{t('sol1')}</p></div>
-          <div className="sqw-sol-line"><p>{t('sol2')}</p></div>
-          <div className="sqw-sol-line"><p>{t('sol3')}</p></div>
-        </section>
+        {/* ── WHY CHAIN ──────────────────────────────────── */}
+        <h2 className="sqw-section-title">{t('home.whySectionTitle')}</h2>
+        <WhyChain
+          items={[
+            {
+              icon: '/icons/95pc-air.png',
+              iconAlt: t('home.whyItem1IconAlt'),
+              label: t('home.whyItem1Step'),
+              title: t('home.whyItem1Title'),
+              desc: t('home.whyItem1Desc'),
+            },
+            {
+              icon: '/icons/home-recy-bin.png',
+              iconAlt: t('home.whyItem2IconAlt'),
+              label: t('home.whyItem2Step'),
+              title: t('home.whyItem2Title'),
+              desc: t('home.whyItem2Desc'),
+              stat: t('home.whyItem2Stat'),
+            },
+            {
+              icon: '/icons/street-recy_bin.png',
+              iconAlt: t('home.whyItem3IconAlt'),
+              label: t('home.whyItem3Step'),
+              title: t('home.whyItem3Title'),
+              desc: t('home.whyItem3Desc'),
+            },
+            {
+              icon: '/icons/time-waste.png',
+              iconAlt: t('home.whyItem4IconAlt'),
+              label: t('home.whyItem4Step'),
+              title: t('home.whyItem4Title'),
+              desc: t('home.whyItem4Desc'),
+              stat: t('home.whyItem4Stat'),
+            },
+            {
+              icon: '/icons/wasted-money.png',
+              iconAlt: t('home.whyItem5IconAlt'),
+              label: t('home.whyItem5Step'),
+              title: t('home.whyItem5Title'),
+              desc: t('home.whyItem5Desc'),
+              stat: t('home.whyItem5Stat'),
+            },
+          ]}
+          conclusion={{
+            text: t('home.whyConclusionText'),
+            btnLabel: t('home.whyConclusionCta'),
+            btnHref: `/${locale}/sqweezy/pre-order`,
+          }}
+          expandLabel={t('home.whyExpandLabel')}
+          collapseLabel={t('home.whyCollapseLabel')}
+        />
 
         {/* ── VIRTUES ────────────────────────────────────── */}
         <section className="sqw-virtues-section">
