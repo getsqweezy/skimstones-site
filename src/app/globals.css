@@ -1138,15 +1138,8 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.product-img-card.light {
   background: #fff;
   border: 1px solid rgba(254, 113, 22, 0.15);
-}
-
-.product-img-card.dark {
-  background: #1a1a1a;
 }
 
 .product-img-card img {
@@ -1163,14 +1156,7 @@ body {
   letter-spacing: 0.05em;
   padding: var(--space-xs) var(--space-s) var(--space-s);
   text-align: center;
-}
-
-.product-img-card.light .img-caption {
   color: var(--text-color);
-}
-
-.product-img-card.dark .img-caption {
-  color: rgba(255, 255, 255, 0.45);
 }
 
 .sqw-cta-preorder {

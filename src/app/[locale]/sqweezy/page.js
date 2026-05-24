@@ -43,7 +43,7 @@ export default async function SqweezyPage({ params }) {
           </div>
 
           <div className="product-images">
-            <div className="product-img-card light">
+            <div className="product-img-card">
               <Image
                 src="/images/pic-sqw-t.png"
                 alt={t('home.product_img_standard_alt')}
@@ -53,7 +53,7 @@ export default async function SqweezyPage({ params }) {
               />
               <div className="img-caption">{t('home.product_img_standard_caption')}</div>
             </div>
-            <div className="product-img-card dark">
+            <div className="product-img-card">
               <Image
                 src="/images/gif-sqw-t.gif"
                 alt={t('home.product_img_action_alt')}
