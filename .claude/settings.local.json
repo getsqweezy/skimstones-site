@@ -35,7 +35,8 @@
       "Bash(Get-Content \"C:\\\\Users\\\\HP\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\D--SQWEEZY-DEPLOIEMENT-SITE-WEB-SITEV2-AGDAL-skimstones-site\\\\8fc4e13b-236a-4dea-bdf0-54359914009b\\\\tasks\\\\bnoe5fbg0.output\" -Tail 20)",
       "Bash(curl *)",
       "Bash(node -e ' *)",
-      "PowerShell(cd \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\"; Select-String -Path .env.local -Pattern \"^[^#\\\\s]\" | ForEach-Object { \\($_.Line -split \"=\"\\)[0] })"
+      "PowerShell(cd \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\"; Select-String -Path .env.local -Pattern \"^[^#\\\\s]\" | ForEach-Object { \\($_.Line -split \"=\"\\)[0] })",
+      "Bash(node -e \"['es','it','de','nl','pt'].forEach\\(l => { try { JSON.parse\\(require\\('fs'\\).readFileSync\\('messages/' + l + '.json','utf8'\\)\\); console.log\\(l + '.json : OK'\\); } catch\\(e\\) { console.error\\(l + '.json ERREUR: ' + e.message\\); } }\\);\")"
     ]
   }
 }
