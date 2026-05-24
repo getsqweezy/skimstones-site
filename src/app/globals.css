@@ -1089,7 +1089,7 @@ body {
   border-radius: 0 6px 6px 0;
   padding: var(--space-s) var(--space-m);
   margin: var(--space-m) 0;
-  font-size: var(--fs-body);
+  font-size: calc(var(--fs-body) * 0.8);
   color: var(--text-color);
   line-height: 1.5;
 }
