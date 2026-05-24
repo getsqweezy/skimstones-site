@@ -125,6 +125,37 @@ export default async function SqweezyPage({ params }) {
           collapseLabel={t('home.whyCollapseLabel')}
         />
 
+        {/* ── SOLUTION ───────────────────────────────────── */}
+        <section className="sqw-solution-section">
+          <span className="section-label">{t('home.solSectionLabel')}</span>
+          <h2 className="section-main-title">{t('home.solSectionTitle')}</h2>
+          <p className="section-sub-title">{t('home.solSectionSubtitle')}</p>
+          <div className="sol-block">
+            <div className="sol-line">
+              <div className="sol-picto">
+                <Image src="/icons/foot-press.png" alt={t('home.sol1IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
+              </div>
+              <div className="sol-text">{t('home.sol1')}</div>
+            </div>
+            <div className="sol-line">
+              <div className="sol-picto">
+                <Image src="/icons/caravan.png" alt={t('home.sol2IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
+              </div>
+              <div className="sol-text">
+                {t('home.sol2').split('\n').map((part, i, arr) => (
+                  <span key={i}>{part}{i < arr.length - 1 && <br />}</span>
+                ))}
+              </div>
+            </div>
+            <div className="sol-line">
+              <div className="sol-picto">
+                <Image src="/icons/family.png" alt={t('home.sol3IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
+              </div>
+              <div className="sol-text">{t('home.sol3')}</div>
+            </div>
+          </div>
+        </section>
+
         {/* ── VIRTUES ────────────────────────────────────── */}
         <section className="sqw-virtues-section">
           <h2 className="sqw-section-title">{t('virtuesTitle')}</h2>

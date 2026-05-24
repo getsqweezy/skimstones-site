@@ -100,7 +100,16 @@
 "whyItem5Step": "And your wallet",
 "whyItem5Title": "Hidden costs that add up year after year",
 "whyItem5Desc": "Extra recycling bags, fuel for collection runs… Poorly organised sorting is quietly costing you more than you think, year after year.",
-"whyItem5Stat": "€20 to €40/year in avoidable extra costs"
+"whyItem5Stat": "€20 to €40/year in avoidable extra costs",
+      "solSectionLabel": "The solution",
+      "solSectionTitle": "SQWEEZY compacts all of this in one second",
+      "solSectionSubtitle": "Fewer bags, fewer trips, lower costs.",
+      "sol1": "One simple foot press is all it takes to compact any can or plastic bottle.",
+      "sol2": "No electricity, no fixing.\nPerfect for sailors, campers, and small kitchens.",
+      "sol3": "Designed for the whole family, from age 6.",
+      "sol1IconAlt": "Foot pressing SQWEEZY",
+      "sol2IconAlt": "Camping and sailing",
+      "sol3IconAlt": "The whole family"
     }
   },
   "consulting": {
