@@ -1,6 +1,5 @@
 'use client';
 import Image from 'next/image';
-import Link from 'next/link';
 import { useState } from 'react';
 
 function WhyItem({ item }) {
@@ -25,7 +24,7 @@ function WhyItem({ item }) {
   );
 }
 
-export default function WhyChain({ items, conclusion, expandLabel, collapseLabel }) {
+export default function WhyChain({ items, expandLabel, collapseLabel }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -45,13 +44,6 @@ export default function WhyChain({ items, conclusion, expandLabel, collapseLabel
         {items.slice(1).map((item, i) => (
           <WhyItem key={i} item={item} />
         ))}
-
-        <div className="why-conclusion">
-          <p className="why-conclusion-text">{conclusion.text}</p>
-          <Link href={conclusion.btnHref} className="why-conclusion-cta">
-            {conclusion.btnLabel}
-          </Link>
-        </div>
       </div>
     </section>
   );

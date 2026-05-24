@@ -116,11 +116,6 @@ export default async function SqweezyPage({ params }) {
               stat: t('home.whyItem5Stat'),
             },
           ]}
-          conclusion={{
-            text: t('home.whyConclusionText'),
-            btnLabel: t('home.whyConclusionCta'),
-            btnHref: `/${locale}/sqweezy/pre-order`,
-          }}
           expandLabel={t('home.whyExpandLabel')}
           collapseLabel={t('home.whyCollapseLabel')}
         />
@@ -134,23 +129,31 @@ export default async function SqweezyPage({ params }) {
               <div className="sol-picto">
                 <Image src="/icons/foot-press.png" alt={t('home.sol1IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
               </div>
-              <div className="sol-text">{t('home.sol1')}</div>
+              <div className="sol-text">
+                <span className="sol-text-strong">{t('home.sol1Strong')}</span>
+                {' '}
+                <span className="sol-text-normal">{t('home.sol1Normal')}</span>
+              </div>
             </div>
             <div className="sol-line">
               <div className="sol-picto">
                 <Image src="/icons/caravan.png" alt={t('home.sol2IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
               </div>
               <div className="sol-text">
-                {t('home.sol2').split('\n').map((part, i, arr) => (
-                  <span key={i}>{part}{i < arr.length - 1 && <br />}</span>
-                ))}
+                <span className="sol-text-strong">{t('home.sol2Strong')}</span>
+                {' '}
+                <span className="sol-text-normal">{t('home.sol2Normal')}</span>
               </div>
             </div>
             <div className="sol-line">
               <div className="sol-picto">
                 <Image src="/icons/family.png" alt={t('home.sol3IconAlt')} width={28} height={28} style={{ objectFit: 'contain' }} />
               </div>
-              <div className="sol-text">{t('home.sol3')}</div>
+              <div className="sol-text">
+                <span className="sol-text-strong">{t('home.sol3Strong')}</span>
+                {' '}
+                <span className="sol-text-normal">{t('home.sol3Normal')}</span>
+              </div>
             </div>
           </div>
         </section>
