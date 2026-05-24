@@ -127,9 +127,8 @@ export default async function SqweezyPage({ params }) {
 
         {/* ── SOLUTION ───────────────────────────────────── */}
         <section className="sqw-solution-section">
-          <span className="section-label">{t('home.solSectionLabel')}</span>
-          <h2 className="section-main-title">{t('home.solSectionTitle')}</h2>
-          <p className="section-sub-title">{t('home.solSectionSubtitle')}</p>
+          <span className="section-label">{t('home.solSectionTitle')}</span>
+          <p className="sqw-virtue-title">{t('home.solSectionSubtitle')}</p>
           <div className="sol-block">
             <div className="sol-line">
               <div className="sol-picto">

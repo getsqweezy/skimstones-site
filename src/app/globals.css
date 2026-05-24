@@ -1425,49 +1425,40 @@ body {
   font-size: var(--fs-subtitle);
   font-weight: 700;
   color: var(--title-color);
-  margin: 0 0 var(--space-m) 0;
-}
-
-.section-main-title {
-  font-family: var(--font-sqw-spec);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--title-color);
-  line-height: 1.3;
-  margin-bottom: var(--space-s);
-}
-
-.section-sub-title {
-  font-size: var(--fs-ui);
-  font-weight: 700;
-  color: var(--sqw-forest);
-  margin-bottom: var(--space-m);
+  line-height: 1.0;
+  margin: 0 0 calc(var(--space-m) / 2) 0;
 }
 
 .sol-block {
   display: flex;
   flex-direction: column;
-  gap: var(--space-m);
+  gap: var(--space-l);
 }
 
 .sol-line {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: var(--space-m);
 }
 
 .sol-picto {
-  width: 36px;
-  height: 36px;
+  width: 52px;
+  height: 52px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(254, 113, 22, 0.08);
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
-.sol-text { flex: 1; font-size: var(--fs-body); line-height: 1.5; color: var(--text-color); }
+.sol-picto img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.sol-text { flex: 1; font-size: calc(var(--fs-body) * 0.70); line-height: 1.4; color: var(--text-color); }
 .sol-text strong { color: var(--sqw-orange); }
 
 /* ── Virtues ─────────────────────────────────────────── */
@@ -1500,6 +1491,7 @@ body {
   font-size: var(--fs-body);
   font-weight: 700;
   color: var(--sqw-orange);
+  line-height: 1.0;
 }
 
 .sqw-virtue-desc {
