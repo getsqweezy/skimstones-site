@@ -19,7 +19,7 @@ function WhyItem({ item }) {
         <div className="why-step">{item.label}</div>
         <h3 className="why-title">{item.title}</h3>
         <p className="why-desc">{item.desc}</p>
-        {item.stat && <div className="why-stat">{item.stat}</div>}
+        {item.stat && <span className="why-stat">{item.stat}</span>}
       </div>
     </div>
   );

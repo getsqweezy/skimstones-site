@@ -97,6 +97,7 @@ export default async function SqweezyPage({ params }) {
               label: t('home.whyItem3Step'),
               title: t('home.whyItem3Title'),
               desc: t('home.whyItem3Desc'),
+              stat: t('home.whyItem3Stat'),
             },
             {
               icon: '/icons/time-waste.png',
