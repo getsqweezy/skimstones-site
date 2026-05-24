@@ -1146,7 +1146,10 @@ body {
   background: none;
   border: none;
   cursor: pointer;
-  padding: calc(var(--space-s) / 2) 0 calc(var(--space-m) * 1.5);
+  padding-top: calc(var(--space-s) / 2);
+  padding-right: 0;
+  padding-bottom: calc(var(--space-m) * 1.5);
+  padding-left: 0;
   margin-left: 52px;
   font-family: var(--font-body);
   color: var(--sqw-orange);
@@ -1424,6 +1427,7 @@ body {
   width: 40px;
   height: 40px;
   flex-shrink: 0;
+  align-self: center;
   display: flex;
   align-items: center;
   justify-content: center;
