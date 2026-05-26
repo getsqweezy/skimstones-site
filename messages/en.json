@@ -110,7 +110,60 @@
     }
   },
   "consulting": {
-    "headline": "SKIMSTONES offers various services dedicated to energy transition players"
+    "headline": "SKIMSTONES offers various services dedicated to energy transition players",
+    "pageTitle": "SKIMSTONES Services structures, secures and deploys complex energy transition and circular economy projects",
+    "intro1": "SKIMSTONES supports industrials, local authorities, operators and investors in transforming technical, energy or environmental constraints into robust, manageable and fundable projects.",
+    "intro2": "We operate where the stakes are complex: critical systems, difficult waste streams, fragmented value chains, emerging technologies, business models yet to be built.",
+    "posture": {
+      "label": "1 POSTURE",
+      "title": "An independent, demanding and decision-oriented partner.",
+      "desc": "SKIMSTONES does not sell a standard technology. We help understand the problem, qualify the risks, structure the options, align the stakeholders and secure the next decisions."
+    },
+    "pillars": {
+      "label": "2 PILLARS",
+      "title": "Industrial process and systems architecture.",
+      "desc": "Our added value is based on a dual perspective: understanding how installations, flows and processes actually work, while analysing dependencies, interfaces and economic feasibility conditions."
+    },
+    "stagegate": {
+      "label": "STAGE-GATE METHOD",
+      "title": "Turning a complex idea into a controlled project.",
+      "desc": "Our Stage-Gate method allows projects to progress step by step, without rushing investments. At each milestone, technical, economic, regulatory and commercial assumptions are tested, refined and validated before moving to the next level.",
+      "cta": "Learn more >>"
+    },
+    "expertises": {
+      "label": "4 EXPERTISES, 1 INNOVATION",
+      "intro": "SKIMSTONES deploys a cross-functional industrial approach in service of performance, resilience and the responsible transformation of energy and industrial systems."
+    },
+    "spof": {
+      "label": "CRITICAL RESILIENCE",
+      "sublabel": "SPOF - SINGLE POINT OF FAILURE DETECTION",
+      "desc": "Identifying the invisible fragilities that can compromise the continuity of an installation, network or critical service. SKIMSTONES maps dependencies, analyses real redundancies, prioritises risks and builds a concrete action plan to strengthen operational resilience.",
+      "cta": "Learn more >>"
+    },
+    "wvc": {
+      "label": "CIRCULAR VALUE CHAIN",
+      "sublabel": "WASTE RECOVERY",
+      "desc": "Transforming constrained waste streams into value-creating industrial projects. SKIMSTONES analyses flows, compares technological pathways, structures the business model, secures outlets and prepares investment decisions for realistic and fundable recovery projects.",
+      "cta": "Learn more >>"
+    },
+    "woil": {
+      "label": "STRATEGIC SECTOR",
+      "sublabel": "USED OIL RECYCLING",
+      "desc": "Structuring a local used oil regeneration sector with high added value. From collection to final outlet, SKIMSTONES helps qualify the resource, organise partners, build the industrial model and prepare a credible deployment trajectory.",
+      "cta": "Learn more >>"
+    },
+    "pm": {
+      "label": "ALTERNATIVE ENERGIES",
+      "sublabel": "PROJECT MANAGEMENT AMOA/MOE",
+      "desc": "Taking an energy project from concept to execution. SKIMSTONES supports project owners in scoping, technology selection, supplier consultation, study management, stakeholder coordination and follow-up through to commissioning.",
+      "cta": "Learn more >>"
+    },
+    "sqweezy": {
+      "label": "OUR PRODUCT",
+      "sublabel": "SQWEEZY",
+      "desc": "Compacting bottles and cans at source, simply, without energy. SQWEEZY is the domestic compactor developed by SKIMSTONES to improve sorting habits, reduce collected volumes, limit transported air and reinforce the efficiency of selective collection systems.",
+      "cta": "Learn more >>"
+    }
   },
   "founders": {
     "headline": "Meet Skimstones' founders",

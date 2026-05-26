@@ -40,4 +40,6 @@ Le formulaire de contact utilise `react-phone-number-input` pour la gestion inte
 
 Les fichiers `messages/fr.json` et `messages/en.json` sont la source de vérité pour tous les textes du site. Ne jamais hardcoder de texte visible dans les composants — toujours utiliser `t('clé')`. Exception : les textes d'email dans `route.js` qui sont des constantes JS car le serveur n'a pas accès à next-intl.
 
+La page `/consulting-services` est bilingue FR/EN uniquement — ne pas ajouter les clés `consulting.*` dans `es.json`, `it.json`, `de.json`, `nl.json`, `pt.json`.
+
 @AGENTS.md
