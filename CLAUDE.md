@@ -42,4 +42,6 @@ Les fichiers `messages/fr.json` et `messages/en.json` sont la source de vérité
 
 La page `/consulting-services` est bilingue FR/EN uniquement — ne pas ajouter les clés `consulting.*` dans `es.json`, `it.json`, `de.json`, `nl.json`, `pt.json`.
 
+Tous les titres h1 de pages SKS utilisent la classe `.page-headline` — jamais de font-size inline ou de classe alternative. Cette règle ne s'applique pas aux pages SQW qui ont leur propre système typographique.
+
 @AGENTS.md
