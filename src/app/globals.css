@@ -1604,6 +1604,36 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════
+   PAGE CONSULTING-SERVICES
+   ═══════════════════════════════════════════════════════ */
+.consulting-cta {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  color: #D3BFA3;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+.consulting-cta:hover,
+.consulting-cta:active {
+  color: var(--sks-bordeaux);
+}
+
+.consulting-desc-link {
+  display: block;
+  color: var(--text-color);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.consulting-desc-link:hover,
+.consulting-desc-link:active {
+  color: var(--sks-bordeaux);
+}
+
+/* ═══════════════════════════════════════════════════════
    RESPONSIVE — desktop (≥1024px)
    ═══════════════════════════════════════════════════════ */
 @media (min-width: 1024px) {

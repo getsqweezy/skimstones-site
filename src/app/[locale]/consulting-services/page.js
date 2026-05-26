@@ -26,13 +26,14 @@ const BOLD_INTRO2 = {
 
 /* ─── Styles réutilisables ──────────────────────────────── */
 
-const label = (color) => ({
+const label = (color, extra = {}) => ({
   fontFamily: 'var(--font-sks-l2)',
   fontSize: 'var(--fs-ui)',
   fontWeight: 700,
   textTransform: 'uppercase',
   letterSpacing: '0.06em',
   color,
+  ...extra,
 });
 
 const sectionTitle = {
@@ -57,19 +58,26 @@ const body = {
   lineHeight: 1.5,
 };
 
-const ctaLink = {
+/* desc without color — inherits from .consulting-desc-link for hover */
+const bodyDesc = {
   fontFamily: 'var(--font-body)',
   fontSize: 'var(--fs-caption)',
-  fontWeight: 700,
-  color: 'var(--sks-bordeaux)',
-  textDecoration: 'none',
-  whiteSpace: 'nowrap',
-  flexShrink: 0,
+  fontWeight: 400,
+  lineHeight: 1.5,
 };
 
-const section = {
-  borderTop: '1px solid rgba(25, 40, 79, 0.08)',
-  paddingTop: 'var(--space-l)',
+/* section without separator */
+const sectionNoSep = {
+  marginTop: 'calc(var(--space-l) * 0.5)',
+  display: 'flex',
+  flexDirection: 'column',
+  gap: 'var(--space-s)',
+};
+
+/* single separator before EXPERTISES */
+const sectionExpertises = {
+  borderTop: '1px solid var(--sks-bordeaux)',
+  paddingTop: 'calc(var(--space-l) * 0.5)',
   marginTop: 'var(--space-l)',
   display: 'flex',
   flexDirection: 'column',
@@ -113,60 +121,70 @@ export default async function ConsultingServicesPage({ params }) {
       <Header />
       <main className="page-main">
 
-        {/* Titre h1 */}
+        {/* Titre h1 — .page-headline fournit font-sks-l1, fs-title, 700, title-color */}
         <h1 className="page-headline">{t('pageTitle')}</h1>
 
-        {/* Intro 1 */}
-        <p style={body}>
-          {highlightTerms(t('intro1'), BOLD_INTRO1[locale])}
-        </p>
-
-        {/* Intro 2 */}
-        <p style={body}>
-          {highlightTerms(t('intro2'), BOLD_INTRO2[locale])}
-        </p>
+        {/* Intro — centré, gap réduit entre les deux paragraphes */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-m) * 0.8)', textAlign: 'center' }}>
+          <p style={body}>{highlightTerms(t('intro1'), BOLD_INTRO1[locale])}</p>
+          <p style={body}>{highlightTerms(t('intro2'), BOLD_INTRO2[locale])}</p>
+        </div>
 
         {/* POSTURE */}
-        <div style={section}>
+        <div style={sectionNoSep}>
           <span style={label('var(--sks-bordeaux)')}>{t('posture.label')}</span>
           <p style={sectionTitle}>{t('posture.title')}</p>
           <p style={body}>{t('posture.desc')}</p>
         </div>
 
         {/* PILLARS */}
-        <div style={section}>
+        <div style={sectionNoSep}>
           <span style={label('var(--sks-bordeaux)')}>{t('pillars.label')}</span>
           <p style={sectionTitle}>{t('pillars.title')}</p>
           <p style={body}>{t('pillars.desc')}</p>
         </div>
 
         {/* STAGE-GATE */}
-        <div style={section}>
+        <div style={sectionNoSep}>
           <div style={labelRow}>
-            <span style={label('var(--title-color)')}>{t('stagegate.label')}</span>
-            <Link href={`/${locale}/consulting-services/sg`} style={ctaLink}>
+            <span style={label('var(--sks-bordeaux)')}>{t('stagegate.label')}</span>
+            <Link href={`/${locale}/consulting-services/sg`} className="consulting-cta">
               {t('stagegate.cta')}
             </Link>
           </div>
           <p style={sectionTitle}>{t('stagegate.title')}</p>
-          <p style={body}>{t('stagegate.desc')}</p>
+          <Link
+            href={`/${locale}/consulting-services/sg`}
+            className="consulting-desc-link"
+            style={bodyDesc}
+          >
+            {t('stagegate.desc')}
+          </Link>
         </div>
 
-        {/* EXPERTISES — séparateur fort */}
-        <div style={{ ...section, borderTopWidth: '2px', borderTopColor: 'var(--sks-mint)' }}>
-          <span style={label('var(--sks-mint)')}>{t('expertises.label')}</span>
+        {/* EXPERTISES — seul séparateur de la page */}
+        <div style={sectionExpertises}>
+          <span style={label('var(--sks-bordeaux)', {
+            fontSize: 'calc(var(--fs-body) * 1.3)',
+            textAlign: 'center',
+            display: 'block',
+          })}>
+            {t('expertises.label')}
+          </span>
           <p style={body}>{t('expertises.intro')}</p>
         </div>
 
         {/* 5 blocs expertise */}
         {expertiseBlocks.map(({ key, route }) => (
-          <div key={key} style={section}>
+          <div key={key} style={sectionNoSep}>
             <div style={labelRow}>
-              <span style={label('var(--sks-mid)')}>{t(`${key}.label`)}</span>
-              <Link href={route} style={ctaLink}>{t(`${key}.cta`)}</Link>
+              <span style={label('var(--sks-bordeaux)')}>{t(`${key}.label`)}</span>
+              <Link href={route} className="consulting-cta">{t(`${key}.cta`)}</Link>
             </div>
             <p style={sublabel}>{t(`${key}.sublabel`)}</p>
-            <p style={body}>{t(`${key}.desc`)}</p>
+            <Link href={route} className="consulting-desc-link" style={bodyDesc}>
+              {t(`${key}.desc`)}
+            </Link>
           </div>
         ))}
 
