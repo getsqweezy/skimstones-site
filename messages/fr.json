@@ -17,7 +17,7 @@
   "home": {
     "tagline": "SKIMSTONES accompagne les acteurs industriels dans leurs projets de transition énergétique",
     "sqweezyBlurb": "Pensé pour le grand public, SQWEEZY révolutionne le tri à domicile : un compacteur astucieux qui fait de chaque foyer un acteur de l'économie circulaire",
-    "servicesBlurb": "SKIMSTONES Services transforme les défis de la transition énergétique en projets concrets, finançables et évolutifs, avec un soutien stratégique et technique à chaque étape",
+    "servicesBlurb": "SKIMSTONES transforme les défis de la transition énergétique en projets concrets, finançables et évolutifs, avec un soutien stratégique et technique à chaque étape",
     "foundersBlurb": "Découvrez le profil et la vision des fondateurs de Skimstones",
     "contactBlurb": "Envie d'en savoir plus? Échangeons !",
     "btnDiscover": "DÉCOUVRIR",
@@ -111,12 +111,12 @@
   },
   "consulting": {
     "headline": "SKIMSTONES propose diverses prestations dédiées aux acteurs de la transition énergétique",
-    "pageTitle": "SKIMSTONES Services structure, sécurise et déploie les projets complexes de transition énergétique et circulaire",
+    "pageTitle": "SKIMSTONES structure, sécurise et déploie les projets complexes de transition énergétique et circulaire",
     "intro1": "SKIMSTONES accompagne les industriels, collectivités, opérateurs et investisseurs dans la transformation de contraintes techniques, énergétiques ou environnementales en projets robustes, pilotables et finançables.",
     "intro2": "Nous intervenons là où les enjeux sont complexes : systèmes critiques, déchets difficiles, chaînes de valeur fragmentées, technologies émergentes, modèles économiques à construire.",
     "posture": {
       "label": "1 POSTURE",
-      "title": "Un partenaire indépendant, exigeant et orienté décision.",
+      "title": "Un partenaire indépendant, rigoureux et orienté décision.",
       "desc": "SKIMSTONES ne vend pas une technologie standard. Nous aidons à comprendre le problème, qualifier les risques, structurer les options, aligner les acteurs et sécuriser les prochaines décisions."
     },
     "pillars": {
@@ -128,7 +128,7 @@
       "label": "MÉTHODE STAGE-GATE",
       "title": "Transformer une idée complexe en projet maîtrisé.",
       "desc": "Notre méthode Stage-Gate permet de faire progresser les projets étape par étape, sans précipiter les investissements. À chaque jalon, les hypothèses techniques, économiques, réglementaires et commerciales sont testées, précisées puis validées avant de passer au niveau suivant.",
-      "cta": "En savoir + >>"
+      "cta": "En savoir +"
     },
     "expertises": {
       "label": "4 EXPERTISES, 1 INNOVATION",
@@ -138,31 +138,31 @@
       "label": "RÉSILIENCE CRITIQUE",
       "sublabel": "SPOF - DÉTECTION DES POINTS DE DÉFAILLANCES UNITAIRES",
       "desc": "Identifier les fragilités invisibles qui peuvent compromettre la continuité d'une installation, d'un réseau ou d'un service critique. SKIMSTONES cartographie les dépendances, analyse les redondances réelles, hiérarchise les risques et construit un plan d'actions concret pour renforcer la résilience d'exploitation.",
-      "cta": "En savoir + >>"
+      "cta": "En savoir +"
     },
     "wvc": {
       "label": "CHAÎNE DE VALEUR CIRCULAIRE",
       "sublabel": "VALORISATION DES DÉCHETS",
       "desc": "Transformer des gisements contraignants en projets industriels créateurs de valeur. SKIMSTONES analyse les flux, compare les voies technologiques, structure le modèle économique, sécurise les débouchés et prépare les décisions d'investissement pour des projets de valorisation réalistes et finançables.",
-      "cta": "En savoir + >>"
+      "cta": "En savoir +"
     },
     "woil": {
       "label": "FILIÈRE STRATÉGIQUE",
       "sublabel": "RECYCLAGE DES HUILES USAGÉES",
       "desc": "Structurer une filière locale de régénération des huiles usagées à forte valeur ajoutée. De la collecte au débouché final, SKIMSTONES aide à qualifier le gisement, organiser les partenaires, construire le modèle industriel et préparer une trajectoire de déploiement crédible.",
-      "cta": "En savoir + >>"
+      "cta": "En savoir +"
     },
     "pm": {
       "label": "ÉNERGIES ALTERNATIVES",
       "sublabel": "ACCOMPAGNEMENT PROJET AMOA/MOE",
       "desc": "Faire passer un projet énergétique du concept à l'exécution. SKIMSTONES accompagne les maîtres d'ouvrage dans le cadrage, la sélection technologique, la consultation des fournisseurs, le pilotage des études, la coordination des parties prenantes et le suivi jusqu'à la mise en service.",
-      "cta": "En savoir + >>"
+      "cta": "En savoir +"
     },
     "sqweezy": {
       "label": "NOTRE PRODUIT",
       "sublabel": "SQWEEZY",
       "desc": "Compacter les bouteilles et canettes à la source, simplement, sans énergie. SQWEEZY est le compacteur domestique développé par SKIMSTONES pour améliorer le geste de tri, réduire les volumes collectés, limiter l'air transporté et renforcer l'efficacité des dispositifs de collecte sélective.",
-      "cta": "En savoir + >>"
+      "cta": "En savoir +"
     }
   },
   "founders": {

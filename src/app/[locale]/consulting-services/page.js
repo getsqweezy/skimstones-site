@@ -14,6 +14,15 @@ function highlightTerms(text, terms) {
   );
 }
 
+function boldFirstSentence(text) {
+  const parts = text.split(/(?<=\.)\s+/);
+  const firstSentence = parts[0];
+  const rest = parts.slice(1).join(' ');
+  return rest
+    ? <><strong>{firstSentence} </strong>{rest}</>
+    : <>{firstSentence}</>;
+}
+
 const BOLD_INTRO1 = {
   fr: ['industriels', 'collectivités', 'opérateurs', 'investisseurs', 'robustes', 'pilotables', 'finançables'],
   en: ['industrials', 'local authorities', 'operators', 'investors', 'robust', 'manageable', 'fundable'],
@@ -157,7 +166,7 @@ export default async function ConsultingServicesPage({ params }) {
             className="consulting-desc-link"
             style={bodyDesc}
           >
-            {t('stagegate.desc')}
+            {boldFirstSentence(t('stagegate.desc'))}
           </Link>
         </div>
 
@@ -182,7 +191,7 @@ export default async function ConsultingServicesPage({ params }) {
             </div>
             <p style={sublabel}>{t(`${key}.sublabel`)}</p>
             <Link href={route} className="consulting-desc-link" style={bodyDesc}>
-              {t(`${key}.desc`)}
+              {boldFirstSentence(t(`${key}.desc`))}
             </Link>
           </div>
         ))}

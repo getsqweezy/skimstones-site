@@ -40,7 +40,8 @@
       "Bash(node -e \"['fr','en','es','it','de','nl','pt'].forEach\\(l => { try { JSON.parse\\(require\\('fs'\\).readFileSync\\('messages/' + l + '.json','utf8'\\)\\); console.log\\(l + '.json : OK'\\); } catch\\(e\\) { console.error\\(l + '.json ERREUR: ' + e.message\\); } }\\);\")",
       "Bash(node update-consulting.js)",
       "Bash(node -e \"['fr','en'].forEach\\(l => { try { JSON.parse\\(require\\('fs'\\).readFileSync\\('messages/'+l+'.json','utf8'\\)\\); console.log\\(l+'.json valide'\\); } catch\\(e\\) { console.error\\(l+'.json ERREUR: '+e.message\\); }}\\)\")",
-      "Bash(del *)"
+      "Bash(del *)",
+      "Bash(node *)"
     ]
   }
 }
