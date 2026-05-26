@@ -121,8 +121,7 @@ export default async function ConsultingServicesPage({ params }) {
       <Header />
       <main className="page-main">
 
-        {/* Titre h1 — .page-headline fournit font-sks-l1, fs-title, 700, title-color */}
-        <h1 className="page-headline">{t('pageTitle')}</h1>
+        <h1 className="page-headline" style={{ fontSize: 'var(--fs-subtitle)' }}>{t('pageTitle')}</h1>
 
         {/* Intro — centré, gap réduit entre les deux paragraphes */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-m) * 0.8)', textAlign: 'center' }}>
