@@ -1,7 +1,9 @@
 'use client';
+import { Suspense } from 'react';
 import Header from '@/components/Header';
 import { useState, useRef, useEffect } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
+import { useSearchParams } from 'next/navigation';
 import PhoneInput from 'react-phone-number-input';
 import { isValidPhoneNumber } from 'libphonenumber-js';
 import 'react-phone-number-input/style.css';
@@ -22,16 +24,20 @@ function isPhoneValid(val) {
   try { return isValidPhoneNumber(val); } catch { return false; }
 }
 
-export default function ContactPage() {
+function ContactContent() {
   const t = useTranslations('contact');
   const locale = useLocale();
+  const searchParams = useSearchParams();
+  const situationParam = searchParams.get('situation');
 
   const [form, setForm] = useState({ name: '', company: '', fonction: '', email: '' });
   const [phone, setPhone] = useState('');
   const [phoneCountry, setPhoneCountry] = useState('FR');
-  const [situations, setSituations] = useState(
-    Object.fromEntries(SIT_KEYS.map((k) => [k, false]))
-  );
+  const [situations, setSituations] = useState(() => {
+    const base = Object.fromEntries(SIT_KEYS.map((k) => [k, false]));
+    if (situationParam === 'spof') base.s3 = true;
+    return base;
+  });
   const [otherDetail, setOtherDetail] = useState('');
   const [fieldErrors, setFieldErrors] = useState({});
   const [submitError, setSubmitError] = useState('');
@@ -269,5 +275,13 @@ export default function ContactPage() {
         </form>
       </main>
     </div>
+  );
+}
+
+export default function ContactPage() {
+  return (
+    <Suspense>
+      <ContactContent />
+    </Suspense>
   );
 }

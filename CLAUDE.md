@@ -42,6 +42,10 @@ Les fichiers `messages/fr.json` et `messages/en.json` sont la source de vérité
 
 La page `/consulting-services` est bilingue FR/EN uniquement — ne pas ajouter les clés `consulting.*` dans `es.json`, `it.json`, `de.json`, `nl.json`, `pt.json`.
 
+Le composant `SKSAccordion` (`src/components/SKSAccordion.jsx`) est le composant accordion standard pour toutes les pages SKS. Il utilise un triangle ▼ (U+25BC) avec rotation CSS 180° à l'ouverture. Les pages sous `/consulting-services/` utilisent ce composant. Les props sont `items: { title, short, long }[]`, `openLabel` et `closeLabel` (optionnels, défaut FR).
+
+Les CTAs des sous-pages `/consulting-services/*` vers `/contact` utilisent le paramètre `?situation=[code]` pour pré-cocher la case correspondante dans le formulaire. Actuellement : `?situation=spof` → pré-coche `s3` (sit_spof).
+
 Tous les titres h1 de pages SKS utilisent la classe `.page-headline` — jamais de classe alternative. Cette règle ne s'applique pas aux pages SQW qui ont leur propre système typographique. Exception : un titre particulièrement long peut ajouter un style inline `fontSize: 'var(--fs-subtitle)'` pour compenser le surplus de lignes, comme sur `/consulting-services`.
 
 @AGENTS.md

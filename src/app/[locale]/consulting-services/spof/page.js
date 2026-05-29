@@ -1,31 +1,215 @@
 import Header from '@/components/Header';
 import Link from 'next/link';
+import SKSAccordion from '@/components/SKSAccordion';
 import { getTranslations } from 'next-intl/server';
 
+/* ─── helper : bold selected terms ──────────────────── */
+function highlight(text, terms) {
+  if (!terms?.length) return text;
+  const sorted = [...terms].sort((a, b) => b.length - a.length);
+  const escaped = sorted.map(s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+  const regex = new RegExp(`(${escaped.join('|')})`, 'gi');
+  return text.split(regex).map((part, i) =>
+    sorted.some(s => s.toLowerCase() === part.toLowerCase())
+      ? <strong key={i}>{part}</strong>
+      : part
+  );
+}
+
+const HERO1_BOLD = {
+  fr: ['centrales', 'réseaux thermiques', 'infrastructures critiques', 'chaînes fonctionnelles complexes', 'production', 'distribution', 'clients critiques', 'continuité de service'],
+  en: ['power plants', 'thermal networks', 'critical infrastructures', 'complex functional chains', 'production', 'distribution', 'critical customers', 'service continuity'],
+};
+const HERO2_BOLD = {
+  fr: ['identifie', 'hiérarchise', 'sécurise'],
+  en: ['identifies', 'prioritises', 'secures'],
+};
+const POS_BOLD = {
+  fr: ['interfaces', 'systèmes supports', 'dépendances fonctionnelles', 'modes dégradés'],
+  en: ['interfaces', 'support systems', 'functional dependencies', 'degraded modes'],
+};
+
+/* ─── Styles ─────────────────────────────────────────── */
+const heroTitle = {
+  fontFamily: 'var(--font-sks-l1)',
+  fontSize: 'var(--fs-title)',
+  color: 'var(--title-color)',
+  textAlign: 'center',
+  fontWeight: 700,
+};
+const heroSubtitle = {
+  fontFamily: 'var(--font-sks-l2)',
+  fontSize: 'var(--fs-subtitle)',
+  color: 'var(--title-color)',
+  textAlign: 'center',
+  fontWeight: 700,
+};
+const bodyText = {
+  fontFamily: 'var(--font-body)',
+  fontSize: 'var(--fs-caption)',
+  color: 'var(--text-color)',
+  lineHeight: 1.5,
+};
+const sectionHeading = {
+  fontFamily: 'var(--font-sks-l2)',
+  fontSize: 'var(--fs-body)',
+  fontWeight: 700,
+  color: 'var(--title-color)',
+  textAlign: 'center',
+};
+const modalitiesTitle = {
+  fontFamily: 'var(--font-sks-l1)',
+  fontSize: 'var(--fs-subtitle)',
+  color: 'var(--title-color)',
+  textAlign: 'center',
+  fontWeight: 700,
+};
+const ctaTitle = {
+  fontFamily: 'var(--font-sks-l1)',
+  fontSize: 'var(--fs-subtitle)',
+  color: 'var(--title-color)',
+  textAlign: 'center',
+  fontWeight: 700,
+  fontStyle: 'italic',
+};
+const cardTitle = {
+  fontFamily: 'var(--font-sks-l2)',
+  fontSize: 'var(--fs-body)',
+  fontWeight: 700,
+  color: 'var(--title-color)',
+  marginBottom: 'var(--space-xs)',
+};
+const cardBody = {
+  fontFamily: 'var(--font-body)',
+  fontSize: 'calc(var(--fs-caption) * 1.2)',
+  color: 'var(--text-color)',
+  lineHeight: 1.5,
+};
+const separator = {
+  borderTop: '1px solid rgba(25,40,79,0.08)',
+  paddingTop: 'var(--space-l)',
+  marginTop: 'var(--space-l)',
+};
+
+/* ─── Page ───────────────────────────────────────────── */
 export async function generateMetadata({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'consulting' });
-  return { title: t('spof.sublabel') };
+  return { title: t('spof.pageTitle') };
 }
 
 export default async function SpofPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'consulting' });
-  const backLabel = locale === 'fr' ? '← Retour' : '← Back';
+
+  const accItems = [
+    { title: t('spof.acc1Title'), short: t('spof.acc1Short'), long: t('spof.acc1Long') },
+    { title: t('spof.acc2Title'), short: t('spof.acc2Short'), long: t('spof.acc2Long') },
+    { title: t('spof.acc3Title'), short: t('spof.acc3Short'), long: t('spof.acc3Long') },
+    { title: t('spof.acc4Title'), short: t('spof.acc4Short'), long: t('spof.acc4Long') },
+  ];
+
+  const openLabel  = locale === 'fr' ? 'Ouvrir'   : 'Open';
+  const closeLabel = locale === 'fr' ? 'Refermer' : 'Close';
 
   return (
     <div className="mobile-frame">
       <Header />
       <main className="page-main">
-        <h1 className="page-headline">{t('spof.sublabel')}</h1>
-        <p>{t('spof.desc')}</p>
+
+        {/* ── Zone 1 : Hero ────────────────────────────── */}
+        <h1 style={heroTitle}>{t('spof.pageTitle')}</h1>
+
+        <p style={heroSubtitle}>{t('spof.pageSubtitle')}</p>
+
+        <p style={bodyText}>
+          {highlight(t('spof.hero1'), HERO1_BOLD[locale])}
+        </p>
+
+        <p style={bodyText}>
+          {highlight(t('spof.hero2'), HERO2_BOLD[locale])}
+        </p>
+
         <Link
-          href={`/${locale}/consulting-services`}
-          className="btn-sks cta-services"
-          style={{ padding: 'var(--space-m) var(--space-l)', alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center' }}
+          href={`/${locale}/contact?situation=spof`}
+          className="consulting-cta"
+          style={{ display: 'inline-block', marginTop: 'var(--space-s)' }}
         >
-          {backLabel}
+          {t('spof.heroCta')}
         </Link>
+
+        {/* ── Zone 2 : Positionnement ──────────────────── */}
+        <div style={separator}>
+          <p style={sectionHeading}>{t('spof.positioning')}</p>
+          <p style={{ ...bodyText, marginTop: 'var(--space-s)' }}>
+            {highlight(t('spof.positioningDesc'), POS_BOLD[locale])}
+          </p>
+        </div>
+
+        {/* ── Zone 3 : Accordéons ──────────────────────── */}
+        <div style={separator}>
+          <SKSAccordion items={accItems} openLabel={openLabel} closeLabel={closeLabel} />
+        </div>
+
+        {/* ── Zone 4 : Modalités d'engagement ─────────── */}
+        <div style={separator}>
+          <p style={modalitiesTitle}>{t('spof.modalitiesTitle')}</p>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 'var(--space-m)',
+            marginTop: 'var(--space-m)',
+          }}>
+            {[
+              { title: t('spof.mod1Title'), desc: t('spof.mod1Desc') },
+              { title: t('spof.mod2Title'), desc: t('spof.mod2Desc') },
+              { title: t('spof.mod3Title'), desc: t('spof.mod3Desc') },
+              { title: t('spof.mod4Title'), desc: t('spof.mod4Desc') },
+            ].map(({ title, desc }) => (
+              <div key={title} style={{
+                background: 'var(--sks-bg)',
+                border: '1px solid rgba(25,40,79,0.12)',
+                borderRadius: '3px',
+                padding: 'var(--space-m)',
+                boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
+              }}>
+                <p style={cardTitle}>{title}</p>
+                <p style={cardBody}>{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Zone 5 : CTA final ───────────────────────── */}
+        <div style={{ ...separator, display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', alignItems: 'center', textAlign: 'center' }}>
+          <p style={ctaTitle}>{t('spof.ctaTitle')}</p>
+          <p style={bodyText}>{t('spof.ctaDesc')}</p>
+          <Link
+            href={`/${locale}/contact?situation=spof`}
+            className="btn-sks"
+            style={{
+              background: 'var(--sks-primary)',
+              padding: 'var(--space-m) var(--space-xl)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
+          >
+            {t('spof.ctaBtn')}
+          </Link>
+        </div>
+
+        {/* ── Retour ───────────────────────────────────── */}
+        <div style={{ marginTop: 'var(--space-l)' }}>
+          <Link
+            href={`/${locale}/consulting-services`}
+            className="btn-sks cta-services"
+            style={{ padding: 'var(--space-m) var(--space-l)', alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center' }}
+          >
+            {locale === 'fr' ? '← Retour' : '← Back'}
+          </Link>
+        </div>
+
       </main>
     </div>
   );
