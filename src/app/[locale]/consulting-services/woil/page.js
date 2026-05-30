@@ -152,7 +152,7 @@ export default async function WoilPage({ params }) {
             <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--title-color)', margin: 0 }}>
               {card.title}
             </p>
-            <p style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
+            <p className="woil-tech-card-desc" style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
             <span style={pillBtn(card.btnColor)}>{card.btn}</span>
           </div>
         ))}
@@ -194,15 +194,14 @@ export default async function WoilPage({ params }) {
             textAlign: 'center',
             alignItems: 'center',
           }}>
-            <p style={{ ...sksLabel, color: 'var(--sks-mid)', margin: 0 }}>{card.label}</p>
-            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
+            <span style={{ ...pillBtn(card.color), marginTop: 0 }}>{card.label}</span>
+            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--sks-mid)', margin: 0 }}>
               {card.title}
             </p>
             <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-title)', fontWeight: 700, color: card.color, margin: 0, lineHeight: 1 }}>
               {card.value}
             </p>
-            <p style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
-            <span style={pillBtn(card.color)}>{card.label}</span>
+            <p className="woil-product-card-desc" style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
           </div>
         ))}
     </div>
@@ -210,7 +209,7 @@ export default async function WoilPage({ params }) {
 
   /* ── Accordion 3 : Performances & chiffres clés ── */
   const acc3Long = (
-    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-m)' }}>
+    <div className="woil-stat-cards" style={{ gap: 'var(--space-m)' }}>
       {[
         { value: t('woil.stat1Value'), desc: t('woil.stat1Desc'), color: 'var(--sks-primary)' },
         { value: t('woil.stat2Value'), desc: t('woil.stat2Desc'), color: 'var(--sks-mid)' },

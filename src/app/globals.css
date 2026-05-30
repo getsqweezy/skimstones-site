@@ -1752,6 +1752,10 @@ body {
   display: flex;
   flex-direction: column;
 }
+.woil-stat-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE — desktop (≥1024px)
@@ -1803,11 +1807,19 @@ body {
     grid-template-columns: repeat(4, 1fr);
   }
 
-  /* woil — cartes en ligne sur desktop */
+  /* woil — cartes en ligne + hauteur uniforme sur desktop */
   .woil-tech-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: start;
+    align-items: stretch;
+  }
+  .woil-tech-cards > * {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .woil-tech-card-desc {
+    flex: 1;
   }
   .woil-tech-line {
     top: 50%;
@@ -1821,6 +1833,24 @@ body {
   .woil-product-cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    align-items: start;
+    align-items: stretch;
+  }
+  .woil-product-cards > * {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .woil-product-card-desc {
+    flex: 1;
+  }
+  .woil-stat-cards {
+    grid-template-columns: repeat(4, 1fr);
+    align-items: stretch;
+  }
+  .woil-stat-cards > * {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
