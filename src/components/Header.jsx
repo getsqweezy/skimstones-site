@@ -36,8 +36,8 @@ export default function Header({ variant = 'skimstones' }) {
           <Image
             src={isSqw ? '/images/logo-sqweezy-long.png' : '/images/logo-sks-baseline.png'}
             alt={isSqw ? 'SQWEEZY' : 'SkimStones Smart Essentials'}
-            width={140}
-            height={48}
+            width={isSqw ? 1454 : 942}
+            height={isSqw ? 400 : 287}
             style={{ objectFit: 'contain', height: '48px', width: 'auto' }}
             priority
           />
