@@ -96,11 +96,14 @@ export default async function WoilPage({ params }) {
 
   const acc3Short = (
     <div>
-      <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
+      <p style={{ textAlign: 'left', fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
         {t('woil.perfTitle')}
       </p>
-      <p style={{ ...bodyText, margin: 0 }}>
+      <p style={{ textAlign: 'left', fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
         {t('woil.perfSubtitle')}
+      </p>
+      <p style={{ textAlign: 'left', fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', lineHeight: 1.5, margin: 0 }}>
+        {t('woil.perfNote')}
       </p>
     </div>
   );
