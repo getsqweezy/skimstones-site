@@ -1,6 +1,9 @@
 'use client';
 import { useState } from 'react';
 import Image from 'next/image';
+import Lightbox from 'yet-another-react-lightbox';
+import Zoom from 'yet-another-react-lightbox/plugins/zoom';
+import 'yet-another-react-lightbox/styles.css';
 
 export default function WoilLightbox({ imgAlt, imgCaption }) {
   const [open, setOpen] = useState(false);
@@ -32,59 +35,26 @@ export default function WoilLightbox({ imgAlt, imgCaption }) {
         </span>
       </div>
 
-      {open && (
-        <div
-          onClick={() => setOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'rgba(0,0,0,0.85)',
-            zIndex: 300,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            padding: 'var(--space-m)',
-            cursor: 'pointer',
-          }}
-        >
-          <div style={{ position: 'relative' }}>
-            <button
-              onClick={() => setOpen(false)}
-              style={{
-                position: 'absolute',
-                top: -12, right: -12,
-                background: 'var(--sks-bordeaux)',
-                color: '#fff',
-                border: 'none',
-                borderRadius: '50%',
-                width: 28, height: 28,
-                cursor: 'pointer',
-                fontWeight: 700,
-                fontSize: '1rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                zIndex: 1,
-              }}
-            >×</button>
-            <Image
-              src="/images/waste-oil.png"
-              alt={imgAlt}
-              width={1200}
-              height={800}
-              style={{
-                maxWidth: '90vw',
-                maxHeight: '85vh',
-                width: 'auto',
-                height: 'auto',
-                borderRadius: '6px',
-                display: 'block',
-              }}
-              onContextMenu={(e) => e.preventDefault()}
-            />
-          </div>
-        </div>
-      )}
+      <Lightbox
+        open={open}
+        close={() => setOpen(false)}
+        slides={[{ src: '/images/waste-oil.png' }]}
+        plugins={[Zoom]}
+        zoom={{
+          maxZoomPixelRatio: 4,
+          zoomInMultiplier: 1.5,
+          doubleTapDelay: 300,
+          doubleClickDelay: 300,
+          doubleClickMaxStops: 2,
+          keyboardMoveDistance: 50,
+          wheelZoomDistanceFactor: 100,
+          pinchZoomDistanceFactor: 100,
+          scrollToZoom: true,
+        }}
+        styles={{
+          container: { backgroundColor: 'rgba(0,0,0,0.9)' },
+        }}
+      />
     </>
   );
 }
