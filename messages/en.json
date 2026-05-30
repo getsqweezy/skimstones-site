@@ -115,20 +115,14 @@
     "intro1": "SKIMSTONES supports industrials, local authorities, operators and investors in transforming technical, energy or environmental constraints into robust, manageable and fundable projects.",
     "intro2": "We operate where the stakes are complex: critical systems, difficult waste streams, fragmented value chains, emerging technologies, business models yet to be built.",
     "posture": {
-      "label": "1 POSTURE",
+      "label": "OUR POSTURE",
       "title": "An independent, rigorous and decision-driven partner.",
       "desc": "SKIMSTONES does not sell a standard technology. We help understand the problem, qualify the risks, structure the options, align the stakeholders and secure the next decisions."
     },
     "pillars": {
-      "label": "2 PILLARS",
+      "label": "OUR TWO PILLARS",
       "title": "Industrial process and systems architecture.",
       "desc": "Our added value is based on a dual perspective: understanding how installations, flows and processes actually work, while analysing dependencies, interfaces and economic feasibility conditions."
-    },
-    "stagegate": {
-      "label": "STAGE-GATE METHOD",
-      "title": "Turning a complex idea into a controlled project.",
-      "desc": "Our Stage-Gate method allows projects to progress step by step, without rushing investments. At each milestone, technical, economic, regulatory and commercial assumptions are tested, refined and validated before moving to the next level.",
-      "cta": "Learn more "
     },
     "expertises": {
       "label": "4 EXPERTISES, 1 INNOVATION",

@@ -14,15 +14,6 @@ function highlightTerms(text, terms) {
   );
 }
 
-function boldFirstSentence(text) {
-  const parts = text.split(/(?<=\.)\s+/);
-  const firstSentence = parts[0];
-  const rest = parts.slice(1).join(' ');
-  return rest
-    ? <><strong>{firstSentence} </strong>{rest}</>
-    : <>{firstSentence}</>;
-}
-
 const BOLD_INTRO1 = {
   fr: ['industriels', 'collectivités', 'opérateurs', 'investisseurs', 'robustes', 'pilotables', 'finançables'],
   en: ['industrials', 'local authorities', 'operators', 'investors', 'robust', 'manageable', 'fundable'],
@@ -45,18 +36,12 @@ const label = (color, extra = {}) => ({
   ...extra,
 });
 
-const sectionTitle = {
-  fontFamily: 'var(--font-body)',
-  fontSize: 'var(--fs-body)',
-  fontWeight: 700,
-  color: 'var(--title-color)',
-};
-
 const sublabel = {
   fontFamily: 'var(--font-sks-l2)',
   fontSize: 'var(--fs-body)',
   fontWeight: 700,
   color: 'var(--title-color)',
+  lineHeight: 'calc(1.3 * 0.9)',
 };
 
 const body = {
@@ -75,19 +60,8 @@ const bodyDesc = {
   lineHeight: 1.5,
 };
 
-/* section without separator */
 const sectionNoSep = {
   marginTop: 'calc(var(--space-l) * 0.5)',
-  display: 'flex',
-  flexDirection: 'column',
-  gap: 'var(--space-s)',
-};
-
-/* single separator before EXPERTISES */
-const sectionExpertises = {
-  borderTop: '1px solid var(--sks-bordeaux)',
-  paddingTop: 'calc(var(--space-l) * 0.5)',
-  marginTop: 'var(--space-l)',
   display: 'flex',
   flexDirection: 'column',
   gap: 'var(--space-s)',
@@ -130,48 +104,101 @@ export default async function ConsultingServicesPage({ params }) {
       <Header />
       <main className="page-main">
 
-        <h1 className="page-headline" style={{ fontSize: 'var(--fs-subtitle)' }}>{t('pageTitle')}</h1>
+        <h1 className="page-headline" style={{ fontSize: 'var(--fs-subtitle)', textAlign: 'center' }}>
+          {t('pageTitle')}
+        </h1>
 
-        {/* Intro — centré, gap réduit entre les deux paragraphes */}
+        {/* Intro */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-m) * 0.8)', textAlign: 'center' }}>
           <p style={body}>{highlightTerms(t('intro1'), BOLD_INTRO1[locale])}</p>
           <p style={body}>{highlightTerms(t('intro2'), BOLD_INTRO2[locale])}</p>
         </div>
 
-        {/* POSTURE */}
-        <div style={sectionNoSep}>
-          <span style={label('var(--sks-bordeaux)')}>{t('posture.label')}</span>
-          <p style={sectionTitle}>{t('posture.title')}</p>
-          <p style={body}>{t('posture.desc')}</p>
-        </div>
-
-        {/* PILLARS */}
-        <div style={sectionNoSep}>
-          <span style={label('var(--sks-bordeaux)')}>{t('pillars.label')}</span>
-          <p style={sectionTitle}>{t('pillars.title')}</p>
-          <p style={body}>{t('pillars.desc')}</p>
-        </div>
-
-        {/* STAGE-GATE */}
-        <div style={sectionNoSep}>
-          <div style={labelRow}>
-            <span style={label('var(--sks-bordeaux)')}>{t('stagegate.label')}</span>
-            <Link href={`/${locale}/consulting-services/sg`} className="consulting-cta">
-              {t('stagegate.cta')}
-            </Link>
+        {/* POSTURE + PILIERS — 2 cartes */}
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: 'var(--space-m)',
+          marginBottom: 'var(--space-l)',
+          marginTop: 'calc(var(--space-l) * 0.5)',
+        }}>
+          <div style={{
+            background: '#FBF5D3',
+            border: '1px solid rgba(25,40,79,0.12)',
+            borderRadius: '3px',
+            padding: 'var(--space-m)',
+            boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-sks-l2)',
+              fontSize: 'var(--fs-caption)',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              color: 'var(--sks-bordeaux)',
+              marginBottom: 'var(--space-s)',
+            }}>
+              {t('posture.label')}
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 'var(--fs-caption)',
+              fontWeight: 700,
+              color: 'var(--title-color)',
+              marginBottom: 'var(--space-s)',
+            }}>
+              {t('posture.title')}
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 'var(--fs-caption)',
+              color: 'var(--text-color)',
+              lineHeight: 1.5,
+            }}>
+              {t('posture.desc')}
+            </p>
           </div>
-          <p style={sectionTitle}>{t('stagegate.title')}</p>
-          <Link
-            href={`/${locale}/consulting-services/sg`}
-            className="consulting-desc-link"
-            style={bodyDesc}
-          >
-            {boldFirstSentence(t('stagegate.desc'))}
-          </Link>
+
+          <div style={{
+            background: '#FBF5D3',
+            border: '1px solid rgba(25,40,79,0.12)',
+            borderRadius: '3px',
+            padding: 'var(--space-m)',
+            boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-sks-l2)',
+              fontSize: 'var(--fs-caption)',
+              fontWeight: 700,
+              textTransform: 'uppercase',
+              letterSpacing: '0.06em',
+              color: 'var(--sks-bordeaux)',
+              marginBottom: 'var(--space-s)',
+            }}>
+              {t('pillars.label')}
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 'var(--fs-caption)',
+              fontWeight: 700,
+              color: 'var(--title-color)',
+              marginBottom: 'var(--space-s)',
+            }}>
+              {t('pillars.title')}
+            </p>
+            <p style={{
+              fontFamily: 'var(--font-body)',
+              fontSize: 'var(--fs-caption)',
+              color: 'var(--text-color)',
+              lineHeight: 1.5,
+            }}>
+              {t('pillars.desc')}
+            </p>
+          </div>
         </div>
 
-        {/* EXPERTISES — seul séparateur de la page */}
-        <div style={sectionExpertises}>
+        {/* EXPERTISES */}
+        <div style={sectionNoSep}>
           <span style={label('var(--sks-bordeaux)', {
             fontSize: 'calc(var(--fs-body) * 1.3)',
             textAlign: 'center',
@@ -183,18 +210,25 @@ export default async function ConsultingServicesPage({ params }) {
         </div>
 
         {/* 5 blocs expertise */}
-        {expertiseBlocks.map(({ key, route }) => (
-          <div key={key} style={sectionNoSep}>
-            <div style={labelRow}>
-              <span style={label('var(--sks-bordeaux)')}>{t(`${key}.label`)}</span>
-              <Link href={route} className="consulting-cta">{t(`${key}.cta`)}</Link>
+        {expertiseBlocks.map(({ key, route }) => {
+          const desc = t(`${key}.desc`);
+          const parts = desc.split(/(?<=\.)\s+/);
+          const first = parts[0];
+          const rest = parts.slice(1).join(' ');
+          return (
+            <div key={key} style={sectionNoSep}>
+              <div style={labelRow}>
+                <span style={label('var(--sks-bordeaux)')}>{t(`${key}.label`)}</span>
+                <Link href={route} className="consulting-cta">{t(`${key}.cta`)}</Link>
+              </div>
+              <p style={sublabel}>{t(`${key}.sublabel`)}</p>
+              <Link href={route} className="consulting-desc-link">
+                <p style={bodyDesc}><strong>{first}</strong></p>
+                {rest && <p style={{ ...bodyDesc, marginTop: 'var(--space-xs)' }}>{rest}</p>}
+              </Link>
             </div>
-            <p style={sublabel}>{t(`${key}.sublabel`)}</p>
-            <Link href={route} className="consulting-desc-link" style={bodyDesc}>
-              {boldFirstSentence(t(`${key}.desc`))}
-            </Link>
-          </div>
-        ))}
+          );
+        })}
 
         {/* Bouton contact */}
         <Link
