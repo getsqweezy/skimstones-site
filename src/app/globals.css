@@ -1756,6 +1756,11 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+.woil-role-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
 
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE — desktop (≥1024px)
@@ -1852,5 +1857,19 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+  .woil-role-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-m);
+    align-items: stretch;
+  }
+  .woil-role-blocks > * {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .woil-role-blocks > * p:last-child {
+    flex: 1;
   }
 }

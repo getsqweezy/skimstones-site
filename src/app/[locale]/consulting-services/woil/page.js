@@ -239,7 +239,7 @@ export default async function WoilPage({ params }) {
   /* ── Accordion 4 : Notre Rôle ── */
   const acc4Long = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
+      <div className="woil-role-blocks">
         {[
           { title: t('woil.role1Title'), desc: t('woil.role1Desc') },
           { title: t('woil.role2Title'), desc: t('woil.role2Desc') },
@@ -280,7 +280,7 @@ export default async function WoilPage({ params }) {
 
         <p style={heroSubtitle}>{t('woil.pageSubtitle')}</p>
 
-        <p style={{ ...bodyText, textAlign: 'center' }}>{t('woil.intro')}</p>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: 'calc(var(--fs-caption) * 1.2)', color: 'var(--text-color)', lineHeight: 1.5, textAlign: 'center' }}>{t('woil.intro')}</p>
 
         {/* ── Zone 1 : Image cliquable / lightbox ──────── */}
         <WoilLightbox
