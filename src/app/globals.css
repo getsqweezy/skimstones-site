@@ -1711,7 +1711,7 @@ body {
   color: #D3BFA3;
 }
 .sks-acc-body.open {
-  max-height: 600px;
+  max-height: 2000px;
   opacity: 1;
 }
 

@@ -42,7 +42,7 @@ const bodyLg = {
   lineHeight: 1.5,
 };
 
-const cardBg = 'color-mix(in srgb, #FBF5D3 50%, #fff 50%)';
+const cardBg = 'var(--sks-header-bg)';
 
 const pillBtn = (bg) => ({
   display: 'inline-block',
@@ -67,6 +67,57 @@ export async function generateMetadata({ params }) {
 export default async function WoilPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'consulting' });
+
+  /* ── Shorts (version résumée visible à l'état fermé) ── */
+  const acc1Short = (
+    <div>
+      <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
+        {t('woil.techTitle')}
+      </p>
+      <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
+        {t('woil.techSubtitle')}
+      </p>
+    </div>
+  );
+
+  const acc2Short = (
+    <div style={{ textAlign: 'center' }}>
+      <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
+        {t('woil.productsTitle')}
+      </p>
+      <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
+        {t('woil.productsSubtitle')}
+      </p>
+      <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', fontStyle: 'italic', margin: 0 }}>
+        {t('woil.productsNote')}
+      </p>
+    </div>
+  );
+
+  const acc3Short = (
+    <div>
+      <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
+        {t('woil.perfTitle')}
+      </p>
+      <p style={{ ...bodyText, margin: 0 }}>
+        {t('woil.perfSubtitle')}
+      </p>
+    </div>
+  );
+
+  const acc4Short = (
+    <div>
+      <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
+        {t('woil.roleTitle')}
+      </p>
+      <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
+        {t('woil.roleSubtitle')}
+      </p>
+      <p style={{ ...bodyLg, margin: 0 }}>
+        {t('woil.roleDesc')}
+      </p>
+    </div>
+  );
 
   /* ── Accordion 1 : Notre Technologie ── */
   const acc1Long = (
@@ -100,7 +151,7 @@ export default async function WoilPage({ params }) {
             textAlign: 'center',
             alignItems: 'center',
           }}>
-            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: '1.4rem', color: 'var(--sks-bordeaux)', margin: 0 }}>
+            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'calc(var(--fs-title) * 2)', color: 'var(--sks-bordeaux)', margin: 0, lineHeight: 1 }}>
               {card.num}
             </p>
             <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--title-color)', margin: 0 }}>
@@ -132,10 +183,6 @@ export default async function WoilPage({ params }) {
   /* ── Accordion 2 : Produits issus du traitement ── */
   const acc2Long = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
-      <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0, textAlign: 'center' }}>
-        {t('woil.productsSubtitle')}
-      </p>
-      <p style={{ ...bodyText, fontStyle: 'italic', textAlign: 'center', margin: 0 }}>{t('woil.productsNote')}</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
         {[
           { label: t('woil.prod1Label'), title: t('woil.prod1Title'), value: t('woil.prod1Value'), desc: t('woil.prod1Desc'), color: 'var(--sks-primary)' },
@@ -200,10 +247,6 @@ export default async function WoilPage({ params }) {
   /* ── Accordion 4 : Notre Rôle ── */
   const acc4Long = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
-      <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-        {t('woil.roleSubtitle')}
-      </p>
-      <p style={{ ...bodyLg, margin: 0 }}>{t('woil.roleDesc')}</p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
         {[
           { title: t('woil.role1Title'), desc: t('woil.role1Desc') },
@@ -229,10 +272,10 @@ export default async function WoilPage({ params }) {
   );
 
   const accordionItems = [
-    { title: t('woil.acc1Label'), short: t('woil.techDesc'), long: acc1Long },
-    { title: t('woil.acc2Label'), short: t('woil.productsTitle'), long: acc2Long },
-    { title: t('woil.acc3Label'), short: t('woil.perfSubtitle'), long: acc3Long },
-    { title: t('woil.acc4Label'), short: t('woil.roleTitle'), long: acc4Long },
+    { title: t('woil.acc1Label'), short: acc1Short, long: acc1Long },
+    { title: t('woil.acc2Label'), short: acc2Short, long: acc2Long },
+    { title: t('woil.acc3Label'), short: acc3Short, long: acc3Long },
+    { title: t('woil.acc4Label'), short: acc4Short, long: acc4Long },
   ];
 
   return (
@@ -253,7 +296,7 @@ export default async function WoilPage({ params }) {
           imgCaption={t('woil.imgCaption')}
         />
 
-        {/* ── Zones 2/3/4/5/6 : Accordéons ────────────── */}
+        {/* ── Zones 2/4/5/6 : Accordéons ──────────────── */}
         <SKSAccordion items={accordionItems} />
 
         {/* ── Zone 7 : Citation ────────────────────────── */}

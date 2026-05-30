@@ -30,16 +30,16 @@ export default function SKSAccordion({ items }) {
             </button>
 
             {/* Texte court — toujours visible, cliquable */}
-            <p className="sks-acc-short" onClick={() => toggle(i)}>
+            <div className="sks-acc-short" onClick={() => toggle(i)}>
               {item.short}
-            </p>
+            </div>
 
             {/* Zone dépliable */}
             <div className={`sks-acc-body${isOpen ? ' open' : ''}`}>
               <div
                 className="sks-acc-body-content"
                 onClick={() => toggle(i)}
-                style={{ paddingTop: 'var(--space-s)', display: 'flex', flexDirection: 'column', gap: 'var(--space-s)', cursor: 'pointer' }}
+                style={{ paddingTop: 'var(--space-s)', paddingBottom: 'var(--space-s)', display: 'flex', flexDirection: 'column', gap: 'var(--space-s)', cursor: 'pointer' }}
               >
                 {typeof item.long === 'string'
                   ? item.long.split('\n\n').map((block, j) => <p key={j} className="sks-acc-long">{block}</p>)
