@@ -88,7 +88,7 @@ export default async function WoilPage({ params }) {
       <p style={{ textAlign: 'left', fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
         {t('woil.productsSubtitle')}
       </p>
-      <p style={{ textAlign: 'left', fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', fontStyle: 'italic', margin: 0 }}>
+      <p style={{ textAlign: 'left', fontFamily: 'var(--font-body)', fontSize: 'calc(var(--fs-caption) * 1.2)', color: 'var(--text-color)', lineHeight: 1.5, margin: 0 }}>
         {t('woil.productsNote')}
       </p>
     </div>
@@ -102,7 +102,7 @@ export default async function WoilPage({ params }) {
       <p style={{ textAlign: 'left', fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: '0 0 var(--space-xs)' }}>
         {t('woil.perfSubtitle')}
       </p>
-      <p style={{ textAlign: 'left', fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', lineHeight: 1.5, margin: 0 }}>
+      <p style={{ textAlign: 'left', fontFamily: 'var(--font-body)', fontSize: 'calc(var(--fs-caption) * 1.2)', color: 'var(--text-color)', lineHeight: 1.5, margin: 0 }}>
         {t('woil.perfNote')}
       </p>
     </div>
@@ -195,7 +195,7 @@ export default async function WoilPage({ params }) {
             alignItems: 'center',
           }}>
             <span style={{ ...pillBtn(card.color), marginTop: 0 }}>{card.label}</span>
-            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--sks-mid)', margin: 0 }}>
+            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
               {card.title}
             </p>
             <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-title)', fontWeight: 700, color: card.color, margin: 0, lineHeight: 1 }}>
@@ -297,7 +297,7 @@ export default async function WoilPage({ params }) {
           fontStyle: 'italic',
           fontSize: 'var(--fs-body)',
           color: 'var(--title-color)',
-          textAlign: 'center',
+          textAlign: 'right',
           borderLeft: 'none',
           padding: 'var(--space-l) 0',
           lineHeight: 1.5,
@@ -310,6 +310,8 @@ export default async function WoilPage({ params }) {
             fontStyle: 'normal',
             color: 'var(--sks-bordeaux)',
             marginTop: 'var(--space-s)',
+            textAlign: 'right',
+            display: 'block',
           }}>
             {t('woil.quoteAuthor')}
           </footer>
@@ -317,8 +319,8 @@ export default async function WoilPage({ params }) {
 
         {/* ── Zone 8 : CTA final ───────────────────────── */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-s)', alignItems: 'center', textAlign: 'center' }}>
-          <p style={bodyText}>{t('woil.ctaText')}</p>
-          <p style={bodyText}>{t('woil.ctaSubtext')}</p>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'calc(var(--fs-caption) * 1.2)', color: 'var(--text-color)', lineHeight: 1.5, textAlign: 'center' }}>{t('woil.ctaText')}</p>
+          <p style={{ fontFamily: 'var(--font-body)', fontSize: 'calc(var(--fs-caption) * 1.2)', color: 'var(--text-color)', lineHeight: 1.5, textAlign: 'center' }}>{t('woil.ctaSubtext')}</p>
           <div style={{
             display: 'flex',
             gap: 'var(--space-m)',
