@@ -43,6 +43,7 @@ const heroSubtitle = {
   color: 'var(--title-color)',
   textAlign: 'center',
   fontWeight: 700,
+  lineHeight: 'calc(1.3 * 0.8)',
 };
 const bodyText = {
   fontFamily: 'var(--font-body)',
@@ -71,12 +72,16 @@ const ctaTitle = {
   textAlign: 'center',
   fontWeight: 700,
   fontStyle: 'italic',
+  lineHeight: 'calc(1.3 * 0.8)',
 };
 const cardTitle = {
   fontFamily: 'var(--font-sks-l2)',
-  fontSize: 'var(--fs-body)',
+  fontSize: 'var(--fs-caption)',
   fontWeight: 700,
-  color: 'var(--title-color)',
+  textTransform: 'uppercase',
+  letterSpacing: '0.06em',
+  color: 'var(--sks-bordeaux)',
+  lineHeight: 'calc(1.3 * 0.9)',
   marginBottom: 'var(--space-xs)',
 };
 const cardBody = {
@@ -84,11 +89,6 @@ const cardBody = {
   fontSize: 'calc(var(--fs-caption) * 1.2)',
   color: 'var(--text-color)',
   lineHeight: 1.5,
-};
-const separator = {
-  borderTop: '1px solid rgba(25,40,79,0.08)',
-  paddingTop: 'var(--space-l)',
-  marginTop: 'var(--space-l)',
 };
 
 /* ─── Page ───────────────────────────────────────────── */
@@ -109,9 +109,6 @@ export default async function SpofPage({ params }) {
     { title: t('spof.acc4Title'), short: t('spof.acc4Short'), long: t('spof.acc4Long') },
   ];
 
-  const openLabel  = locale === 'fr' ? 'Ouvrir'   : 'Open';
-  const closeLabel = locale === 'fr' ? 'Refermer' : 'Close';
-
   return (
     <div className="mobile-frame">
       <Header />
@@ -130,84 +127,70 @@ export default async function SpofPage({ params }) {
           {highlight(t('spof.hero2'), HERO2_BOLD[locale])}
         </p>
 
-        <Link
-          href={`/${locale}/contact?situation=spof`}
-          className="consulting-cta"
-          style={{ display: 'inline-block', marginTop: 'var(--space-s)' }}
-        >
-          {t('spof.heroCta')}
-        </Link>
+        {/* Bouton hero aligné à droite */}
+        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+          <Link href={`/${locale}/contact?situation=spof`} className="consulting-cta">
+            {t('spof.heroCta')}
+          </Link>
+        </div>
 
         {/* ── Zone 2 : Positionnement ──────────────────── */}
-        <div style={separator}>
-          <p style={sectionHeading}>{t('spof.positioning')}</p>
-          <p style={{ ...bodyText, marginTop: 'var(--space-s)' }}>
-            {highlight(t('spof.positioningDesc'), POS_BOLD[locale])}
-          </p>
-        </div>
+        <p style={sectionHeading}>{t('spof.positioning')}</p>
+
+        <p style={bodyText}>
+          {highlight(t('spof.positioningDesc'), POS_BOLD[locale])}
+        </p>
 
         {/* ── Zone 3 : Accordéons ──────────────────────── */}
-        <div style={separator}>
-          <SKSAccordion items={accItems} openLabel={openLabel} closeLabel={closeLabel} />
-        </div>
+        <SKSAccordion items={accItems} />
 
         {/* ── Zone 4 : Modalités d'engagement ─────────── */}
-        <div style={separator}>
-          <p style={modalitiesTitle}>{t('spof.modalitiesTitle')}</p>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: 'var(--space-m)',
-            marginTop: 'var(--space-m)',
-          }}>
-            {[
-              { title: t('spof.mod1Title'), desc: t('spof.mod1Desc') },
-              { title: t('spof.mod2Title'), desc: t('spof.mod2Desc') },
-              { title: t('spof.mod3Title'), desc: t('spof.mod3Desc') },
-              { title: t('spof.mod4Title'), desc: t('spof.mod4Desc') },
-            ].map(({ title, desc }) => (
-              <div key={title} style={{
-                background: 'var(--sks-bg)',
-                border: '1px solid rgba(25,40,79,0.12)',
-                borderRadius: '3px',
-                padding: 'var(--space-m)',
-                boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
-              }}>
-                <p style={cardTitle}>{title}</p>
-                <p style={cardBody}>{desc}</p>
-              </div>
-            ))}
-          </div>
+        <p style={modalitiesTitle}>{t('spof.modalitiesTitle')}</p>
+
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: 'var(--space-m)',
+        }}>
+          {[
+            { title: t('spof.mod1Title'), desc: t('spof.mod1Desc') },
+            { title: t('spof.mod2Title'), desc: t('spof.mod2Desc') },
+            { title: t('spof.mod3Title'), desc: t('spof.mod3Desc') },
+            { title: t('spof.mod4Title'), desc: t('spof.mod4Desc') },
+          ].map(({ title, desc }) => (
+            <div key={title} style={{
+              background: '#FBF5D3',
+              border: '1px solid rgba(25,40,79,0.12)',
+              borderRadius: '3px',
+              padding: 'var(--space-m)',
+              boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
+            }}>
+              <p style={cardTitle}>{title}</p>
+              <p style={cardBody}>{desc}</p>
+            </div>
+          ))}
         </div>
 
-        {/* ── Zone 5 : CTA final ───────────────────────── */}
-        <div style={{ ...separator, display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', alignItems: 'center', textAlign: 'center' }}>
+        {/* ── Zone 5 : CTA final + Retour ──────────────── */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', alignItems: 'center', textAlign: 'center' }}>
           <p style={ctaTitle}>{t('spof.ctaTitle')}</p>
           <p style={bodyText}>{t('spof.ctaDesc')}</p>
-          <Link
-            href={`/${locale}/contact?situation=spof`}
-            className="btn-sks"
-            style={{
-              background: 'var(--sks-primary)',
-              padding: 'var(--space-m) var(--space-xl)',
-              display: 'inline-flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            {t('spof.ctaBtn')}
-          </Link>
-        </div>
-
-        {/* ── Retour ───────────────────────────────────── */}
-        <div style={{ marginTop: 'var(--space-l)' }}>
-          <Link
-            href={`/${locale}/consulting-services`}
-            className="btn-sks cta-services"
-            style={{ padding: 'var(--space-m) var(--space-l)', alignSelf: 'flex-start', display: 'inline-flex', alignItems: 'center' }}
-          >
-            {locale === 'fr' ? '← Retour' : '← Back'}
-          </Link>
+          <div style={{ display: 'flex', gap: 'var(--space-m)', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
+            <Link
+              href={`/${locale}/contact?situation=spof`}
+              className="btn-sks"
+              style={{ background: 'var(--sks-primary)', padding: 'var(--space-m) var(--space-xl)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              {t('spof.ctaBtn')}
+            </Link>
+            <Link
+              href={`/${locale}/consulting-services`}
+              className="btn-sks"
+              style={{ background: 'var(--sks-mid)', padding: 'var(--space-m) var(--space-l)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+            >
+              ← {t('spof.backBtn')}
+            </Link>
+          </div>
         </div>
 
       </main>

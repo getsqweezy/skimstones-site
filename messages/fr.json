@@ -169,7 +169,8 @@
       "mod4Desc": "Appropriation de la méthode, montée en compétence et intégration du pilotage de la résilience dans les pratiques d'exploitation.",
       "ctaTitle": "Vous ne pouvez pas sécuriser ce que vous ne voyez pas encore.",
       "ctaDesc": "SKIMSTONES aide les exploitants à identifier les fragilités critiques, prioriser les actions utiles et renforcer durablement leur continuité de service.",
-      "ctaBtn": "Parler de mon périmètre critique"
+      "ctaBtn": "Parler de mon périmètre critique",
+      "backBtn": "Retour"
     },
     "wvc": {
       "label": "CHAÎNE DE VALEUR CIRCULAIRE",

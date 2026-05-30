@@ -3,10 +3,10 @@ import { useState } from 'react';
 
 /**
  * items: { title, short, long }[]
- * openLabel / closeLabel: optional translated strings (defaults FR)
  * Each item is independently togglable — no auto-close of others.
+ * Toggle via title button or short text click.
  */
-export default function SKSAccordion({ items, openLabel = 'Ouvrir', closeLabel = 'Refermer' }) {
+export default function SKSAccordion({ items }) {
   const [openStates, setOpenStates] = useState(() => items.map(() => false));
 
   function toggle(i) {
@@ -18,14 +18,7 @@ export default function SKSAccordion({ items, openLabel = 'Ouvrir', closeLabel =
       {items.map((item, i) => {
         const isOpen = openStates[i];
         return (
-          <div
-            key={i}
-            style={{
-              borderTop: '1px solid rgba(25,40,79,0.08)',
-              paddingTop: 'var(--space-s)',
-              marginTop: 'var(--space-s)',
-            }}
-          >
+          <div key={i}>
             {/* Titre + triangle — cliquables */}
             <button
               className="sks-acc-toggle"
@@ -48,17 +41,7 @@ export default function SKSAccordion({ items, openLabel = 'Ouvrir', closeLabel =
                   <p key={j} className="sks-acc-long">{block}</p>
                 ))}
               </div>
-              <button className="sks-acc-btn" onClick={() => toggle(i)}>
-                {closeLabel}
-              </button>
             </div>
-
-            {/* Bouton OUVRIR — visible seulement quand fermé */}
-            {!isOpen && (
-              <button className="sks-acc-btn" onClick={() => toggle(i)}>
-                {openLabel}
-              </button>
-            )}
           </div>
         );
       })}

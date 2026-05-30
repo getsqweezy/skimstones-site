@@ -169,7 +169,8 @@
       "mod4Desc": "Method adoption, skills development and integration of resilience management into operational practices.",
       "ctaTitle": "You cannot secure what you cannot yet see.",
       "ctaDesc": "SKIMSTONES helps operators identify critical fragilities, prioritise useful actions and durably strengthen their service continuity.",
-      "ctaBtn": "Discuss my critical perimeter"
+      "ctaBtn": "Discuss my critical perimeter",
+      "backBtn": "Back"
     },
     "wvc": {
       "label": "CIRCULAR VALUE CHAIN",
