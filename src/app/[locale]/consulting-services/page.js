@@ -184,12 +184,16 @@ export default async function ConsultingServicesPage({ params }) {
           const rest = parts.slice(1).join(' ');
           return (
             <div key={key} style={sectionNoSep}>
-              <div style={labelRow}>
-                <span style={label('var(--sks-bordeaux)')}>{t(`${key}.label`)}</span>
-                <Link href={route} className="consulting-cta">{t(`${key}.cta`)}</Link>
-              </div>
-              <p style={sublabel}>{t(`${key}.sublabel`)}</p>
-              <Link href={route} className="consulting-desc-link">
+              <Link
+                href={route}
+                className="consulting-bloc-link"
+                style={{ display: 'block', textDecoration: 'none', color: 'inherit', cursor: 'pointer', transition: 'color 0.15s' }}
+              >
+                <div style={labelRow}>
+                  <span style={label('var(--sks-bordeaux)')}>{t(`${key}.label`)}</span>
+                  <span className="consulting-cta">{t(`${key}.cta`)}</span>
+                </div>
+                <p style={sublabel}>{t(`${key}.sublabel`)}</p>
                 <p style={bodyDesc}><strong>{first}</strong></p>
                 {rest && <p style={{ ...bodyDesc, marginTop: 'var(--space-xs)' }}>{rest}</p>}
               </Link>

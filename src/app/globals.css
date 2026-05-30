@@ -1632,6 +1632,11 @@ body {
 .consulting-desc-link:active {
   color: var(--sks-bordeaux);
 }
+.consulting-bloc-link:hover *,
+.consulting-bloc-link:active * {
+  color: var(--sks-bordeaux);
+  transition: color 0.15s;
+}
 
 @media (min-width: 1024px) {
   .consulting-four-cols {
