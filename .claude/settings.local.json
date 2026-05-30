@@ -41,7 +41,10 @@
       "Bash(node update-consulting.js)",
       "Bash(node -e \"['fr','en'].forEach\\(l => { try { JSON.parse\\(require\\('fs'\\).readFileSync\\('messages/'+l+'.json','utf8'\\)\\); console.log\\(l+'.json valide'\\); } catch\\(e\\) { console.error\\(l+'.json ERREUR: '+e.message\\); }}\\)\")",
       "Bash(del *)",
-      "Bash(node *)"
+      "Bash(node *)",
+      "Bash(python *)",
+      "Bash(python3 -)",
+      "Read(//tmp/**)"
     ]
   }
 }

@@ -53,10 +53,11 @@ const bodyText = {
 };
 const sectionHeading = {
   fontFamily: 'var(--font-sks-l2)',
-  fontSize: 'var(--fs-body)',
+  fontSize: 'var(--fs-subtitle)',
   fontWeight: 700,
   color: 'var(--title-color)',
   textAlign: 'center',
+  lineHeight: 1.3,
 };
 const modalitiesTitle = {
   fontFamily: 'var(--font-sks-l1)',
@@ -83,6 +84,7 @@ const cardTitle = {
   color: 'var(--sks-bordeaux)',
   lineHeight: 'calc(1.3 * 0.9)',
   marginBottom: 'var(--space-xs)',
+  textAlign: 'center',
 };
 const cardBody = {
   fontFamily: 'var(--font-body)',
@@ -102,11 +104,53 @@ export default async function SpofPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'consulting' });
 
+  const acc1LongFR = (
+    <>
+      <p className="sks-acc-long">SKIMSTONES analyse <strong>toute la chaîne</strong> de continuité de service : <strong>unités de production</strong>, <strong>réseaux</strong> de <strong>chaleur</strong> ou de <strong>froid</strong>, interfaces de <strong>couplage</strong>, <strong>supervision</strong>, alimentation auxiliaire, refroidissement, air d'instrumentation, télécommunications, procédures et compétences opérateur.</p>
+      <p className="sks-acc-long">L'objectif est d'<strong>identifier les vulnérabilités</strong> qui ne ressortent pas toujours dans les analyses classiques centrées équipement par équipement.</p>
+    </>
+  );
+
+  const acc2LongFR = (
+    <>
+      <p className="sks-acc-long">Notre approche combine la compréhension des <strong>installations</strong> réelles, des <strong>flux</strong> et des <strong>contraintes</strong> d'exploitation avec une lecture <strong>transverse</strong> des <strong>dépendances</strong>, <strong>interfaces</strong> et <strong>redondances effectives</strong>.</p>
+      <p className="sks-acc-long">Cette <strong>double lecture</strong> permet de <strong>révéler</strong> des <strong>fragilités invisibles</strong> : celles qui se situent entre les équipements, dans les chaînes fonctionnelles ou dans les conditions réelles de reprise après incident.</p>
+    </>
+  );
+
+  const acc3LongFR = (
+    <>
+      <p className="sks-acc-long">La démarche SPOF avance par étapes :</p>
+      <ol style={{ paddingLeft: 'var(--space-l)', lineHeight: 'calc(1.5 * 0.9)', display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-xs) * 0.9)' }}>
+        <li className="sks-acc-long"><strong>cadrage</strong> du périmètre et collecte documentaire ;</li>
+        <li className="sks-acc-long"><strong>cartographie fonctionnelle</strong> des installations et interfaces ;</li>
+        <li className="sks-acc-long">identification et <strong>hiérarchisation</strong> des SPOF ;</li>
+        <li className="sks-acc-long">construction d'un <strong>plan d'actions chiffré</strong> ;</li>
+        <li className="sks-acc-long">mise en place d'un <strong>registre vivant</strong> et d'un suivi dans le temps.</li>
+      </ol>
+      <p className="sks-acc-long">Le <strong>terrain reste central</strong> : les scénarios sont validés avec les équipes d'exploitation et d'ingénierie.</p>
+    </>
+  );
+
+  const acc4LongFR = (
+    <>
+      <p className="sks-acc-long">La mission produit une <strong>base de décision</strong> directement exploitable :</p>
+      <ul style={{ paddingLeft: 'var(--space-l)', lineHeight: 'calc(1.5 * 0.9)', display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-xs) * 0.9)' }}>
+        <li className="sks-acc-long">un <strong>registre SPOF</strong> structuré ;</li>
+        <li className="sks-acc-long">des <strong>cartographies</strong> fonctionnelles et de dépendances ;</li>
+        <li className="sks-acc-long">une <strong>hiérarchisation</strong> des priorités ;</li>
+        <li className="sks-acc-long">un <strong>plan d'actions chiffré</strong> ;</li>
+        <li className="sks-acc-long">un <strong>outil de pilotage actualisable</strong> après <strong>incidents</strong>, <strong>modifications</strong> ou <strong>revues</strong> périodiques.</li>
+      </ul>
+      <p className="sks-acc-long">L'enjeu n'est pas seulement de détecter des vulnérabilités, mais de <strong>transformer</strong> un <strong>risque technique diffus</strong> en <strong>décisions claires</strong>, <strong>actionnables</strong> et <strong>pilotables</strong>.</p>
+    </>
+  );
+
   const accItems = [
-    { title: t('spof.acc1Title'), short: t('spof.acc1Short'), long: t('spof.acc1Long') },
-    { title: t('spof.acc2Title'), short: t('spof.acc2Short'), long: t('spof.acc2Long') },
-    { title: t('spof.acc3Title'), short: t('spof.acc3Short'), long: t('spof.acc3Long') },
-    { title: t('spof.acc4Title'), short: t('spof.acc4Short'), long: t('spof.acc4Long') },
+    { title: t('spof.acc1Title'), short: t('spof.acc1Short'), long: locale === 'fr' ? acc1LongFR : t('spof.acc1Long') },
+    { title: t('spof.acc2Title'), short: t('spof.acc2Short'), long: locale === 'fr' ? acc2LongFR : t('spof.acc2Long') },
+    { title: t('spof.acc3Title'), short: t('spof.acc3Short'), long: locale === 'fr' ? acc3LongFR : t('spof.acc3Long') },
+    { title: t('spof.acc4Title'), short: t('spof.acc4Short'), long: locale === 'fr' ? acc4LongFR : t('spof.acc4Long') },
   ];
 
   return (
@@ -175,20 +219,49 @@ export default async function SpofPage({ params }) {
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', alignItems: 'center', textAlign: 'center' }}>
           <p style={ctaTitle}>{t('spof.ctaTitle')}</p>
           <p style={bodyText}>{t('spof.ctaDesc')}</p>
-          <div style={{ display: 'flex', gap: 'var(--space-m)', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-            <Link
-              href={`/${locale}/contact?situation=spof`}
-              className="btn-sks"
-              style={{ background: 'var(--sks-primary)', padding: 'var(--space-m) var(--space-xl)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
-            >
-              {t('spof.ctaBtn')}
-            </Link>
+          <div style={{
+            display: 'flex',
+            gap: 'var(--space-m)',
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+            marginTop: 'var(--space-l)',
+          }}>
             <Link
               href={`/${locale}/consulting-services`}
-              className="btn-sks"
-              style={{ background: 'var(--sks-mid)', padding: 'var(--space-m) var(--space-l)', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: 'var(--space-s) var(--space-l)',
+                background: 'var(--sks-bordeaux)',
+                color: '#fff',
+                borderRadius: '3px',
+                fontFamily: 'var(--font-sks-l1)',
+                fontSize: 'var(--fs-ui)',
+                fontWeight: '700',
+                textDecoration: 'none',
+                boxShadow: '2px 3px 6px rgba(0,0,0,0.25)',
+              }}
             >
               ← {t('spof.backBtn')}
+            </Link>
+            <Link
+              href={`/${locale}/contact?situation=spof`}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: 'var(--space-s) var(--space-l)',
+                background: 'var(--sks-primary)',
+                color: '#fff',
+                borderRadius: '3px',
+                fontFamily: 'var(--font-sks-l1)',
+                fontSize: 'var(--fs-ui)',
+                fontWeight: '700',
+                textDecoration: 'none',
+                boxShadow: '2px 3px 6px rgba(0,0,0,0.25)',
+              }}
+            >
+              {t('spof.ctaBtn')}
             </Link>
           </div>
         </div>
