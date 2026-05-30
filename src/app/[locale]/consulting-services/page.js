@@ -108,97 +108,64 @@ export default async function ConsultingServicesPage({ params }) {
           {t('pageTitle')}
         </h1>
 
-        {/* Intro */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-m) * 0.8)', textAlign: 'center' }}>
-          <p style={body}>{highlightTerms(t('intro1'), BOLD_INTRO1[locale])}</p>
-          <p style={body}>{highlightTerms(t('intro2'), BOLD_INTRO2[locale])}</p>
-        </div>
-
-        {/* POSTURE + PILIERS — 2 cartes */}
-        <div style={{
+        {/* Intro + Posture + Piliers — grille 2 cols mobile / 4 cols desktop */}
+        <div className="consulting-four-cols" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          gridTemplateColumns: 'repeat(2, 1fr)',
           gap: 'var(--space-m)',
           marginBottom: 'var(--space-l)',
-          marginTop: 'calc(var(--space-l) * 0.5)',
         }}>
-          <div style={{
-            background: '#FBF5D3',
-            border: '1px solid rgba(25,40,79,0.12)',
-            borderRadius: '3px',
-            padding: 'var(--space-m)',
-            boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
-          }}>
-            <p style={{
-              fontFamily: 'var(--font-sks-l2)',
-              fontSize: 'var(--fs-caption)',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              color: 'var(--sks-bordeaux)',
-              marginBottom: 'var(--space-s)',
-            }}>
+
+          {/* Intro 1 */}
+          <div style={{ borderLeft: '3px solid var(--sks-bordeaux)', background: '#FBF5D3', padding: 'var(--space-m)' }}>
+            <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--sks-bordeaux)', marginBottom: 'var(--space-s)' }}>
+              {t('missionLabel')}
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', lineHeight: 1.5 }}>
+              {highlightTerms(t('intro1'), BOLD_INTRO1[locale])}
+            </p>
+          </div>
+
+          {/* Intro 2 */}
+          <div style={{ borderLeft: '3px solid var(--sks-bordeaux)', background: '#FBF5D3', padding: 'var(--space-m)' }}>
+            <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--sks-bordeaux)', marginBottom: 'var(--space-s)' }}>
+              {t('valueLabel')}
+            </p>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', lineHeight: 1.5 }}>
+              {highlightTerms(t('intro2'), BOLD_INTRO2[locale])}
+            </p>
+          </div>
+
+          {/* Posture */}
+          <div style={{ borderLeft: '3px solid var(--sks-bordeaux)', background: '#FBF5D3', padding: 'var(--space-m)' }}>
+            <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--sks-bordeaux)', marginBottom: 'var(--space-s)' }}>
               {t('posture.label')}
             </p>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 'var(--fs-caption)',
-              fontWeight: 700,
-              color: 'var(--title-color)',
-              marginBottom: 'var(--space-s)',
-            }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', fontWeight: 700, color: 'var(--title-color)', marginBottom: 'var(--space-s)' }}>
               {t('posture.title')}
             </p>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 'var(--fs-caption)',
-              color: 'var(--text-color)',
-              lineHeight: 1.5,
-            }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', lineHeight: 1.5 }}>
               {t('posture.desc')}
             </p>
           </div>
 
-          <div style={{
-            background: '#FBF5D3',
-            border: '1px solid rgba(25,40,79,0.12)',
-            borderRadius: '3px',
-            padding: 'var(--space-m)',
-            boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
-          }}>
-            <p style={{
-              fontFamily: 'var(--font-sks-l2)',
-              fontSize: 'var(--fs-caption)',
-              fontWeight: 700,
-              textTransform: 'uppercase',
-              letterSpacing: '0.06em',
-              color: 'var(--sks-bordeaux)',
-              marginBottom: 'var(--space-s)',
-            }}>
+          {/* Piliers */}
+          <div style={{ borderLeft: '3px solid var(--sks-bordeaux)', background: '#FBF5D3', padding: 'var(--space-m)' }}>
+            <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--sks-bordeaux)', marginBottom: 'var(--space-s)' }}>
               {t('pillars.label')}
             </p>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 'var(--fs-caption)',
-              fontWeight: 700,
-              color: 'var(--title-color)',
-              marginBottom: 'var(--space-s)',
-            }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', fontWeight: 700, color: 'var(--title-color)', marginBottom: 'var(--space-s)' }}>
               {t('pillars.title')}
             </p>
-            <p style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 'var(--fs-caption)',
-              color: 'var(--text-color)',
-              lineHeight: 1.5,
-            }}>
+            <p style={{ fontFamily: 'var(--font-body)', fontSize: 'var(--fs-caption)', color: 'var(--text-color)', lineHeight: 1.5 }}>
               {t('pillars.desc')}
             </p>
           </div>
+
         </div>
 
         {/* EXPERTISES */}
-        <div style={sectionNoSep}>
+        <div style={{ ...sectionNoSep, marginTop: 'calc(var(--space-l) * 0.125)' }}>
           <span style={label('var(--sks-bordeaux)', {
             fontSize: 'calc(var(--fs-body) * 1.3)',
             textAlign: 'center',

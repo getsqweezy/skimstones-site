@@ -1633,6 +1633,12 @@ body {
   color: var(--sks-bordeaux);
 }
 
+@media (min-width: 1024px) {
+  .consulting-four-cols {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
 /* ═══════════════════════════════════════════════════════
    COMPOSANT SKSAccordion
    ═══════════════════════════════════════════════════════ */
