@@ -35,6 +35,7 @@ function ContactContent() {
   const [phoneCountry, setPhoneCountry] = useState('FR');
   const [situations, setSituations] = useState(() => {
     const base = Object.fromEntries(SIT_KEYS.map((k) => [k, false]));
+    if (situationParam === 'wvc')  base.s2 = true;
     if (situationParam === 'spof') base.s3 = true;
     return base;
   });
