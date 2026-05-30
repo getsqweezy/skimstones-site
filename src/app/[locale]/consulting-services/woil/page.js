@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Link from 'next/link';
 import WoilLightbox from '@/components/WoilLightbox';
+import SKSAccordion from '@/components/SKSAccordion';
 import { getTranslations } from 'next-intl/server';
 
 /* ─── Styles ─────────────────────────────────────────── */
@@ -10,6 +11,7 @@ const heroTitle = {
   color: 'var(--title-color)',
   textAlign: 'center',
   fontWeight: 700,
+  lineHeight: 'calc(1.3 * 0.9)',
 };
 const heroSubtitle = {
   fontFamily: 'var(--font-sks-l1)',
@@ -40,6 +42,8 @@ const bodyLg = {
   lineHeight: 1.5,
 };
 
+const cardBg = 'color-mix(in srgb, #FBF5D3 50%, #fff 50%)';
+
 const pillBtn = (bg) => ({
   display: 'inline-block',
   background: bg,
@@ -64,29 +68,171 @@ export default async function WoilPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'consulting' });
 
-  const techCards = [
-    { num: t('woil.card1Num'), title: t('woil.card1Title'), desc: t('woil.card1Desc'), btn: t('woil.card1Btn'), btnColor: 'var(--sks-mid)' },
-    { num: t('woil.card2Num'), title: t('woil.card2Title'), desc: t('woil.card2Desc'), btn: t('woil.card2Btn'), btnColor: 'var(--sks-mint)' },
-    { num: t('woil.card3Num'), title: t('woil.card3Title'), desc: t('woil.card3Desc'), btn: t('woil.card3Btn'), btnColor: 'var(--sks-gold)' },
-  ];
+  /* ── Accordion 1 : Notre Technologie ── */
+  const acc1Long = (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
+      {/* 3 cartes reliées par un trait vertical */}
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', position: 'relative' }}>
+        <div style={{
+          position: 'absolute',
+          left: '50%',
+          top: 0, bottom: 0,
+          width: 2,
+          background: 'var(--sks-bordeaux)',
+          transform: 'translateX(-50%)',
+          zIndex: 0,
+        }} />
+        {[
+          { num: t('woil.card1Num'), title: t('woil.card1Title'), desc: t('woil.card1Desc'), btn: t('woil.card1Btn'), btnColor: 'var(--sks-mid)' },
+          { num: t('woil.card2Num'), title: t('woil.card2Title'), desc: t('woil.card2Desc'), btn: t('woil.card2Btn'), btnColor: 'var(--sks-mint)' },
+          { num: t('woil.card3Num'), title: t('woil.card3Title'), desc: t('woil.card3Desc'), btn: t('woil.card3Btn'), btnColor: 'var(--sks-gold)' },
+        ].map((card) => (
+          <div key={card.num} style={{
+            background: cardBg,
+            border: '1px solid rgba(25,40,79,0.12)',
+            borderRadius: '3px',
+            padding: 'var(--space-m)',
+            position: 'relative',
+            zIndex: 1,
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--space-xs)',
+            textAlign: 'center',
+            alignItems: 'center',
+          }}>
+            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: '1.4rem', color: 'var(--sks-bordeaux)', margin: 0 }}>
+              {card.num}
+            </p>
+            <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--title-color)', margin: 0 }}>
+              {card.title}
+            </p>
+            <p style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
+            <span style={pillBtn(card.btnColor)}>{card.btn}</span>
+          </div>
+        ))}
+      </div>
 
-  const prodCards = [
-    { label: t('woil.prod1Label'), title: t('woil.prod1Title'), value: t('woil.prod1Value'), desc: t('woil.prod1Desc'), color: 'var(--sks-primary)' },
-    { label: t('woil.prod2Label'), title: t('woil.prod2Title'), value: t('woil.prod2Value'), desc: t('woil.prod2Desc'), color: 'var(--sks-bordeaux)' },
-    { label: t('woil.prod3Label'), title: t('woil.prod3Title'), value: t('woil.prod3Value'), desc: t('woil.prod3Desc'), color: 'var(--sks-mint)' },
-  ];
+      {/* Avantage clé */}
+      <div style={{
+        borderLeft: '3px solid var(--title-color)',
+        background: '#FBF5D3',
+        padding: 'var(--space-s) var(--space-m)',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--space-xs)',
+      }}>
+        <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
+          {t('woil.advantageTitle')}
+        </p>
+        <p style={{ ...bodyLg, margin: 0 }}>{t('woil.advantageDesc')}</p>
+      </div>
+    </div>
+  );
 
-  const stats = [
-    { value: t('woil.stat1Value'), desc: t('woil.stat1Desc'), color: 'var(--sks-primary)' },
-    { value: t('woil.stat2Value'), desc: t('woil.stat2Desc'), color: 'var(--sks-mid)' },
-    { value: t('woil.stat3Value'), desc: t('woil.stat3Desc'), color: 'var(--sks-bordeaux)' },
-    { value: t('woil.stat4Value'), desc: t('woil.stat4Desc'), color: 'var(--sks-mint)' },
-  ];
+  /* ── Accordion 2 : Produits issus du traitement ── */
+  const acc2Long = (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
+      <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0, textAlign: 'center' }}>
+        {t('woil.productsSubtitle')}
+      </p>
+      <p style={{ ...bodyText, fontStyle: 'italic', textAlign: 'center', margin: 0 }}>{t('woil.productsNote')}</p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
+        {[
+          { label: t('woil.prod1Label'), title: t('woil.prod1Title'), value: t('woil.prod1Value'), desc: t('woil.prod1Desc'), color: 'var(--sks-primary)' },
+          { label: t('woil.prod2Label'), title: t('woil.prod2Title'), value: t('woil.prod2Value'), desc: t('woil.prod2Desc'), color: 'var(--sks-bordeaux)' },
+          { label: t('woil.prod3Label'), title: t('woil.prod3Title'), value: t('woil.prod3Value'), desc: t('woil.prod3Desc'), color: 'var(--sks-mint)' },
+        ].map((card) => (
+          <div key={card.label} style={{
+            background: cardBg,
+            border: '1px solid rgba(25,40,79,0.12)',
+            borderRadius: '3px',
+            padding: 'var(--space-m)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--space-xs)',
+            textAlign: 'center',
+            alignItems: 'center',
+          }}>
+            <p style={{ ...sksLabel, color: 'var(--sks-mid)', margin: 0 }}>{card.label}</p>
+            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
+              {card.title}
+            </p>
+            <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-title)', fontWeight: 700, color: card.color, margin: 0, lineHeight: 1 }}>
+              {card.value}
+            </p>
+            <p style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
+            <span style={pillBtn(card.color)}>{card.label}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 
-  const roles = [
-    { title: t('woil.role1Title'), desc: t('woil.role1Desc') },
-    { title: t('woil.role2Title'), desc: t('woil.role2Desc') },
-    { title: t('woil.role3Title'), desc: t('woil.role3Desc') },
+  /* ── Accordion 3 : Performances & chiffres clés ── */
+  const acc3Long = (
+    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-m)' }}>
+      {[
+        { value: t('woil.stat1Value'), desc: t('woil.stat1Desc'), color: 'var(--sks-primary)' },
+        { value: t('woil.stat2Value'), desc: t('woil.stat2Desc'), color: 'var(--sks-mid)' },
+        { value: t('woil.stat3Value'), desc: t('woil.stat3Desc'), color: 'var(--sks-bordeaux)' },
+        { value: t('woil.stat4Value'), desc: t('woil.stat4Desc'), color: 'var(--sks-mint)' },
+      ].map((stat) => (
+        <div key={stat.value + stat.color} style={{
+          background: cardBg,
+          border: '1px solid rgba(25,40,79,0.12)',
+          borderRadius: '3px',
+          padding: 'var(--space-m)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--space-xs)',
+          textAlign: 'center',
+          alignItems: 'center',
+        }}>
+          <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: stat.color, margin: 0, lineHeight: 1 }}>
+            {stat.value}
+          </p>
+          <p style={{ ...bodyLg, margin: 0 }}>{stat.desc}</p>
+        </div>
+      ))}
+    </div>
+  );
+
+  /* ── Accordion 4 : Notre Rôle ── */
+  const acc4Long = (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
+      <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
+        {t('woil.roleSubtitle')}
+      </p>
+      <p style={{ ...bodyLg, margin: 0 }}>{t('woil.roleDesc')}</p>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)' }}>
+        {[
+          { title: t('woil.role1Title'), desc: t('woil.role1Desc') },
+          { title: t('woil.role2Title'), desc: t('woil.role2Desc') },
+          { title: t('woil.role3Title'), desc: t('woil.role3Desc') },
+        ].map((role) => (
+          <div key={role.title} style={{
+            borderLeft: '3px solid var(--sks-bordeaux)',
+            background: '#FBF5D3',
+            padding: 'var(--space-s) var(--space-m)',
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'var(--space-xs)',
+          }}>
+            <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--sks-bordeaux)', margin: 0 }}>
+              {role.title}
+            </p>
+            <p style={{ ...bodyLg, margin: 0 }}>{role.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+
+  const accordionItems = [
+    { title: t('woil.acc1Label'), short: t('woil.techDesc'), long: acc1Long },
+    { title: t('woil.acc2Label'), short: t('woil.productsTitle'), long: acc2Long },
+    { title: t('woil.acc3Label'), short: t('woil.perfSubtitle'), long: acc3Long },
+    { title: t('woil.acc4Label'), short: t('woil.roleTitle'), long: acc4Long },
   ];
 
   return (
@@ -107,146 +253,8 @@ export default async function WoilPage({ params }) {
           imgCaption={t('woil.imgCaption')}
         />
 
-        {/* ── Zone 2 : Notre Technologie ───────────────── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-s)' }}>
-          <p style={sksLabel}>{t('woil.techLabel')}</p>
-          <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-            {t('woil.techTitle')}
-          </p>
-          <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-            {t('woil.techSubtitle')}
-          </p>
-          <p style={bodyText}>{t('woil.techDesc')}</p>
-
-          {/* 3 cartes reliées par un trait vertical */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', position: 'relative', marginTop: 'var(--space-xs)' }}>
-            <div style={{
-              position: 'absolute',
-              left: '50%',
-              top: 0, bottom: 0,
-              width: 2,
-              background: 'var(--sks-bordeaux)',
-              transform: 'translateX(-50%)',
-              zIndex: 0,
-            }} />
-            {techCards.map((card) => (
-              <div key={card.num} style={{
-                background: 'var(--sks-bg)',
-                border: '1px solid rgba(25,40,79,0.12)',
-                borderRadius: '3px',
-                padding: 'var(--space-m)',
-                position: 'relative',
-                zIndex: 1,
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--space-xs)',
-              }}>
-                <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: '1.4rem', color: 'var(--sks-bordeaux)', margin: 0 }}>
-                  {card.num}
-                </p>
-                <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-caption)', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.06em', color: 'var(--title-color)', margin: 0 }}>
-                  {card.title}
-                </p>
-                <p style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
-                <span style={pillBtn(card.btnColor)}>{card.btn}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Zone 3 : Avantage clé ────────────────────── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-xs)' }}>
-          <p style={sksLabel}>{t('woil.advantageLabel')}</p>
-          <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-            {t('woil.advantageTitle')}
-          </p>
-          <p style={bodyLg}>{t('woil.advantageDesc')}</p>
-        </div>
-
-        {/* ── Zone 4 : Produits ────────────────────────── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-s)' }}>
-          <p style={sksLabel}>{t('woil.productsLabel')}</p>
-          <p style={heroSubtitle}>{t('woil.productsTitle')}</p>
-          <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', textAlign: 'center', margin: 0 }}>
-            {t('woil.productsSubtitle')}
-          </p>
-          <p style={{ ...bodyText, fontStyle: 'italic', textAlign: 'center' }}>{t('woil.productsNote')}</p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', marginTop: 'var(--space-xs)' }}>
-            {prodCards.map((card) => (
-              <div key={card.label} style={{
-                background: 'var(--sks-bg)',
-                border: '1px solid rgba(25,40,79,0.12)',
-                borderRadius: '3px',
-                padding: 'var(--space-m)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--space-xs)',
-              }}>
-                <p style={{ ...sksLabel, color: 'var(--sks-mid)', margin: 0 }}>{card.label}</p>
-                <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-                  {card.title}
-                </p>
-                <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-title)', fontWeight: 700, color: card.color, margin: 0, lineHeight: 1 }}>
-                  {card.value}
-                </p>
-                <p style={{ ...bodyLg, margin: 0 }}>{card.desc}</p>
-                <span style={pillBtn(card.color)}>{card.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Zone 5 : Performances ────────────────────── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-s)' }}>
-          <p style={sksLabel}>{t('woil.perfLabel')}</p>
-          <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-            {t('woil.perfTitle')}
-          </p>
-          <p style={bodyText}>{t('woil.perfSubtitle')}</p>
-
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--space-m)', marginTop: 'var(--space-xs)' }}>
-            {stats.map((stat) => (
-              <div key={stat.value + stat.color} style={{
-                background: 'var(--sks-bg)',
-                border: '1px solid rgba(25,40,79,0.12)',
-                borderRadius: '3px',
-                padding: 'var(--space-m)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--space-xs)',
-              }}>
-                <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: stat.color, margin: 0, lineHeight: 1 }}>
-                  {stat.value}
-                </p>
-                <p style={{ ...bodyLg, margin: 0 }}>{stat.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* ── Zone 6 : Notre Rôle ──────────────────────── */}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-s)' }}>
-          <p style={sksLabel}>{t('woil.roleLabel')}</p>
-          <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-subtitle)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-            {t('woil.roleTitle')}
-          </p>
-          <p style={{ fontFamily: 'var(--font-sks-l2)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--title-color)', margin: 0 }}>
-            {t('woil.roleSubtitle')}
-          </p>
-          <p style={bodyLg}>{t('woil.roleDesc')}</p>
-
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-m)', marginTop: 'var(--space-xs)' }}>
-            {roles.map((role) => (
-              <div key={role.title} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-xs)' }}>
-                <p style={{ fontFamily: 'var(--font-sks-l1)', fontSize: 'var(--fs-body)', fontWeight: 700, color: 'var(--sks-bordeaux)', margin: 0 }}>
-                  {role.title}
-                </p>
-                <p style={{ ...bodyLg, margin: 0 }}>{role.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+        {/* ── Zones 2/3/4/5/6 : Accordéons ────────────── */}
+        <SKSAccordion items={accordionItems} />
 
         {/* ── Zone 7 : Citation ────────────────────────── */}
         <blockquote style={{

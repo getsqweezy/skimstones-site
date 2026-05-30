@@ -243,7 +243,11 @@
       "ctaText": "Are you an industrialist, fleet manager, local authority or investor?",
       "ctaSubtext": "Let's discuss your project.",
       "backBtn": "Back",
-      "ctaBtn": "Contact us"
+      "ctaBtn": "Contact us",
+      "acc1Label": "Our technology",
+      "acc2Label": "Treatment output products",
+      "acc3Label": "Performance & key figures",
+      "acc4Label": "Our role"
     },
     "pm": {
       "label": "ALTERNATIVE ENERGIES",

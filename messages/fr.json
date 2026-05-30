@@ -243,7 +243,11 @@
       "ctaText": "Vous êtes industriel, gestionnaire de flotte, collectivité ou investisseur ?",
       "ctaSubtext": "Discutons de votre projet.",
       "backBtn": "Retour",
-      "ctaBtn": "Contactez-nous"
+      "ctaBtn": "Contactez-nous",
+      "acc1Label": "Notre technologie",
+      "acc2Label": "Produits issus du traitement",
+      "acc3Label": "Performances & chiffres clés",
+      "acc4Label": "Notre rôle"
     },
     "pm": {
       "label": "ÉNERGIES ALTERNATIVES",
