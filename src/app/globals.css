@@ -1733,6 +1733,26 @@ body {
   color: #D3BFA3;
 }
 
+/* ── Page woil — grilles de cartes ─────────────────── */
+.woil-tech-cards {
+  display: flex;
+  flex-direction: column;
+}
+.woil-tech-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--sks-bordeaux);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+.woil-product-cards {
+  display: flex;
+  flex-direction: column;
+}
+
 /* ═══════════════════════════════════════════════════════
    RESPONSIVE — desktop (≥1024px)
    ═══════════════════════════════════════════════════════ */
@@ -1781,5 +1801,26 @@ body {
 
   .sqweezy-footer-grid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  /* woil — cartes en ligne sur desktop */
+  .woil-tech-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+  }
+  .woil-tech-line {
+    top: 50%;
+    bottom: auto;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: 2px;
+    transform: translateY(-50%);
+  }
+  .woil-product-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
   }
 }
