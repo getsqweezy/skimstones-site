@@ -1692,6 +1692,13 @@ body {
   opacity: 0;
   transition: max-height 0.4s ease, opacity 0.3s ease;
 }
+.sks-acc-body-content {
+  cursor: pointer;
+  transition: color 0.15s;
+}
+.sks-acc-body-content:hover {
+  color: #D3BFA3;
+}
 .sks-acc-body.open {
   max-height: 600px;
   opacity: 1;

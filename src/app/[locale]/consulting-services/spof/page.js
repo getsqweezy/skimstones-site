@@ -38,7 +38,7 @@ const heroTitle = {
   fontWeight: 700,
 };
 const heroSubtitle = {
-  fontFamily: 'var(--font-sks-l2)',
+  fontFamily: 'var(--font-sks-l1)',
   fontSize: 'var(--fs-subtitle)',
   color: 'var(--title-color)',
   textAlign: 'center',
@@ -52,12 +52,12 @@ const bodyText = {
   lineHeight: 1.5,
 };
 const sectionHeading = {
-  fontFamily: 'var(--font-sks-l2)',
+  fontFamily: 'var(--font-sks-l1)',
   fontSize: 'var(--fs-subtitle)',
   fontWeight: 700,
   color: 'var(--title-color)',
   textAlign: 'center',
-  lineHeight: 1.3,
+  lineHeight: 'calc(1.3 * 0.8)',
 };
 const modalitiesTitle = {
   fontFamily: 'var(--font-sks-l1)',

@@ -36,7 +36,11 @@ export default function SKSAccordion({ items }) {
 
             {/* Zone dépliable */}
             <div className={`sks-acc-body${isOpen ? ' open' : ''}`}>
-              <div style={{ paddingTop: 'var(--space-s)', display: 'flex', flexDirection: 'column', gap: 'var(--space-s)' }}>
+              <div
+                className="sks-acc-body-content"
+                onClick={() => toggle(i)}
+                style={{ paddingTop: 'var(--space-s)', display: 'flex', flexDirection: 'column', gap: 'var(--space-s)', cursor: 'pointer' }}
+              >
                 {typeof item.long === 'string'
                   ? item.long.split('\n\n').map((block, j) => <p key={j} className="sks-acc-long">{block}</p>)
                   : item.long}
