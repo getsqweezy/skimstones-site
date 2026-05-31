@@ -1873,3 +1873,15 @@ body {
     flex: 1;
   }
 }
+
+/* ── yet-another-react-lightbox : protection image ── */
+.yarl__slide img {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+.yarl__slide_image {
+  pointer-events: auto;
+}

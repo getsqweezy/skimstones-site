@@ -21,6 +21,7 @@ export default function WoilLightbox({ imgAlt, imgCaption }) {
           height={300}
           style={{ width: '100%', height: 'auto', borderRadius: '6px', display: 'block' }}
           onContextMenu={(e) => e.preventDefault()}
+          draggable={false}
         />
         <span style={{
           position: 'absolute',
@@ -40,6 +41,26 @@ export default function WoilLightbox({ imgAlt, imgCaption }) {
         close={() => setOpen(false)}
         slides={[{ src: '/images/waste-oil.png' }]}
         plugins={[Zoom]}
+        carousel={{ finite: true }}
+        render={{
+          buttonPrev: () => null,
+          buttonNext: () => null,
+          slide: ({ slide }) => (
+            <img
+              src={slide.src}
+              alt={slide.alt || ''}
+              onContextMenu={(e) => e.preventDefault()}
+              draggable={false}
+              style={{
+                maxWidth: '90vw',
+                maxHeight: '85vh',
+                objectFit: 'contain',
+                userSelect: 'none',
+                WebkitUserSelect: 'none',
+              }}
+            />
+          ),
+        }}
         zoom={{
           maxZoomPixelRatio: 4,
           zoomInMultiplier: 1.5,
