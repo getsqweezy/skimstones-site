@@ -27,8 +27,11 @@ export default function Header({ variant = 'skimstones' }) {
     setServicesOpen(false);
   }
 
-  const isServicesActive = pathname.includes('/consulting-services');
-  const isCareeresActive = pathname.includes('/carrieres');
+  function isActive(href) {
+    if (href === '/consulting-services') return pathname.includes('/consulting-services');
+    if (href === '/carrieres') return pathname.includes('/carrieres');
+    return pathname === `/${locale}${href}`;
+  }
 
   return (
     <header className="site-header">
@@ -52,7 +55,7 @@ export default function Header({ variant = 'skimstones' }) {
         >
           <Link
             href={`/${locale}/consulting-services`}
-            className={isServicesActive ? 'active' : ''}
+            className={isActive('/consulting-services') ? 'active' : ''}
           >
             {t('services')}
           </Link>
@@ -71,11 +74,11 @@ export default function Header({ variant = 'skimstones' }) {
           )}
         </div>
 
-        <Link href={`/${locale}/founders`}>{t('founders')}</Link>
-        <Link href={`/${locale}/contact`}>{t('contact')}</Link>
+        <Link href={`/${locale}/founders`} className={isActive('/founders') ? 'active' : ''}>{t('founders')}</Link>
+        <Link href={`/${locale}/contact`} className={isActive('/contact') ? 'active' : ''}>{t('contact')}</Link>
         <Link
           href={`/${locale}/carrieres`}
-          className={isCareeresActive ? 'active' : ''}
+          className={isActive('/carrieres') ? 'active' : ''}
         >
           {locale === 'fr' ? 'RECRUTEMENT' : 'HIRING'}
         </Link>
@@ -109,8 +112,16 @@ export default function Header({ variant = 'skimstones' }) {
               onClick={() => setServicesOpen(!servicesOpen)}
             >
               <span>{t('services')}</span>
-              <span className={`mobile-nav-arrow${servicesOpen ? ' open' : ''}`}>
-                {servicesOpen ? '▾' : '▶'}
+              <span
+                className="mobile-nav-arrow"
+                style={{
+                  display: 'inline-block',
+                  transition: 'transform 0.25s ease',
+                  transform: servicesOpen ? 'rotate(90deg)' : 'rotate(0deg)',
+                  fontSize: 'var(--fs-ui)',
+                }}
+              >
+                ▶
               </span>
             </button>
             <div className={`mobile-nav-submenu${servicesOpen ? ' open' : ''}`}>

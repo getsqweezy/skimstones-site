@@ -322,9 +322,7 @@ body {
     border-bottom: 2px solid transparent;
     transition: border-color 0.15s, color 0.15s;
   }
-  .desktop-nav a:hover {
-    border-bottom-color: var(--sks-primary);
-  }
+  .desktop-nav a:hover,
   .desktop-nav a.active {
     background: rgba(25, 40, 79, 0.08);
     border-radius: 4px;
@@ -333,6 +331,8 @@ body {
   }
   .desktop-nav-item {
     position: relative;
+    display: flex;
+    align-items: center;
   }
   .services-dropdown {
     position: absolute;
@@ -403,9 +403,13 @@ body {
 }
 
 .mobile-nav-arrow {
-  font-size: var(--fs-body);
+  font-size: var(--fs-ui);
   color: var(--sks-primary);
-  transition: transform 0.25s ease;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-shrink: 0;
 }
 
@@ -424,7 +428,7 @@ body {
 
 .mobile-nav-subitem {
   display: block;
-  padding: var(--space-s) var(--space-l) var(--space-s) calc(var(--space-l) * 2);
+  padding: var(--space-s) var(--space-l) var(--space-s) calc(var(--space-l) * 2.5);
   font-family: var(--font-body);
   font-size: var(--fs-caption);
   font-weight: 400;
@@ -433,6 +437,7 @@ body {
   color: var(--sks-mid);
   text-decoration: none;
   border-bottom: 1px solid rgba(25, 40, 79, 0.05);
+  border-left: 3px solid rgba(25, 40, 79, 0.12);
   transition: background 0.15s, color 0.15s;
 }
 
