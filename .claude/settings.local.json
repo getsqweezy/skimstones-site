@@ -47,7 +47,10 @@
       "Read(//tmp/**)",
       "Bash(rm \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\\\\src\\\\app\\\\[locale]\\\\consulting-services\\\\sg\\\\page.js\")",
       "Bash(rmdir \"D:\\\\SQWEEZY\\\\DEPLOIEMENT\\\\SITE WEB\\\\SITEV2\\\\AGDAL\\\\skimstones-site\\\\src\\\\app\\\\[locale]\\\\consulting-services\\\\sg\")",
-      "Bash(Remove-Item *)"
+      "Bash(Remove-Item *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }
