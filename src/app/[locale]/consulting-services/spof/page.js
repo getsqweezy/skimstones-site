@@ -118,39 +118,39 @@ export default async function SpofPage({ params }) {
     </>
   );
 
-  const acc3LongFR = (
+  const acc3Long = (
     <>
-      <p className="sks-acc-long">La démarche SPOF avance par étapes :</p>
+      <p className="sks-acc-long">{t('spof.acc3Intro')}</p>
       <ol style={{ paddingLeft: 'var(--space-l)', lineHeight: 'calc(1.5 * 0.9)', display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-xs) * 0.9)' }}>
-        <li className="sks-acc-long"><strong>cadrage</strong> du périmètre et collecte documentaire ;</li>
-        <li className="sks-acc-long"><strong>cartographie fonctionnelle</strong> des installations et interfaces ;</li>
-        <li className="sks-acc-long">identification et <strong>hiérarchisation</strong> des SPOF ;</li>
-        <li className="sks-acc-long">construction d'un <strong>plan d'actions chiffré</strong> ;</li>
-        <li className="sks-acc-long">mise en place d'un <strong>registre vivant</strong> et d'un suivi dans le temps.</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc3Step1Key')}</strong>{t('spof.acc3Step1Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc3Step2Key')}</strong>{t('spof.acc3Step2Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc3Step3Key')}</strong>{t('spof.acc3Step3Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc3Step4Key')}</strong>{t('spof.acc3Step4Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc3Step5Key')}</strong>{t('spof.acc3Step5Rest')}</li>
       </ol>
-      <p className="sks-acc-long">Le <strong>terrain reste central</strong> : les scénarios sont validés avec les équipes d'exploitation et d'ingénierie.</p>
+      <p className="sks-acc-long"><strong>{t('spof.acc3ConclKey')}</strong>{t('spof.acc3ConclRest')}</p>
     </>
   );
 
-  const acc4LongFR = (
+  const acc4Long = (
     <>
-      <p className="sks-acc-long">La mission produit une <strong>base de décision</strong> directement exploitable :</p>
+      <p className="sks-acc-long">{t('spof.acc4Intro')}<strong>{t('spof.acc4IntroKey')}</strong>{t('spof.acc4IntroRest')}</p>
       <ul style={{ paddingLeft: 'var(--space-l)', lineHeight: 'calc(1.5 * 0.9)', display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-xs) * 0.9)' }}>
-        <li className="sks-acc-long">un <strong>registre SPOF</strong> structuré ;</li>
-        <li className="sks-acc-long">des <strong>cartographies</strong> fonctionnelles et de dépendances ;</li>
-        <li className="sks-acc-long">une <strong>hiérarchisation</strong> des priorités ;</li>
-        <li className="sks-acc-long">un <strong>plan d'actions chiffré</strong> ;</li>
-        <li className="sks-acc-long">un <strong>outil de pilotage actualisable</strong> après <strong>incidents</strong>, <strong>modifications</strong> ou <strong>revues</strong> périodiques.</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc4Item1Key')}</strong>{t('spof.acc4Item1Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc4Item2Key')}</strong>{t('spof.acc4Item2Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc4Item3Key')}</strong>{t('spof.acc4Item3Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc4Item4Key')}</strong>{t('spof.acc4Item4Rest')}</li>
+        <li className="sks-acc-long"><strong>{t('spof.acc4Item5Key')}</strong>{t('spof.acc4Item5Rest')}</li>
       </ul>
-      <p className="sks-acc-long">L'enjeu n'est pas seulement de détecter des vulnérabilités, mais de <strong>transformer</strong> un <strong>risque technique diffus</strong> en <strong>décisions claires</strong>, <strong>actionnables</strong> et <strong>pilotables</strong>.</p>
+      <p className="sks-acc-long">{t('spof.acc4Concl1')}<strong>{t('spof.acc4Concl1Key')}</strong>{t('spof.acc4Concl2')}<strong>{t('spof.acc4Concl2Key')}</strong>{t('spof.acc4Concl3')}</p>
     </>
   );
 
   const accItems = [
     { title: t('spof.acc1Title'), short: t('spof.acc1Short'), long: locale === 'fr' ? acc1LongFR : t('spof.acc1Long') },
     { title: t('spof.acc2Title'), short: t('spof.acc2Short'), long: locale === 'fr' ? acc2LongFR : t('spof.acc2Long') },
-    { title: t('spof.acc3Title'), short: t('spof.acc3Short'), long: locale === 'fr' ? acc3LongFR : t('spof.acc3Long') },
-    { title: t('spof.acc4Title'), short: t('spof.acc4Short'), long: locale === 'fr' ? acc4LongFR : t('spof.acc4Long') },
+    { title: t('spof.acc3Title'), short: t('spof.acc3Short'), long: acc3Long },
+    { title: t('spof.acc4Title'), short: t('spof.acc4Short'), long: acc4Long },
   ];
 
   return (
