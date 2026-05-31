@@ -1879,9 +1879,4 @@ body {
   -webkit-user-select: none;
   user-select: none;
   -webkit-user-drag: none;
-  pointer-events: none;
-}
-
-.yarl__slide_image {
-  pointer-events: auto;
 }
