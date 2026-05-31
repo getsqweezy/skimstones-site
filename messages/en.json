@@ -8,10 +8,36 @@
   },
   "meta": {
     "home": {
-      "title": "SKIMSTONES Smart Essentials"
+      "title": "SKIMSTONES Smart Essentials",
+      "description": "SKIMSTONES supports industrial players through their energy transition and circular economy projects"
     },
     "services": {
-      "title": "SKIMSTONES Services"
+      "title": "Services — SKIMSTONES",
+      "description": "SKIMSTONES structures, secures and deploys complex energy transition and circular economy projects"
+    },
+    "spof": {
+      "title": "SPOF — Risk management | SKIMSTONES",
+      "description": "Identifying the invisible fragilities that can compromise the continuity of an installation, network or critical service."
+    },
+    "woil": {
+      "title": "Waste oil recovery | SKIMSTONES",
+      "description": "Structuring a local used oil regeneration sector with high added value, from collection to final outlet."
+    },
+    "sqweezy": {
+      "title": "SQWEEZY — The Smart Compactor | SKIMSTONES",
+      "description": "The smart compactor that transforms everyday life. 100% recycled ABS, CE Certified. Compacts bottles and cans in one step."
+    },
+    "founders": {
+      "title": "Founders — SKIMSTONES",
+      "description": "Meet the founders of Skimstones — engineers, entrepreneurs and pioneers of the circular economy"
+    },
+    "contact": {
+      "title": "Contact — SKIMSTONES",
+      "description": "Contact SKIMSTONES for your energy transition, waste recovery or circular economy projects"
+    },
+    "carrieres": {
+      "title": "Careers — SKIMSTONES",
+      "description": "Join a team committed to energy transition and the circular economy"
     }
   },
   "home": {

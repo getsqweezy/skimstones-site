@@ -1,6 +1,7 @@
 import Header from '@/components/Header';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import { buildMetadata } from '@/lib/seo/metadata';
 
 function highlightTerms(text, terms) {
   if (!terms?.length) return text;
@@ -78,12 +79,13 @@ const labelRow = {
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'consulting' });
   const tMeta = await getTranslations({ locale, namespace: 'meta' });
-  return {
+  return buildMetadata({
     title: tMeta('services.title'),
-    description: t('headline'),
-  };
+    description: tMeta('services.description'),
+    locale,
+    pathname: '/consulting-services',
+  });
 }
 
 export default async function ConsultingServicesPage({ params }) {

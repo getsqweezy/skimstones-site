@@ -8,10 +8,36 @@
   },
   "meta": {
     "home": {
-      "title": "SKIMSTONES Smart Essentials"
+      "title": "SKIMSTONES Smart Essentials",
+      "description": "SKIMSTONES accompagne les acteurs industriels dans leurs projets de transition énergétique et d'économie circulaire"
     },
     "services": {
-      "title": "SKIMSTONES Services"
+      "title": "Services — SKIMSTONES",
+      "description": "SKIMSTONES structure, sécurise et déploie les projets complexes de transition énergétique et d'économie circulaire"
+    },
+    "spof": {
+      "title": "SPOF — Gestion des risques | SKIMSTONES",
+      "description": "Identifier les fragilités invisibles qui peuvent compromettre la continuité d'une installation, d'un réseau ou d'un service critique."
+    },
+    "woil": {
+      "title": "Recyclage des huiles usagées | SKIMSTONES",
+      "description": "Structurer une filière locale de régénération des huiles usagées à forte valeur ajoutée, de la collecte au débouché final."
+    },
+    "sqweezy": {
+      "title": "SQWEEZY — Le compacteur malin | SKIMSTONES",
+      "description": "Le compacteur malin qui change la vie à la maison. 100% ABS recyclé, certifié CE. Compacte bouteilles et canettes en un geste."
+    },
+    "founders": {
+      "title": "Fondateurs — SKIMSTONES",
+      "description": "Découvrez le profil et la vision des fondateurs de Skimstones — ingénieurs, entrepreneurs et pionniers de l'économie circulaire"
+    },
+    "contact": {
+      "title": "Contact — SKIMSTONES",
+      "description": "Contactez SKIMSTONES pour vos projets de transition énergétique, valorisation des déchets ou économie circulaire"
+    },
+    "carrieres": {
+      "title": "Recrutement — SKIMSTONES",
+      "description": "Rejoignez une équipe engagée dans la transition énergétique et l'économie circulaire"
     }
   },
   "home": {

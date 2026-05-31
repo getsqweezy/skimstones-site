@@ -2,6 +2,7 @@ import Header from '@/components/Header';
 import Link from 'next/link';
 import SKSAccordion from '@/components/SKSAccordion';
 import { getTranslations } from 'next-intl/server';
+import { buildMetadata } from '@/lib/seo/metadata';
 
 /* ─── helper : bold selected terms ──────────────────── */
 function highlight(text, terms) {
@@ -96,8 +97,13 @@ const cardBody = {
 /* ─── Page ───────────────────────────────────────────── */
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'consulting' });
-  return { title: t('spof.pageTitle') };
+  const tMeta = await getTranslations({ locale, namespace: 'meta' });
+  return buildMetadata({
+    title: tMeta('spof.title'),
+    description: tMeta('spof.description'),
+    locale,
+    pathname: '/consulting-services/spof',
+  });
 }
 
 export default async function SpofPage({ params }) {

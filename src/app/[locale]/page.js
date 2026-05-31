@@ -2,14 +2,18 @@ import Header from '@/components/Header';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getTranslations } from 'next-intl/server';
+import { buildMetadata } from '@/lib/seo/metadata';
 
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'home' });
   const tMeta = await getTranslations({ locale, namespace: 'meta' });
   return {
-    title: tMeta('home.title'),
-    description: t('tagline'),
+    ...buildMetadata({
+      title: tMeta('home.title'),
+      description: tMeta('home.description'),
+      locale,
+      pathname: '',
+    }),
     icons: { icon: '/images/favicon-sks.svg' },
   };
 }

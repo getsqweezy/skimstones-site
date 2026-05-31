@@ -8,7 +8,11 @@
   },
   "meta": {
     "home": { "title": "SKIMSTONES Smart Essentials" },
-    "services": { "title": "SKIMSTONES Services" }
+    "services": { "title": "SKIMSTONES Services" },
+    "sqweezy": {
+      "title": "SQWEEZY — Der smarte Kompressor | SKIMSTONES",
+      "description": "Der smarte Kompressor, der den Alltag verändert. 100% recyceltes ABS, CE-zertifiziert."
+    }
   },
   "home": {
     "tagline": "SKIMSTONES unterstützt Industrieakteure bei ihren Projekten zur Energiewende",

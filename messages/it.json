@@ -8,7 +8,11 @@
   },
   "meta": {
     "home": { "title": "SKIMSTONES Smart Essentials" },
-    "services": { "title": "SKIMSTONES Services" }
+    "services": { "title": "SKIMSTONES Services" },
+    "sqweezy": {
+      "title": "SQWEEZY — Il compattatore intelligente | SKIMSTONES",
+      "description": "Il compattatore intelligente che cambia la vita in casa. 100% ABS riciclato, certificato CE."
+    }
   },
   "home": {
     "tagline": "SKIMSTONES supporta i player industriali nei loro progetti di transizione energetica",

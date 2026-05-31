@@ -3,6 +3,7 @@ import Link from 'next/link';
 import WoilLightbox from '@/components/WoilLightbox';
 import SKSAccordion from '@/components/SKSAccordion';
 import { getTranslations } from 'next-intl/server';
+import { buildMetadata } from '@/lib/seo/metadata';
 
 /* ─── Styles ─────────────────────────────────────────── */
 const heroTitle = {
@@ -60,8 +61,13 @@ const pillBtn = (bg) => ({
 /* ─── Page ───────────────────────────────────────────── */
 export async function generateMetadata({ params }) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: 'consulting' });
-  return { title: t('woil.pageTitle') };
+  const tMeta = await getTranslations({ locale, namespace: 'meta' });
+  return buildMetadata({
+    title: tMeta('woil.title'),
+    description: tMeta('woil.description'),
+    locale,
+    pathname: '/consulting-services/woil',
+  });
 }
 
 export default async function WoilPage({ params }) {
