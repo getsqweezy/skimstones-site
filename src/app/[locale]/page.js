@@ -35,9 +35,9 @@ export default async function HomePage({ params }) {
             <Image
               src="/images/logo-sqweezy-long.png"
               alt="SQWEEZY"
-              width={90}
-              height={28}
-              style={{ objectFit: 'contain', width: '90px', height: '28px' }}
+              width={117}
+              height={36}
+              style={{ objectFit: 'contain', width: '117px', height: '36px' }}
             />
           </Link>
         </div>

@@ -468,7 +468,7 @@ body {
 }
 
 /* ── Boutons SERVICES / FOUNDERS / CONTACT (palette SKS) ── */
-.cta-services { background: var(--sks-bordeaux); }
+.cta-services { background: var(--sks-mint); }
 .cta-founders { background: var(--sks-mid); }
 .cta-contact  { background: var(--sks-primary); }
 
