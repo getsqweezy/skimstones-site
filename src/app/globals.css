@@ -318,25 +318,34 @@ body {
     font-weight: 700;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    padding: var(--space-xs) 0;
+    padding: var(--space-xs) var(--space-s);
+    border-radius: 4px;
     border-bottom: 2px solid transparent;
-    transition: border-color 0.15s, color 0.15s;
+    transition: background 0.15s, border-color 0.15s;
   }
   .desktop-nav a:hover,
   .desktop-nav a.active {
     background: rgba(25, 40, 79, 0.08);
-    border-radius: 4px;
-    padding: var(--space-xs) var(--space-s);
-    border-bottom-color: transparent;
+  }
+  .desktop-nav a.active {
+    border-bottom-color: var(--sks-primary);
   }
   .desktop-nav-item {
     position: relative;
     display: flex;
     align-items: center;
   }
+  .desktop-nav-item::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 12px;
+  }
   .services-dropdown {
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 10px);
     left: 0;
     background: var(--sks-header-bg);
     border: 1px solid rgba(25, 40, 79, 0.12);
@@ -350,13 +359,13 @@ body {
   }
   .services-dropdown-item {
     padding: var(--space-s) var(--space-m);
-    font-family: var(--font-body);
-    font-size: var(--fs-caption);
+    font-family: var(--font-body) !important;
+    font-size: var(--fs-caption) !important;
     font-weight: 400;
     color: var(--sks-primary);
     text-decoration: none;
-    text-transform: none;
-    letter-spacing: 0;
+    text-transform: none !important;
+    letter-spacing: 0 !important;
     border-bottom: 1px solid rgba(25, 40, 79, 0.06);
     border-radius: 0;
     transition: background 0.15s, color 0.15s;
@@ -418,7 +427,7 @@ body {
   overflow: hidden;
   transition: max-height 0.35s ease, opacity 0.25s ease;
   opacity: 0;
-  background: color-mix(in srgb, var(--sks-header-bg) 80%, #fff 20%);
+  background: color-mix(in srgb, var(--sks-header-bg) 85%, #fff 15%);
 }
 
 .mobile-nav-submenu.open {
@@ -428,16 +437,16 @@ body {
 
 .mobile-nav-subitem {
   display: block;
-  padding: var(--space-s) var(--space-l) var(--space-s) calc(var(--space-l) * 2.5);
-  font-family: var(--font-body);
-  font-size: var(--fs-caption);
+  padding: var(--space-s) var(--space-l) var(--space-s) 40px !important;
+  font-family: var(--font-body) !important;
+  font-size: var(--fs-caption) !important;
   font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
+  text-transform: none !important;
+  letter-spacing: 0 !important;
   color: var(--sks-mid);
   text-decoration: none;
   border-bottom: 1px solid rgba(25, 40, 79, 0.05);
-  border-left: 3px solid rgba(25, 40, 79, 0.12);
+  border-left: 3px solid var(--sks-bordeaux);
   transition: background 0.15s, color 0.15s;
 }
 
