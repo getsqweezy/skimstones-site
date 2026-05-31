@@ -36,6 +36,10 @@ restent dans le corps scrollable et utilisent systématiquement
 
 Le formulaire de contact utilise `react-phone-number-input` pour la gestion internationale des téléphones. Tous les numéros sont stockés en format E.164 dans Supabase. La colonne `country_code` reçoit le code ISO du pays (ex. `"FR"`). Les cases à cocher situations sont des booléens indépendants (`sit_big_electricity` … `sit_other`), pas un tableau de strings. Cette convention s'applique à tous les futurs formulaires du site.
 
+## RÈGLE MULTILINGUE — Structure JSX identique dans toutes les langues
+
+La structure de rendu (`ol`, `ul`, `li`, `strong`, `p`) est toujours définie dans le composant JSX, jamais dans les JSON. Le JSON ne contient que des fragments de texte pur, sans `\n` ni marqueurs de mise en forme. Chaque fragment en gras est une clé JSON séparée. Cette règle s'applique à toutes les pages et toutes les langues actives.
+
 ## Traductions (i18n)
 
 Les fichiers `messages/fr.json` et `messages/en.json` sont la source de vérité pour tous les textes du site. Ne jamais hardcoder de texte visible dans les composants — toujours utiliser `t('clé')`. Exception : les textes d'email dans `route.js` qui sont des constantes JS car le serveur n'a pas accès à next-intl.
