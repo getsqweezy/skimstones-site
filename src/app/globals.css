@@ -1876,7 +1876,5 @@ body {
 
 /* ── yet-another-react-lightbox : protection image ── */
 .yarl__slide img {
-  -webkit-user-select: none;
-  user-select: none;
   -webkit-user-drag: none;
 }

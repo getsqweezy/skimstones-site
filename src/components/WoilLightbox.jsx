@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Lightbox from 'yet-another-react-lightbox';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
@@ -7,6 +7,21 @@ import 'yet-another-react-lightbox/styles.css';
 
 export default function WoilLightbox({ imgAlt, imgCaption }) {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const timer = setTimeout(() => {
+      const lightboxEl = document.querySelector('.yarl__root');
+      if (lightboxEl) {
+        const handler = (e) => e.preventDefault();
+        lightboxEl.addEventListener('contextmenu', handler);
+        return () => lightboxEl.removeEventListener('contextmenu', handler);
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [open]);
 
   return (
     <>
@@ -45,21 +60,6 @@ export default function WoilLightbox({ imgAlt, imgCaption }) {
         render={{
           buttonPrev: () => null,
           buttonNext: () => null,
-          slide: ({ slide }) => (
-            <img
-              src={slide.src}
-              alt={slide.alt || ''}
-              onContextMenu={(e) => e.preventDefault()}
-              draggable={false}
-              style={{
-                maxWidth: '90vw',
-                maxHeight: '85vh',
-                objectFit: 'contain',
-                userSelect: 'none',
-                WebkitUserSelect: 'none',
-              }}
-            />
-          ),
         }}
         zoom={{
           maxZoomPixelRatio: 4,
