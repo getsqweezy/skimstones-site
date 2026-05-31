@@ -17,6 +17,10 @@ export async function generateMetadata({ params }) {
 export default async function HomePage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'home' });
+  const isSksLocale = locale === 'fr' || locale === 'en';
+  const tCareers = isSksLocale
+    ? await getTranslations({ locale, namespace: 'careers' })
+    : null;
 
   return (
     <div className="mobile-frame">
@@ -61,6 +65,19 @@ export default async function HomePage({ params }) {
             {t('btnContact')}
           </Link>
         </div>
+
+        {isSksLocale && tCareers && (
+          <div className="home-row">
+            <p>{tCareers('homeBlurb')}</p>
+            <Link
+              href={`/${locale}/carrieres`}
+              className="cta-btn btn-sks"
+              style={{ background: 'var(--sks-bordeaux)' }}
+            >
+              {tCareers('homeBtn')}
+            </Link>
+          </div>
+        )}
       </main>
     </div>
   );

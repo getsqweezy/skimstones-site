@@ -52,4 +52,10 @@ Les CTAs des sous-pages `/consulting-services/*` vers `/contact` utilisent le pa
 
 Tous les titres h1 de pages SKS utilisent la classe `.page-headline` — jamais de classe alternative. Cette règle ne s'applique pas aux pages SQW qui ont leur propre système typographique. Exception : un titre particulièrement long peut ajouter un style inline `fontSize: 'var(--fs-subtitle)'` pour compenser le surplus de lignes, comme sur `/consulting-services`.
 
+## Back-office et recrutement
+
+Le back-office est accessible sur `/admin/*` et protégé par Supabase Auth (middleware `src/middleware.js`). Le point d'entrée est `/admin/dashboard`. Les PDFs des offres d'emploi sont stockés dans le bucket Supabase Storage `job-pdfs` (pas dans `/public/`). La page publique `/carrieres` est disponible en FR et EN uniquement (namespace SKS) — les locales SQW-only sont redirigées vers `/fr/carrieres`. Le back-office `/admin` n'est pas localisé.
+
+La table Supabase `job_offers` a les colonnes : `id`, `code`, `title_fr`, `title_en`, `start_date`, `location`, `mode`, `active` (boolean), `pdf_fr` (URL), `pdf_en` (URL, nullable), `created_at`.
+
 @AGENTS.md

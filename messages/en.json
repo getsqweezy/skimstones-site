@@ -385,5 +385,24 @@
       "labelSituations": "Selected situations",
       "labelDetail": "Detail"
     }
+  },
+  "careers": {
+    "pageTitle": "We're hiring",
+    "pageSubtitle": "Join a team committed to energy transition and the circular economy",
+    "tableTitle": "Current openings",
+    "colTitle": "Position",
+    "colDate": "Start date",
+    "colLocation": "Location",
+    "colMode": "Work mode",
+    "colAction": "Full offer",
+    "viewOffer": "View →",
+    "noOffers": "No active openings at the moment.",
+    "spontaneous": "Spontaneous application",
+    "spontaneousDesc": "Can't find what you're looking for? Send us your spontaneous application.",
+    "spontaneousBtn": "Send an application",
+    "spontaneousEmail": "recrutement@skimstones.com",
+    "homeBtn": "WE'RE HIRING!",
+    "homeBlurb": "View our job openings →",
+    "backBtn": "Back"
   }
 }

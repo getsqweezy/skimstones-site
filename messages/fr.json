@@ -385,5 +385,24 @@
       "labelSituations": "Situations cochées",
       "labelDetail": "Détail"
     }
+  },
+  "careers": {
+    "pageTitle": "Nous recrutons",
+    "pageSubtitle": "Rejoignez une équipe engagée dans la transition énergétique et l'économie circulaire",
+    "tableTitle": "Offres en cours",
+    "colTitle": "Poste",
+    "colDate": "Date de début",
+    "colLocation": "Lieu",
+    "colMode": "Mode de travail",
+    "colAction": "Offre complète",
+    "viewOffer": "Consulter →",
+    "noOffers": "Aucune offre active pour le moment.",
+    "spontaneous": "Candidature spontanée",
+    "spontaneousDesc": "Vous ne trouvez pas votre bonheur ? Envoyez-nous votre candidature spontanée.",
+    "spontaneousBtn": "Envoyer une candidature",
+    "spontaneousEmail": "recrutement@skimstones.com",
+    "homeBtn": "NOUS RECRUTONS !",
+    "homeBlurb": "Consultez nos offres d'emploi →",
+    "backBtn": "Retour"
   }
 }

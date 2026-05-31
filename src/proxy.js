@@ -1,5 +1,6 @@
 import createMiddleware from 'next-intl/middleware';
 import { NextResponse } from 'next/server';
+import { createServerClient } from '@supabase/ssr';
 import {
   ALL_LOCALES,
   DEFAULT_LOCALE,
@@ -12,9 +13,39 @@ const handleI18nRouting = createMiddleware({
   localePrefix: 'always',
 });
 
-export function proxy(request) {
+export async function proxy(request) {
   const { pathname } = request.nextUrl;
 
+  /* ── Protection /admin/* ─────────────────────────────── */
+  if (pathname.startsWith('/admin') && pathname !== '/admin/login') {
+    let response = NextResponse.next({ request });
+
+    const supabase = createServerClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL,
+      process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY,
+      {
+        cookies: {
+          getAll() { return request.cookies.getAll(); },
+          setAll(cookiesToSet) {
+            cookiesToSet.forEach(({ name, value, options }) => {
+              request.cookies.set(name, value);
+              response.cookies.set(name, value, options);
+            });
+          },
+        },
+      }
+    );
+
+    const { data: { user } } = await supabase.auth.getUser();
+
+    if (!user) {
+      return NextResponse.redirect(new URL('/admin/login', request.url));
+    }
+
+    return response;
+  }
+
+  /* ── Restriction des locales SQW-only aux pages /sqweezy ── */
   const pathnameLocale = ALL_LOCALES.find(
     (locale) =>
       pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`
