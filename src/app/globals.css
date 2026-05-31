@@ -359,13 +359,13 @@ body {
   }
   .services-dropdown-item {
     padding: var(--space-s) var(--space-m);
-    font-family: var(--font-body) !important;
+    font-family: var(--font-sks-l2) !important;
     font-size: var(--fs-caption) !important;
-    font-weight: 400;
+    font-weight: 500 !important;
     color: var(--sks-primary);
     text-decoration: none;
     text-transform: none !important;
-    letter-spacing: 0 !important;
+    letter-spacing: 0.02em !important;
     border-bottom: 1px solid rgba(25, 40, 79, 0.06);
     border-radius: 0;
     transition: background 0.15s, color 0.15s;
@@ -438,11 +438,11 @@ body {
 .mobile-nav-subitem {
   display: block;
   padding: var(--space-s) var(--space-l) var(--space-s) 40px !important;
-  font-family: var(--font-body) !important;
+  font-family: var(--font-sks-l2) !important;
   font-size: var(--fs-caption) !important;
-  font-weight: 400;
+  font-weight: 500 !important;
   text-transform: none !important;
-  letter-spacing: 0 !important;
+  letter-spacing: 0.02em !important;
   color: var(--sks-mid);
   text-decoration: none;
   border-bottom: 1px solid rgba(25, 40, 79, 0.05);
