@@ -541,6 +541,18 @@ body {
   color: var(--text-color);
   line-height: 1.45;
 }
+.home-row-text-link {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+  flex: 1;
+}
+.home-row-text-link:hover {
+  color: #4C5775;
+}
+.home-row-text-link p {
+  color: inherit;
+}
 
 /* Base des boutons CTA home */
 .cta-btn {

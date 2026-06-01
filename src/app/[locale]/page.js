@@ -33,7 +33,7 @@ export default async function HomePage({ params }) {
         <p className="hero-tagline">{t('tagline')}</p>
 
         <div className="home-row">
-          <p>{t('sqweezyBlurb')}</p>
+          <Link href={`/${locale}/sqweezy`} className="home-row-text-link"><p>{t('sqweezyBlurb')}</p></Link>
           <Link href={`/${locale}/sqweezy`} className="cta-btn cta-sqweezy">
             <span className="cta-discover">{t('btnDiscover')}</span>
             <Image
@@ -47,7 +47,7 @@ export default async function HomePage({ params }) {
         </div>
 
         <div className="home-row">
-          <p>{t('servicesBlurb')}</p>
+          <Link href={`/${locale}/consulting-services`} className="home-row-text-link"><p>{t('servicesBlurb')}</p></Link>
           <Link
             href={`/${locale}/consulting-services`}
             className="cta-btn cta-services"
@@ -57,14 +57,14 @@ export default async function HomePage({ params }) {
         </div>
 
         <div className="home-row">
-          <p>{t('foundersBlurb')}</p>
+          <Link href={`/${locale}/founders`} className="home-row-text-link"><p>{t('foundersBlurb')}</p></Link>
           <Link href={`/${locale}/founders`} className="cta-btn cta-founders">
             {t('btnFounders')}
           </Link>
         </div>
 
         <div className="home-row">
-          <p>{t('contactBlurb')}</p>
+          <Link href={`/${locale}/contact`} className="home-row-text-link"><p>{t('contactBlurb')}</p></Link>
           <Link href={`/${locale}/contact`} className="cta-btn cta-contact">
             {t('btnContact')}
           </Link>
@@ -72,7 +72,7 @@ export default async function HomePage({ params }) {
 
         {isSksLocale && tCareers && (
           <div className="home-row">
-            <p>{tCareers('homeBlurb')}</p>
+            <Link href={`/${locale}/carrieres`} className="home-row-text-link"><p>{tCareers('homeBlurb')}</p></Link>
             <Link
               href={`/${locale}/carrieres`}
               className="cta-btn btn-sks"
