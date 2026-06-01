@@ -110,17 +110,37 @@ export default async function SpofPage({ params }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: 'consulting' });
 
-  const acc1LongFR = (
+  const acc1Long = (
     <>
-      <p className="sks-acc-long">SKIMSTONES analyse <strong>toute la chaîne</strong> de continuité de service : <strong>unités de production</strong>, <strong>réseaux</strong> de <strong>chaleur</strong> ou de <strong>froid</strong>, interfaces de <strong>couplage</strong>, <strong>supervision</strong>, alimentation auxiliaire, refroidissement, air d'instrumentation, télécommunications, procédures et compétences opérateur.</p>
-      <p className="sks-acc-long">L'objectif est d'<strong>identifier les vulnérabilités</strong> qui ne ressortent pas toujours dans les analyses classiques centrées équipement par équipement.</p>
+      <p className="sks-acc-long">
+        {t('spof.acc1Intro')}
+        {' '}<strong>{t('spof.acc1Chain')}</strong>
+        {t('spof.acc1ChainRest')}
+      </p>
+      <p className="sks-acc-long">
+        {t('spof.acc1Concl')}
+        {' '}<strong>{t('spof.acc1ConclKey')}</strong>
+        {t('spof.acc1ConclRest')}
+      </p>
     </>
   );
 
-  const acc2LongFR = (
+  const acc2Long = (
     <>
-      <p className="sks-acc-long">Notre approche combine la compréhension des <strong>installations</strong> réelles, des <strong>flux</strong> et des <strong>contraintes</strong> d'exploitation avec une lecture <strong>transverse</strong> des <strong>dépendances</strong>, <strong>interfaces</strong> et <strong>redondances effectives</strong>.</p>
-      <p className="sks-acc-long">Cette <strong>double lecture</strong> permet de <strong>révéler</strong> des <strong>fragilités invisibles</strong> : celles qui se situent entre les équipements, dans les chaînes fonctionnelles ou dans les conditions réelles de reprise après incident.</p>
+      <p className="sks-acc-long">
+        {t('spof.acc2Intro')}
+        {' '}<strong>{t('spof.acc2Key1')}</strong>
+        {t('spof.acc2Rest1')}
+        {' '}<strong>{t('spof.acc2Key2')}</strong>
+        {', '}
+        <strong>{t('spof.acc2Key3')}</strong>
+        {' '}{t('spof.acc2Rest2')}
+      </p>
+      <p className="sks-acc-long">
+        {t('spof.acc2Concl')}
+        {' '}<strong>{t('spof.acc2ConclKey')}</strong>
+        {t('spof.acc2ConclRest')}
+      </p>
     </>
   );
 
@@ -153,8 +173,8 @@ export default async function SpofPage({ params }) {
   );
 
   const accItems = [
-    { title: t('spof.acc1Title'), short: t('spof.acc1Short'), long: locale === 'fr' ? acc1LongFR : t('spof.acc1Long') },
-    { title: t('spof.acc2Title'), short: t('spof.acc2Short'), long: locale === 'fr' ? acc2LongFR : t('spof.acc2Long') },
+    { title: t('spof.acc1Title'), short: t('spof.acc1Short'), long: acc1Long },
+    { title: t('spof.acc2Title'), short: t('spof.acc2Short'), long: acc2Long },
     { title: t('spof.acc3Title'), short: t('spof.acc3Short'), long: acc3Long },
     { title: t('spof.acc4Title'), short: t('spof.acc4Short'), long: acc4Long },
   ];
