@@ -1823,6 +1823,10 @@ body {
 .sks-acc-long:active {
   color: var(--sks-bordeaux);
 }
+.spof-acc-wrap .sks-acc-short,
+.spof-acc-wrap .sks-acc-long {
+  font-size: calc(var(--fs-caption) * 1.2);
+}
 
 .sks-acc-body {
   overflow: hidden;

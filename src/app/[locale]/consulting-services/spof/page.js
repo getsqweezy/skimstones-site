@@ -48,7 +48,7 @@ const heroSubtitle = {
 };
 const bodyText = {
   fontFamily: 'var(--font-body)',
-  fontSize: 'var(--fs-caption)',
+  fontSize: 'calc(var(--fs-caption) * 1.2)',
   color: 'var(--text-color)',
   lineHeight: 1.5,
 };
@@ -212,7 +212,9 @@ export default async function SpofPage({ params }) {
         </p>
 
         {/* ── Zone 3 : Accordéons ──────────────────────── */}
-        <SKSAccordion items={accItems} />
+        <div className="spof-acc-wrap">
+          <SKSAccordion items={accItems} />
+        </div>
 
         {/* ── Zone 4 : Modalités d'engagement ─────────── */}
         <p style={modalitiesTitle}>{t('spof.modalitiesTitle')}</p>
