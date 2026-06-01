@@ -545,7 +545,8 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-.home-row-text-link:hover {
+.home-row-text-link:hover,
+.home-row-text-link:hover p {
   color: #4C5775;
 }
 
