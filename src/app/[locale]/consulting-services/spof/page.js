@@ -92,6 +92,8 @@ const cardBody = {
   fontSize: 'calc(var(--fs-caption) * 1.2)',
   color: 'var(--text-color)',
   lineHeight: 1.5,
+  textAlign: 'center',
+  marginTop: 'auto',
 };
 
 /* ─── Page ───────────────────────────────────────────── */
@@ -161,12 +163,12 @@ export default async function SpofPage({ params }) {
   const acc4Long = (
     <>
       <p className="sks-acc-long">{t('spof.acc4Intro')}<strong>{t('spof.acc4IntroKey')}</strong>{t('spof.acc4IntroRest')}</p>
-      <ul style={{ paddingLeft: 'var(--space-l)', lineHeight: 'calc(1.5 * 0.9)', display: 'flex', flexDirection: 'column', gap: 'calc(var(--space-xs) * 0.9)' }}>
-        <li className="sks-acc-long"><strong>{t('spof.acc4Item1Key')}</strong>{t('spof.acc4Item1Rest')}</li>
-        <li className="sks-acc-long"><strong>{t('spof.acc4Item2Key')}</strong>{t('spof.acc4Item2Rest')}</li>
-        <li className="sks-acc-long"><strong>{t('spof.acc4Item3Key')}</strong>{t('spof.acc4Item3Rest')}</li>
-        <li className="sks-acc-long"><strong>{t('spof.acc4Item4Key')}</strong>{t('spof.acc4Item4Rest')}</li>
-        <li className="sks-acc-long"><strong>{t('spof.acc4Item5Key')}</strong>{t('spof.acc4Item5Rest')}</li>
+      <ul className="spof-acc4-list">
+        <li className="sks-acc-long"><span><strong>{t('spof.acc4Item1Key')}</strong>{t('spof.acc4Item1Rest')}</span></li>
+        <li className="sks-acc-long"><span><strong>{t('spof.acc4Item2Key')}</strong>{t('spof.acc4Item2Rest')}</span></li>
+        <li className="sks-acc-long"><span><strong>{t('spof.acc4Item3Key')}</strong>{t('spof.acc4Item3Rest')}</span></li>
+        <li className="sks-acc-long"><span><strong>{t('spof.acc4Item4Key')}</strong>{t('spof.acc4Item4Rest')}</span></li>
+        <li className="sks-acc-long"><span><strong>{t('spof.acc4Item5Key')}</strong>{t('spof.acc4Item5Rest')}</span></li>
       </ul>
       <p className="sks-acc-long">{t('spof.acc4Concl1')}<strong>{t('spof.acc4Concl1Key')}</strong>{t('spof.acc4Concl2')}<strong>{t('spof.acc4Concl2Key')}</strong>{t('spof.acc4Concl3')}</p>
     </>
@@ -236,6 +238,8 @@ export default async function SpofPage({ params }) {
               borderRadius: '3px',
               padding: 'var(--space-m)',
               boxShadow: '1px 2px 6px rgba(0,0,0,0.06)',
+              display: 'flex',
+              flexDirection: 'column',
             }}>
               <p style={cardTitle}>{title}</p>
               <p style={cardBody}>{desc}</p>

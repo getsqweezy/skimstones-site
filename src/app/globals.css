@@ -1827,6 +1827,25 @@ body {
 .spof-acc-wrap .sks-acc-long {
   font-size: calc(var(--fs-caption) * 1.2);
 }
+.spof-acc4-list {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--space-xs) * 0.9);
+}
+.spof-acc4-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-s);
+  line-height: calc(1.5 * 0.9);
+}
+.spof-acc4-list li::before {
+  content: '▸';
+  color: var(--sks-bordeaux);
+  flex-shrink: 0;
+  margin-top: 1px;
+}
 
 .sks-acc-body {
   overflow: hidden;
