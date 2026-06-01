@@ -547,7 +547,7 @@ body {
 }
 .home-row-text-link:hover,
 .home-row-text-link:hover p {
-  color: #A37C3D!important;
+  color: #A37C3D;
 }
 
 /* Base des boutons CTA home */
