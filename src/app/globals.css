@@ -537,21 +537,18 @@ body {
 
 .home-row p {
   flex: 1;
-  font-size: var(--fs-caption);
-  color: var(--text-color);
+  font-size: calc(var(--fs-caption) * 1.2);
+  color: inherit;
   line-height: 1.45;
 }
 .home-row-text-link {
-  color: inherit;
+  color: var(--text-color);
   text-decoration: none;
   cursor: pointer;
   flex: 1;
 }
-.home-row-text-link:hover {
+.home-row-text-link:hover p {
   color: #4C5775;
-}
-.home-row p {
-  color: inherit;
 }
 
 /* Base des boutons CTA home */
